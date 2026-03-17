@@ -6,7 +6,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Schemas\Schema;
 
 class LessonForm
@@ -24,7 +24,7 @@ class LessonForm
                     ->maxLength(255),
                 Textarea::make('description')
                     ->maxLength(65535),
-                RichEditor::make('content')
+                MarkdownEditor::make('content')
                     ->columnSpanFull(),
                 TextInput::make('duration')
                     ->numeric()

@@ -109,10 +109,71 @@
                 <!-- Konten Pelajaran -->
                 @if($lesson->content)
                     <div class="bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 p-6 mb-6">
-                        <div class="prose prose-invert max-w-none">
-                            {!! Str::markdown($lesson->content) !!}
+                        <div id="lesson-content" class="prose prose-invert prose-purple max-w-none
+                            prose-headings:text-white prose-headings:font-bold
+                            prose-p:text-purple-100
+                            prose-a:text-purple-300 prose-a:no-underline hover:prose-a:text-white
+                            prose-strong:text-white
+                            prose-code:text-pink-300 prose-code:bg-white/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+                            prose-pre:bg-transparent prose-pre:p-0 prose-pre:rounded-none
+                            prose-blockquote:border-purple-400 prose-blockquote:text-purple-300
+                            prose-hr:border-purple-500/30
+                            prose-ul:text-purple-100 prose-ol:text-purple-100
+                            prose-li:marker:text-purple-400
+                            prose-table:text-purple-100
+                            prose-th:text-white prose-th:border-purple-500/30
+                            prose-td:border-purple-500/20">
+                            {!! Str::markdown($lesson->content, ['html_input' => 'strip', 'allow_unsafe_links' => false]) !!}
                         </div>
                     </div>
+
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark-dimmed.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const content = document.getElementById('lesson-content');
+
+                            // Wrap pre>code blocks dengan container styling
+                            content.querySelectorAll('pre').forEach(function (pre) {
+                                const wrapper = document.createElement('div');
+                                wrapper.className = 'relative rounded-lg overflow-hidden border border-purple-500/20 my-4';
+
+                                // Cek bahasa dari class
+                                const code = pre.querySelector('code');
+                                const lang = code ? (code.className.match(/language-(\w+)/) || [])[1] : null;
+
+                                // Label bahasa di pojok kanan atas
+                                if (lang) {
+                                    const label = document.createElement('div');
+                                    label.className = 'absolute top-2 right-3 text-xs text-purple-400 font-mono uppercase tracking-wider z-10';
+                                    label.textContent = lang;
+                                    wrapper.appendChild(label);
+                                }
+
+                                // Tombol copy
+                                const copyBtn = document.createElement('button');
+                                copyBtn.className = 'absolute top-2 ' + (lang ? 'right-14' : 'right-3') + ' text-xs text-purple-400 hover:text-white transition z-10 flex items-center gap-1';
+                                copyBtn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> Copy';
+                                copyBtn.addEventListener('click', function () {
+                                    navigator.clipboard.writeText(code ? code.innerText : pre.innerText).then(function () {
+                                        copyBtn.innerHTML = '<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Copied!';
+                                        setTimeout(function () {
+                                            copyBtn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> Copy';
+                                        }, 2000);
+                                    });
+                                });
+                                wrapper.appendChild(copyBtn);
+
+                                pre.parentNode.insertBefore(wrapper, pre);
+                                pre.style.margin = '0';
+                                pre.style.borderRadius = '0';
+                                wrapper.appendChild(pre);
+                            });
+
+                            // Jalankan highlight.js
+                            hljs.highlightAll();
+                        });
+                    </script>
                 @endif
 
                 <!-- Tombol Navigasi -->
