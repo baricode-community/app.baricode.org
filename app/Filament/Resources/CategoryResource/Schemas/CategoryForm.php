@@ -2,12 +2,11 @@
 
 namespace App\Filament\Resources\CategoryResource\Schemas;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
-use App\Models\LMS\Course;
 
 class CategoryForm
 {

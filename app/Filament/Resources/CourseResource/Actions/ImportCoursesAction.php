@@ -3,11 +3,11 @@
 namespace App\Filament\Resources\CourseResource\Actions;
 
 use App\Services\CourseImportExportService;
+use Exception;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Notifications\Notification;
-use Exception;
 use Illuminate\Support\Facades\Storage;
 
 class ImportCoursesAction extends Action
@@ -27,7 +27,7 @@ class ImportCoursesAction extends Action
                     ->directory('course-imports')
                     ->visibility('private')
                     ->helperText('Upload a JSON file containing the course data'),
-                
+
                 Textarea::make('json_text')
                     ->label('JSON Data (paste here if not uploading file)')
                     ->rows(10)
@@ -35,20 +35,20 @@ class ImportCoursesAction extends Action
             ])
             ->action(function (array $data) {
                 try {
-                    $importService = new CourseImportExportService();
+                    $importService = new CourseImportExportService;
 
                     // Get JSON data from file or textarea
                     $jsonData = null;
-                    
-                    if (!empty($data['json_file'])) {
-                        $filePath = Storage::disk('local')->path('course-imports/' . $data['json_file']);
-                        if (!file_exists($filePath)) {
-                            throw new Exception('File not found: ' . $filePath);
+
+                    if (! empty($data['json_file'])) {
+                        $filePath = Storage::disk('local')->path('course-imports/'.$data['json_file']);
+                        if (! file_exists($filePath)) {
+                            throw new Exception('File not found: '.$filePath);
                         }
                         $jsonData = json_decode(file_get_contents($filePath), true);
                         // Clean up the file after import
-                        Storage::disk('local')->delete('course-imports/' . $data['json_file']);
-                    } elseif (!empty($data['json_text'])) {
+                        Storage::disk('local')->delete('course-imports/'.$data['json_file']);
+                    } elseif (! empty($data['json_text'])) {
                         $jsonData = json_decode($data['json_text'], true);
                     }
 
@@ -65,13 +65,13 @@ class ImportCoursesAction extends Action
 
                     Notification::make()
                         ->title('Success!')
-                        ->body("Course '{$course->title}' imported successfully with " . count($course->categories) . " categories.")
+                        ->body("Course '{$course->title}' imported successfully with ".count($course->categories).' categories.')
                         ->success()
                         ->send();
                 } catch (Exception $e) {
                     Notification::make()
                         ->title('Import Failed')
-                        ->body('Error: ' . $e->getMessage())
+                        ->body('Error: '.$e->getMessage())
                         ->danger()
                         ->send();
                 }

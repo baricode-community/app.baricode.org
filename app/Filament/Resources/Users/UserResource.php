@@ -60,6 +60,7 @@ class UserResource extends Resource
         } else {
             unset($data['password']);
         }
+
         return $data;
     }
 }

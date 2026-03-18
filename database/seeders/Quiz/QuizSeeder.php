@@ -2,8 +2,6 @@
 
 namespace Database\Seeders\Quiz;
 
-use App\Models\Quiz\Option;
-use App\Models\Quiz\Question;
 use App\Models\Quiz\Quiz;
 use Illuminate\Database\Seeder;
 

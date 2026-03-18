@@ -19,7 +19,7 @@ class Meet extends Model
 
     protected $hidden = [
         'id',
-        'created_at'
+        'created_at',
     ];
 
     protected $casts = [
@@ -32,7 +32,7 @@ class Meet extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_meets')
-                    ->withPivot('description')
-                    ->withTimestamps();
+            ->withPivot('description')
+            ->withTimestamps();
     }
 }

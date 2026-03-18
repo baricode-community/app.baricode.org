@@ -33,6 +33,7 @@ class TimelineController extends Controller
     public function show(Timeline $timeline)
     {
         $timeline->load('progressJournals');
+
         return response()->json($timeline);
     }
 }

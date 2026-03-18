@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\DailyCommitTrackerFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class DailyCommitTracker extends Model
 {
-    /** @use HasFactory<\Database\Factories\DailyCommitTrackerFactory> */
+    /** @use HasFactory<DailyCommitTrackerFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -22,6 +23,7 @@ class DailyCommitTracker extends Model
     ];
 
     protected $keyType = 'string';
+
     public $incrementing = false;
 
     protected function casts(): array

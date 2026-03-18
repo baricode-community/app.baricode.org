@@ -2,10 +2,11 @@
 
 namespace App\Filament\Resources\LessonResource\Pages;
 
-use App\Filament\Resources\LessonResource;
-use App\Filament\Resources\CourseResource;
 use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\CourseResource;
+use App\Filament\Resources\LessonResource;
 use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditLesson extends EditRecord
@@ -25,7 +26,7 @@ class EditLesson extends EditRecord
                 ->icon('heroicon-o-tag')
                 ->url(CategoryResource::getUrl('edit', ['record' => $this->record->category_id]))
                 ->color('info'),
-            \Filament\Actions\DeleteAction::make(),
+            DeleteAction::make(),
         ];
     }
 }

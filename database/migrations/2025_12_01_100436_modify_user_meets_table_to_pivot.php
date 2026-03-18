@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::table('user_meets', function (Blueprint $table) {
             // Hapus kolom yang tidak diperlukan untuk pivot table
             $table->dropColumn(['title', 'scheduled_at', 'status']);
-            
+
             // Tambahkan kolom meet_id untuk relasi ke tabel meets
             $table->foreignId('meet_id')->constrained('meets', 'id')->onDelete('cascade');
-            
+
             // Rename description untuk menjadi description khusus user
             // Description ini akan berisi catatan khusus untuk setiap user di meet tertentu
         });
@@ -32,7 +32,7 @@ return new class extends Migration
             // Kembalikan struktur asli
             $table->dropForeign(['meet_id']);
             $table->dropColumn('meet_id');
-            
+
             // Tambahkan kembali kolom yang dihapus
             $table->string('title')->nullable(false);
             $table->dateTime('scheduled_at')->nullable(true);

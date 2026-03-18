@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Fun\Meme;
+use App\Models\Fun\MemeVote;
+use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,14 +13,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use App\Models\Fun\Meme;
-use App\Models\Fun\MemeVote;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable, HasRoles;
+    /** @use HasFactory<UserFactory> */
+    use HasFactory, HasRoles, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -84,8 +85,8 @@ class User extends Authenticatable implements FilamentUser
     public function meets()
     {
         return $this->belongsToMany(Meet::class, 'user_meets')
-                    ->withPivot('description')
-                    ->withTimestamps();
+            ->withPivot('description')
+            ->withTimestamps();
     }
 
     /**
@@ -112,8 +113,8 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(DailyCommitTracker::class);
     }
 
-     public function canAccessPanel(Panel $panel): bool
-     {
+    public function canAccessPanel(Panel $panel): bool
+    {
         return $panel->getId() === 'admin' && $this->hasRole('admin');
-     }
+    }
 }

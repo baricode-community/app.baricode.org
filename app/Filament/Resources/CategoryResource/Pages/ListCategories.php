@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\CategoryResource\Pages;
 
 use App\Filament\Resources\CategoryResource;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -13,7 +14,7 @@ class ListCategories extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            \Filament\Actions\CreateAction::make()
+            CreateAction::make()
                 ->url(fn () => $this->getCreateUrl()),
         ];
     }
@@ -22,11 +23,11 @@ class ListCategories extends ListRecords
     {
         $query = parent::getTableQuery();
         $courseId = request()->query('course');
-        
+
         if ($courseId) {
             $query->where('course_id', $courseId);
         }
-        
+
         return $query;
     }
 
@@ -34,11 +35,11 @@ class ListCategories extends ListRecords
     {
         $url = static::$resource::getUrl('create');
         $courseId = request()->query('course');
-        
+
         if ($courseId) {
-            $url .= '?course=' . $courseId;
+            $url .= '?course='.$courseId;
         }
-        
+
         return $url;
     }
 }

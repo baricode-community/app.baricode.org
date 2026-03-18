@@ -25,7 +25,7 @@ class CourseCategorySeeder extends Seeder
             for ($i = 1; $i <= rand(3, 5); $i++) {
                 $category = CourseCategory::create([
                     'course_id' => $course->id,
-                    'title' => "Module " . $i,
+                    'title' => 'Module '.$i,
                     'description' => "This is module {$i} for course: {$course->title}",
                     'order' => $i,
                     'is_published' => true,
@@ -35,7 +35,7 @@ class CourseCategorySeeder extends Seeder
                 for ($j = 1; $j <= rand(4, 8); $j++) {
                     Lesson::create([
                         'category_id' => $category->id,
-                        'title' => "Lesson {$j}: " . ucwords(str_replace('-', ' ', fake()->slug(3))),
+                        'title' => "Lesson {$j}: ".ucwords(str_replace('-', ' ', fake()->slug(3))),
                         'description' => fake()->sentence(),
                         'content' => fake()->paragraphs(3, true),
                         'order' => $j,

@@ -2,13 +2,14 @@
 
 namespace App\Models\LMS;
 
+use Database\Factories\LMS\YoutubeListFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class YoutubeList extends Model
 {
-    /** @use HasFactory<\Database\Factories\LMS\YoutubeListFactory> */
+    /** @use HasFactory<YoutubeListFactory> */
     use HasFactory;
 
     protected $table = 'youtube_list';

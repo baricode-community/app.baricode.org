@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DailyCommitTracker;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class DailyCommitTrackerController extends Controller
 {

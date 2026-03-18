@@ -6,8 +6,10 @@ use App\Models\Meet;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\UserMeet;
-use Database\Factories\LMS\CourseFactory;
+use Database\Seeders\LMS\CourseCategorySeeder;
 use Database\Seeders\LMS\CourseSeeder;
+use Database\Seeders\Quiz\QuizSeeder;
+use Database\Seeders\RepoHub\RepoHubSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -35,15 +37,15 @@ class DatabaseSeeder extends Seeder
 
         Meet::factory(5)->create();
         UserMeet::factory(15)->create();
-        
+
         $this->call([
             DailyCommitTrackerSeeder::class,
             CourseSeeder::class,
-            \Database\Seeders\LMS\CourseCategorySeeder::class,
+            CourseCategorySeeder::class,
             TimelineSeeder::class,
-            \Database\Seeders\Quiz\QuizSeeder::class,
+            QuizSeeder::class,
             ShortLinkSeeder::class,
-            \Database\Seeders\RepoHub\RepoHubSeeder::class,
+            RepoHubSeeder::class,
         ]);
     }
 }

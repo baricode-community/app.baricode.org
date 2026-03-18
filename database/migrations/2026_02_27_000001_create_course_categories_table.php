@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('order')->default(0);
             $table->boolean('is_published')->default(true);
             $table->timestamps();
-            
+
             // Ensure unique combination of course_id and title
             $table->unique(['course_id', 'title']);
         });

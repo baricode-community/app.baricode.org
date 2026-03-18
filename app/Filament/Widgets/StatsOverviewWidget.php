@@ -38,7 +38,7 @@ class StatsOverviewWidget extends BaseWidget
                 ->icon('heroicon-o-newspaper'),
 
             Stat::make('Kursus LMS', Course::count())
-                ->description(Course::where('is_published', true)->count() . ' aktif')
+                ->description(Course::where('is_published', true)->count().' aktif')
                 ->descriptionIcon('heroicon-m-academic-cap')
                 ->color('warning')
                 ->icon('heroicon-o-academic-cap'),
@@ -56,7 +56,7 @@ class StatsOverviewWidget extends BaseWidget
                 ->icon('heroicon-o-puzzle-piece'),
 
             Stat::make('Short Link', ShortLink::active()->count())
-                ->description(ShortLink::sum('click_count') . ' total klik')
+                ->description(ShortLink::sum('click_count').' total klik')
                 ->descriptionIcon('heroicon-m-cursor-arrow-rays')
                 ->color('primary')
                 ->icon('heroicon-o-link'),

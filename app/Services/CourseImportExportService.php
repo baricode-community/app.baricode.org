@@ -6,17 +6,15 @@ use App\Models\LMS\Course;
 use App\Models\LMS\CourseCategory;
 use App\Models\LMS\Lesson;
 use App\Models\LMS\YoutubeList;
-use Illuminate\Support\Facades\DB;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class CourseImportExportService
 {
     /**
      * Import a course from JSON data
-     * 
-     * @param array $data
+     *
      * @throws Exception
-     * @return Course
      */
     public function importCourse(array $data): Course
     {
@@ -37,7 +35,7 @@ class CourseImportExportService
             );
 
             // Import categories
-            if (!empty($data['categories']) && is_array($data['categories'])) {
+            if (! empty($data['categories']) && is_array($data['categories'])) {
                 foreach ($data['categories'] as $categoryData) {
                     $this->importCategory($course, $categoryData);
                 }
@@ -49,11 +47,8 @@ class CourseImportExportService
 
     /**
      * Import a course category
-     * 
-     * @param Course $course
-     * @param array $categoryData
+     *
      * @throws Exception
-     * @return CourseCategory
      */
     private function importCategory(Course $course, array $categoryData): CourseCategory
     {
@@ -74,7 +69,7 @@ class CourseImportExportService
         );
 
         // Import lessons
-        if (!empty($categoryData['lessons']) && is_array($categoryData['lessons'])) {
+        if (! empty($categoryData['lessons']) && is_array($categoryData['lessons'])) {
             foreach ($categoryData['lessons'] as $lessonData) {
                 $this->importLesson($category, $lessonData);
             }
@@ -85,11 +80,8 @@ class CourseImportExportService
 
     /**
      * Import a lesson
-     * 
-     * @param CourseCategory $category
-     * @param array $lessonData
+     *
      * @throws Exception
-     * @return Lesson
      */
     private function importLesson(CourseCategory $category, array $lessonData): Lesson
     {
@@ -112,7 +104,7 @@ class CourseImportExportService
         );
 
         // Import YouTube videos
-        if (!empty($lessonData['youtube_list']) && is_array($lessonData['youtube_list'])) {
+        if (! empty($lessonData['youtube_list']) && is_array($lessonData['youtube_list'])) {
             foreach ($lessonData['youtube_list'] as $youtubeData) {
                 $this->importYoutubeVideo($lesson, $youtubeData);
             }
@@ -123,11 +115,8 @@ class CourseImportExportService
 
     /**
      * Import a YouTube video
-     * 
-     * @param Lesson $lesson
-     * @param array $youtubeData
+     *
      * @throws Exception
-     * @return YoutubeList
      */
     private function importYoutubeVideo(Lesson $lesson, array $youtubeData): YoutubeList
     {
@@ -151,9 +140,6 @@ class CourseImportExportService
 
     /**
      * Export a course to JSON array
-     * 
-     * @param Course $course
-     * @return array
      */
     public function exportCourse(Course $course): array
     {
@@ -170,9 +156,6 @@ class CourseImportExportService
 
     /**
      * Export a course category to array
-     * 
-     * @param CourseCategory $category
-     * @return array
      */
     private function exportCategory(CourseCategory $category): array
     {
@@ -189,9 +172,6 @@ class CourseImportExportService
 
     /**
      * Export a lesson to array
-     * 
-     * @param Lesson $lesson
-     * @return array
      */
     private function exportLesson(Lesson $lesson): array
     {
@@ -210,9 +190,6 @@ class CourseImportExportService
 
     /**
      * Export a YouTube video to array
-     * 
-     * @param YoutubeList $video
-     * @return array
      */
     private function exportYoutubeVideo(YoutubeList $video): array
     {

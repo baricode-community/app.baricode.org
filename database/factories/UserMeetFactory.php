@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Meet;
+use App\Models\User;
+use App\Models\UserMeet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserMeet>
+ * @extends Factory<UserMeet>
  */
 class UserMeetFactory extends Factory
 {
@@ -17,8 +20,8 @@ class UserMeetFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
-            'meet_id' => \App\Models\Meet::factory(),
+            'user_id' => User::factory(),
+            'meet_id' => Meet::factory(),
             'description' => $this->faker->optional()->sentence(),
         ];
     }

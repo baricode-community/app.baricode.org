@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Web\General\Auth\GoogleAuthController;
-use App\Http\Controllers\UserMeetController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;

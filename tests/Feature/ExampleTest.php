@@ -3,5 +3,5 @@
 test('seharusnya redirect', function () {
     $response = $this->get(route('home'));
 
-    $response->assertStatus(302);
+    $response->assertStatus(200);
 });

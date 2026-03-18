@@ -2,11 +2,12 @@
 
 namespace Database\Factories\RepoHub;
 
+use App\Models\RepoHub\RepoHubTag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RepoHub\RepoHubTag>
+ * @extends Factory<RepoHubTag>
  */
 class RepoHubTagFactory extends Factory
 {

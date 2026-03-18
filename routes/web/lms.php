@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\LMS\QuizController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\LMS\LMSController;
+use Illuminate\Support\Facades\Route;
 
 Route::controller(LMSController::class)
     ->prefix('/lms')
@@ -12,7 +12,7 @@ Route::controller(LMSController::class)
         Route::get('/category/{category:slug}', 'category')->name('lms.category');
         Route::get('/course/{course:slug}', 'course')->name('lms.course');
         Route::get('/lesson/{lesson}', 'lesson')->name('lms.lesson');
-});
+    });
 
 Route::controller(QuizController::class)
     ->prefix('/quiz')

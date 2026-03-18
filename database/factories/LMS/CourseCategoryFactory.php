@@ -3,11 +3,12 @@
 namespace Database\Factories\LMS;
 
 use App\Models\LMS\Course;
+use App\Models\LMS\CourseCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LMS\CourseCategory>
+ * @extends Factory<CourseCategory>
  */
 class CourseCategoryFactory extends Factory
 {
@@ -19,6 +20,7 @@ class CourseCategoryFactory extends Factory
     public function definition(): array
     {
         $title = $this->faker->sentence(3);
+
         return [
             'course_id' => Course::factory(),
             'title' => $title,

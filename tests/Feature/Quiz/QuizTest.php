@@ -158,5 +158,5 @@ test('retakeQuiz resets state', function () {
         ->call('retakeQuiz')
         ->assertSet('submitted', false)
         ->assertSet('totalScore', null)
-        ->assertSet('answers', []);
+        ->assertSet('answers', [$question->id => []]);
 });

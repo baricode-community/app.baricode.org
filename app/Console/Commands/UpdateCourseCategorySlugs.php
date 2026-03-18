@@ -32,7 +32,7 @@ class UpdateCourseCategorySlugs extends Command
 
         foreach ($categories as $category) {
             $slug = Str::slug($category->title);
-            
+
             if ($category->slug !== $slug) {
                 $category->update(['slug' => $slug]);
                 $this->line("Updated: {$category->title} → {$slug}");

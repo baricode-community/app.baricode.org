@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\ProgressJournal;
 use App\Models\Timeline;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TimelineSeeder extends Seeder
@@ -24,7 +23,7 @@ class TimelineSeeder extends Seeder
             'progress' => 100,
             'notes' => 'Platform berhasil diluncurkan dengan semua fitur dasar sesuai rencana.',
         ]);
-        
+
         $timeline1->progressJournals()->createMany([
             [
                 'description' => 'Setup awal infrastruktur dan database server.',
@@ -49,7 +48,7 @@ class TimelineSeeder extends Seeder
             'progress' => 65,
             'notes' => 'Sedang dalam tahap implementasi fitur-fitur dashboard utama.',
         ]);
-        
+
         $timeline2->progressJournals()->createMany([
             [
                 'description' => 'Design UI/UX dashboard dan approval dari stakeholder.',
@@ -74,7 +73,7 @@ class TimelineSeeder extends Seeder
             'progress' => 0,
             'notes' => 'Menunggu approval dari pihak payment provider.',
         ]);
-        
+
         $timeline3->progressJournals()->create([
             'description' => 'Requirement gathering dan dokumentasi payment flow.',
             'progress_percentage' => 10,
@@ -89,7 +88,7 @@ class TimelineSeeder extends Seeder
             'progress' => 45,
             'notes' => 'Backend API sudah selesai, sedang mengembangkan frontend interface.',
         ]);
-        
+
         $timeline4->progressJournals()->createMany([
             [
                 'description' => 'Database design untuk forum dan komunitas structure.',
@@ -114,7 +113,7 @@ class TimelineSeeder extends Seeder
             'progress' => 20,
             'notes' => 'Dibatalkan karena perubahan prioritas dan resource constraints.',
         ]);
-        
+
         $timeline5->progressJournals()->createMany([
             [
                 'description' => 'Research dan prototype WebSocket integration.',
@@ -135,7 +134,7 @@ class TimelineSeeder extends Seeder
             'progress' => 0,
             'notes' => 'Dijadwalkan setelah fitur-fitur utama selesai.',
         ]);
-        
+
         $timeline6->progressJournals()->create([
             'description' => 'Planning dan setup untuk performance testing environment.',
             'progress_percentage' => 5,
@@ -154,4 +153,3 @@ class TimelineSeeder extends Seeder
         });
     }
 }
-

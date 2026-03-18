@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\CourseResource\Pages;
 
-use App\Filament\Resources\CourseResource;
 use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\CourseResource;
 use App\Filament\Resources\CourseResource\Actions\ExportCourseAction;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
@@ -16,7 +16,7 @@ class EditCourse extends EditRecord
 
     public function getTitle(): string|Htmlable
     {
-        return 'Edit Course: ' . $this->record->title;
+        return 'Edit Course: '.$this->record->title;
     }
 
     protected function getHeaderActions(): array

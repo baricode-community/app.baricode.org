@@ -4,7 +4,6 @@ namespace App\Policies\LMS;
 
 use App\Models\LMS\Lesson;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class LessonPolicy
 {

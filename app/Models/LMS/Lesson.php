@@ -2,6 +2,7 @@
 
 namespace App\Models\LMS;
 
+use Database\Factories\LMS\LessonFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Lesson extends Model
 {
-    /** @use HasFactory<\Database\Factories\LMS\LessonFactory> */
+    /** @use HasFactory<LessonFactory> */
     use HasFactory;
 
     protected $fillable = [

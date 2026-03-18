@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('duration')->default(0); // duration in minutes
             $table->boolean('is_published')->default(true);
             $table->timestamps();
-            
+
             // Ensure unique combination of category_id and title
             $table->unique(['category_id', 'title']);
         });

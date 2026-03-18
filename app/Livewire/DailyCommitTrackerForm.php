@@ -3,24 +3,29 @@
 namespace App\Livewire;
 
 use App\Models\DailyCommitTracker;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class DailyCommitTrackerForm extends Component
 {
     public $title = '';
+
     public $message = '';
+
     public $impression = '';
+
     public $success_level = 5;
+
     public $tracked_date;
+
     public $tracker;
+
     public $isEditing = false;
 
     public function mount($tracker = null, $trackedDate = null)
     {
         $user = Auth::user();
-        
+
         // Determine the tracked date
         if ($trackedDate) {
             $this->tracked_date = $trackedDate;
@@ -64,8 +69,8 @@ class DailyCommitTrackerForm extends Component
         ]);
 
         $user = Auth::user();
-        $trackedDateString = is_string($this->tracked_date) 
-            ? $this->tracked_date 
+        $trackedDateString = is_string($this->tracked_date)
+            ? $this->tracked_date
             : $this->tracked_date->toDateString();
 
         try {
@@ -79,7 +84,7 @@ class DailyCommitTrackerForm extends Component
                 ]);
 
                 session()->flash('message', 'Daily commit updated successfully!');
-                
+
                 // Redirect to history after updating
                 return redirect()->route('daily-commit-tracker.history');
             } else {
@@ -107,14 +112,14 @@ class DailyCommitTrackerForm extends Component
                     ]);
                     session()->flash('message', 'Daily commit created successfully!');
                 }
-                
+
                 // Redirect to history after creating/updating
                 return redirect()->route('daily-commit-tracker.history');
             }
 
             $this->resetForm();
         } catch (\Exception $e) {
-            session()->flash('error', 'Something went wrong: ' . $e->getMessage());
+            session()->flash('error', 'Something went wrong: '.$e->getMessage());
         }
     }
 

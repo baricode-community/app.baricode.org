@@ -35,9 +35,14 @@ class TakeQuiz extends Component
 
         $this->totalScore = Option::whereIn('id', $selectedOptionIds)->sum('score');
 
+        // Convert option IDs to strings for consistent JSON storage
+        $answersForStorage = collect($this->answers)
+            ->mapWithKeys(fn ($options, $qId) => [(string) $qId => collect($options)->map(fn ($id) => (string) $id)->toArray()])
+            ->toArray();
+
         QuizResult::create([
             'total_score' => $this->totalScore,
-            'answers' => $this->answers,
+            'answers' => $answersForStorage,
         ]);
 
         $this->submitted = true;
@@ -71,8 +76,8 @@ class TakeQuiz extends Component
         foreach ($this->quiz->questions as $question) {
             $label = "\"{$question->question_text}\"";
             $messages["answers.{$question->id}.required"] = "Pertanyaan {$label} wajib dijawab.";
-            $messages["answers.{$question->id}.array"]    = "Jawaban untuk pertanyaan {$label} tidak valid.";
-            $messages["answers.{$question->id}.min"]      = "Pilih minimal satu jawaban untuk pertanyaan {$label}.";
+            $messages["answers.{$question->id}.array"] = "Jawaban untuk pertanyaan {$label} tidak valid.";
+            $messages["answers.{$question->id}.min"] = "Pilih minimal satu jawaban untuk pertanyaan {$label}.";
         }
 
         return $messages;

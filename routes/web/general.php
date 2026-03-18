@@ -1,23 +1,29 @@
 <?php
 
+use App\Http\Controllers\DailyCommitTrackerController;
+use App\Http\Controllers\Web\General\BlogController;
+use App\Http\Controllers\Web\General\DashboardController;
+use App\Http\Controllers\Web\General\HomeController;
+use App\Http\Controllers\Web\General\RepoHubController;
+use App\Http\Controllers\Web\General\ShortLinkController;
+use App\Http\Controllers\Web\General\TimelineController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(\App\Http\Controllers\Web\General\HomeController::class)->group(function () {
+Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/profile/{user:username?}', 'profile')->name('profile');
 });
 
 Route::redirect('/timeline', '/timelines');
 
-Route::controller(\App\Http\Controllers\Web\General\TimelineController::class)
+Route::controller(TimelineController::class)
     ->prefix('/timelines')
     ->group(function () {
         Route::get('/', 'index')->name('timelines.index');
         Route::get('/{timeline}', 'show')->name('timelines.show');
-});
+    });
 
-
-Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
+Route::controller(DashboardController::class)
     ->prefix('/dashboard')
     ->middleware(['auth', 'verified'])
     ->group(function () {
@@ -26,12 +32,12 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
         Route::get('/analytics', 'analytics')->name('dashboard.analytics');
         Route::get('/fun', 'fun')->name('dashboard.fun');
         Route::get('/memes', 'memes')->name('dashboard.memes');
-});
+    });
 
-Route::get('/link/{slug}', [\App\Http\Controllers\Web\General\ShortLinkController::class, 'redirect'])
+Route::get('/link/{slug}', [ShortLinkController::class, 'redirect'])
     ->name('short-link.redirect');
 
-Route::controller(\App\Http\Controllers\Web\General\BlogController::class)
+Route::controller(BlogController::class)
     ->prefix('/blog')
     ->group(function () {
         Route::get('/', 'index')->name('blog.index');
@@ -40,7 +46,7 @@ Route::controller(\App\Http\Controllers\Web\General\BlogController::class)
         Route::get('/{slug}', 'show')->name('blog.show');
     });
 
-Route::controller(\App\Http\Controllers\DailyCommitTrackerController::class)
+Route::controller(DailyCommitTrackerController::class)
     ->prefix('/daily-commit-tracker')
     ->middleware(['auth', 'verified'])
     ->group(function () {
@@ -49,7 +55,7 @@ Route::controller(\App\Http\Controllers\DailyCommitTrackerController::class)
         Route::get('/history', 'history')->name('daily-commit-tracker.history');
     });
 
-Route::controller(\App\Http\Controllers\Web\General\RepoHubController::class)
+Route::controller(RepoHubController::class)
     ->prefix('/repohub')
     ->group(function () {
         Route::get('/', 'index')->name('repohub.index');

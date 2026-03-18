@@ -1,14 +1,16 @@
 <?php
 
+use App\Http\Controllers\Web\Fun\FunController;
+use App\Http\Controllers\Web\Fun\MemeController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(\App\Http\Controllers\Web\Fun\FunController::class)
+Route::controller(FunController::class)
     ->prefix('/dashboard/fun')
     ->group(function () {
         Route::get('/', 'index')->name('dashboard.fun');
     });
 
-Route::controller(\App\Http\Controllers\Web\Fun\MemeController::class)
+Route::controller(MemeController::class)
     ->prefix('/meme')
     ->group(function () {
         Route::get('/', 'index')->name('memes.index');
@@ -22,4 +24,3 @@ Route::controller(\App\Http\Controllers\Web\Fun\MemeController::class)
 
         Route::get('/show/{meme}', 'show')->name('memes.show');
     });
-

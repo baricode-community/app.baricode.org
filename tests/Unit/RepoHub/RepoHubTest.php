@@ -2,6 +2,7 @@
 
 use App\Models\RepoHub\RepoHub;
 use App\Models\RepoHub\RepoHubTag;
+use Illuminate\Database\QueryException;
 
 // --- Model ---
 
@@ -88,12 +89,12 @@ test('repohub tag slug is unique', function () {
     RepoHubTag::factory()->create(['slug' => 'laravel']);
 
     expect(fn () => RepoHubTag::factory()->create(['slug' => 'laravel']))
-        ->toThrow(\Illuminate\Database\QueryException::class);
+        ->toThrow(QueryException::class);
 });
 
 test('repohub slug is unique', function () {
     RepoHub::factory()->create(['slug' => 'my-repo']);
 
     expect(fn () => RepoHub::factory()->create(['slug' => 'my-repo']))
-        ->toThrow(\Illuminate\Database\QueryException::class);
+        ->toThrow(QueryException::class);
 });

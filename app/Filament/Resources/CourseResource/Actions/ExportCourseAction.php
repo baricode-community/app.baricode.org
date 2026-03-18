@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\CourseResource\Actions;
 
-use App\Services\CourseImportExportService;
 use App\Models\LMS\Course;
+use App\Services\CourseImportExportService;
+use Exception;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
-use Exception;
 use Illuminate\Support\Facades\Response;
 
 class ExportCourseAction extends Action
@@ -21,10 +21,10 @@ class ExportCourseAction extends Action
             ->color('info')
             ->action(function (Course $record) {
                 try {
-                    $exportService = new CourseImportExportService();
+                    $exportService = new CourseImportExportService;
                     $courseData = $exportService->exportCourse($record);
 
-                    $filename = str($record->title)->slug() . '_' . now()->format('Y-m-d_His') . '.json';
+                    $filename = str($record->title)->slug().'_'.now()->format('Y-m-d_His').'.json';
                     $jsonContent = json_encode($courseData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
                     return Response::streamDownload(
@@ -37,7 +37,7 @@ class ExportCourseAction extends Action
                 } catch (Exception $e) {
                     Notification::make()
                         ->title('Export Failed')
-                        ->body('Error: ' . $e->getMessage())
+                        ->body('Error: '.$e->getMessage())
                         ->danger()
                         ->send();
 

@@ -19,6 +19,7 @@ class GoogleAuthController extends Controller
     public function redirectToGoogle(): RedirectResponse
     {
         logger()->info('Redirecting to Google OAuth');
+
         return Socialite::driver('google')->redirect();
     }
 
@@ -30,25 +31,26 @@ class GoogleAuthController extends Controller
         logger()->info('Handling Google OAuth callback');
         try {
             $googleUser = Socialite::driver('google')->user();
-            logger()->info('Google User Retrieved: ' . $googleUser->getEmail());
+            logger()->info('Google User Retrieved: '.$googleUser->getEmail());
 
             // Check if user already exists
             $existingUser = User::where('email', $googleUser->getEmail())->first();
-            
+
             if ($existingUser) {
                 // User exists, just login
-                logger()->info('Existing user found: ' . $existingUser->email);
+                logger()->info('Existing user found: '.$existingUser->email);
                 Auth::login($existingUser);
+
                 return redirect()->intended(route('dashboard'));
             }
 
             // Create new user
             $generatedPassword = Str::random(12);
-            logger()->info('Creating new user: ' . $googleUser->getEmail());
-            
+            logger()->info('Creating new user: '.$googleUser->getEmail());
+
             // Generate unique username
             $username = $this->generateUniqueUsername($googleUser->getName());
-            
+
             $user = User::create([
                 'name' => $googleUser->getName(),
                 'username' => $username,
@@ -58,20 +60,21 @@ class GoogleAuthController extends Controller
                 'google_id' => $googleUser->getId(),
                 'avatar' => $googleUser->getAvatar(),
             ]);
-            logger()->info('New user created: ' . $user->email);
-            
+            logger()->info('New user created: '.$user->email);
+
             // Send welcome email with generated password
             $user->notify(new WelcomeEmailWithPassword($generatedPassword));
-            logger()->info('Welcome email sent to: ' . $user->email);
-            
+            logger()->info('Welcome email sent to: '.$user->email);
+
             // Login the user
             Auth::login($user);
-            logger()->info('User logged in: ' . $user->email);
-            
+            logger()->info('User logged in: '.$user->email);
+
             return redirect()->route('dashboard')->with('success', 'Akun berhasil dibuat! Password telah dikirim ke email Anda.');
-            
+
         } catch (\Exception $e) {
-            logger()->error('Google OAuth Error: ' . $e->getMessage());
+            logger()->error('Google OAuth Error: '.$e->getMessage());
+
             return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login dengan Google. Silakan coba lagi.');
         }
     }
@@ -83,17 +86,17 @@ class GoogleAuthController extends Controller
     {
         // Remove special characters and convert to lowercase
         $baseUsername = Str::slug($name, '');
-        
+
         // Ensure minimum length of 3 characters
         if (strlen($baseUsername) < 3) {
-            $baseUsername = $baseUsername . 'usr';
+            $baseUsername = $baseUsername.'usr';
         }
-        
+
         // Ensure maximum length of 30 characters
         if (strlen($baseUsername) > 30) {
             $baseUsername = substr($baseUsername, 0, 30);
         }
-        
+
         return $this->ensureUniqueUsername($baseUsername);
     }
 
@@ -104,20 +107,20 @@ class GoogleAuthController extends Controller
     {
         $username = $baseUsername;
         $counter = 1;
-        
+
         while (User::where('username', $username)->exists()) {
             $suffix = (string) $counter;
             $maxBaseLength = 30 - strlen($suffix);
-            
+
             if (strlen($baseUsername) > $maxBaseLength) {
-                $username = substr($baseUsername, 0, $maxBaseLength) . $suffix;
+                $username = substr($baseUsername, 0, $maxBaseLength).$suffix;
             } else {
-                $username = $baseUsername . $suffix;
+                $username = $baseUsername.$suffix;
             }
-            
+
             $counter++;
         }
-        
+
         return $username;
     }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Models\Fun;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 
 class MemeVote extends Model
 {
     protected $table = 'meme_votes';
+
     public $timestamps = true;
 
     protected $fillable = [

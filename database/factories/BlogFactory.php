@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
+ * @extends Factory<Blog>
  */
 class BlogFactory extends Factory
 {
@@ -19,7 +20,7 @@ class BlogFactory extends Factory
     public function definition(): array
     {
         $title = $this->faker->sentence(4);
-        
+
         return [
             'title' => $title,
             'slug' => Str::slug($title),

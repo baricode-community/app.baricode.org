@@ -2,11 +2,12 @@
 
 namespace Database\Factories\Quiz;
 
+use App\Models\Quiz\Question;
 use App\Models\Quiz\Quiz;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Quiz\Question>
+ * @extends Factory<Question>
  */
 class QuestionFactory extends Factory
 {
@@ -14,7 +15,7 @@ class QuestionFactory extends Factory
     {
         return [
             'quiz_id' => Quiz::factory(),
-            'question_text' => $this->faker->sentence(8) . '?',
+            'question_text' => $this->faker->sentence(8).'?',
             'order' => $this->faker->numberBetween(1, 20),
         ];
     }

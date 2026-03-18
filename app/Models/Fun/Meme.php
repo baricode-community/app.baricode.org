@@ -2,14 +2,15 @@
 
 namespace App\Models\Fun;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Fun\MemeVote;
+use Illuminate\Database\Eloquent\Model;
 
 class Meme extends Model
 {
     protected $primaryKey = 'id';
+
     public $incrementing = false;
+
     protected $keyType = 'string';
 
     protected $fillable = [

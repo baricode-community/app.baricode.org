@@ -2,13 +2,14 @@
 
 namespace App\Models\RepoHub;
 
+use Database\Factories\RepoHub\RepoHubFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class RepoHub extends Model
 {
-    /** @use HasFactory<\Database\Factories\RepoHub\RepoHubFactory> */
+    /** @use HasFactory<RepoHubFactory> */
     use HasFactory;
 
     protected $fillable = [

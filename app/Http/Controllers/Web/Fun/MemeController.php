@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Web\Fun;
 use App\Http\Controllers\Controller;
 use App\Models\Fun\Meme;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class MemeController extends Controller
 {
@@ -33,7 +32,7 @@ class MemeController extends Controller
                     return $meme->downvotesCount();
                 });
                 $totalVotes = $totalUpvotes + $totalDownvotes;
-                
+
                 return [
                     'user' => $user,
                     'totalMemes' => $totalMemes,
@@ -44,7 +43,7 @@ class MemeController extends Controller
             })
             ->sortByDesc('totalVotes')
             ->values();
-            
+
         return view('pages.fun.meme.user_list', ['users' => $usersData]);
     }
 

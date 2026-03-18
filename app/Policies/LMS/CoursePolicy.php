@@ -4,7 +4,6 @@ namespace App\Policies\LMS;
 
 use App\Models\LMS\Course;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class CoursePolicy
 {
@@ -13,7 +12,7 @@ class CoursePolicy
      */
     public function viewAny(User $user): bool
     {
-       return $user->hasRole('admin');
+        return $user->hasRole('admin');
     }
 
     /**
@@ -29,7 +28,7 @@ class CoursePolicy
      */
     public function create(User $user): bool
     {
-       return $user->hasRole('admin');
+        return $user->hasRole('admin');
     }
 
     /**
@@ -45,7 +44,7 @@ class CoursePolicy
      */
     public function delete(User $user, Course $course): bool
     {
-       return $user->hasRole('admin');
+        return $user->hasRole('admin');
     }
 
     /**

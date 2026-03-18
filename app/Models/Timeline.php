@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Database\Factories\TimelineFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Timeline extends Model
 {
-    /** @use HasFactory<\Database\Factories\TimelineFactory> */
+    /** @use HasFactory<TimelineFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -39,12 +40,13 @@ class Timeline extends Model
     public function calculateProgress(): int
     {
         $journals = $this->progressJournals()->whereNotNull('progress_percentage')->get();
-        
+
         if ($journals->isEmpty()) {
             return 0;
         }
-        
+
         $average = $journals->avg('progress_percentage');
+
         return (int) round($average);
     }
 
@@ -58,7 +60,7 @@ class Timeline extends Model
 
     public function getStatusLabelAttribute(): string
     {
-        return match($this->status) {
+        return match ($this->status) {
             'planned' => 'Direncanakan',
             'pending' => 'Tertunda',
             'ongoing' => 'Berlangsung',
@@ -70,7 +72,7 @@ class Timeline extends Model
 
     public function getStatusColorAttribute(): string
     {
-        return match($this->status) {
+        return match ($this->status) {
             'planned' => 'primary',
             'pending' => 'warning',
             'ongoing' => 'info',

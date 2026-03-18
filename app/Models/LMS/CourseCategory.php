@@ -2,6 +2,7 @@
 
 namespace App\Models\LMS;
 
+use Database\Factories\LMS\CourseCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +11,7 @@ use Illuminate\Support\Str;
 
 class CourseCategory extends Model
 {
-    /** @use HasFactory<\Database\Factories\LMS\CourseCategoryFactory> */
+    /** @use HasFactory<CourseCategoryFactory> */
     use HasFactory;
 
     protected $table = 'course_categories';
@@ -63,7 +64,7 @@ class CourseCategory extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            if (!$model->slug) {
+            if (! $model->slug) {
                 $model->slug = Str::slug($model->title);
             }
         });

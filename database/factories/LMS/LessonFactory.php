@@ -3,10 +3,11 @@
 namespace Database\Factories\LMS;
 
 use App\Models\LMS\CourseCategory;
+use App\Models\LMS\Lesson;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LMS\Lesson>
+ * @extends Factory<Lesson>
  */
 class LessonFactory extends Factory
 {

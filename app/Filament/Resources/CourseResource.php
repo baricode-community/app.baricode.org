@@ -8,11 +8,11 @@ use App\Filament\Resources\CourseResource\Pages\ListCourses;
 use App\Filament\Resources\CourseResource\Schemas\CourseForm;
 use App\Filament\Resources\CourseResource\Tables\CoursesTable;
 use App\Models\LMS\Course;
+use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use BackedEnum;
 use UnitEnum;
 
 class CourseResource extends Resource

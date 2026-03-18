@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\General\TimelineController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +9,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // Timeline Routes
-Route::controller(App\Http\Controllers\Api\General\TimelineController::class)
+Route::controller(TimelineController::class)
     ->prefix('timelines')
     ->group(function () {
         Route::get('/', 'index');

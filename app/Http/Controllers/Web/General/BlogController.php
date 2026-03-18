@@ -78,7 +78,7 @@ class BlogController extends Controller
 
         return view('pages.general.blog.index', [
             'posts' => $posts,
-            'filterLabel' => 'Kategori: ' . $category->name,
+            'filterLabel' => 'Kategori: '.$category->name,
             'search' => null,
         ]);
     }
@@ -96,7 +96,7 @@ class BlogController extends Controller
 
         return view('pages.general.blog.index', [
             'posts' => $posts,
-            'filterLabel' => 'Tag: #' . $tag->name,
+            'filterLabel' => 'Tag: #'.$tag->name,
             'search' => null,
         ]);
     }

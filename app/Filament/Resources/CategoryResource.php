@@ -8,11 +8,11 @@ use App\Filament\Resources\CategoryResource\Pages\ListCategories;
 use App\Filament\Resources\CategoryResource\Schemas\CategoryForm;
 use App\Filament\Resources\CategoryResource\Tables\CategoryTable;
 use App\Models\LMS\CourseCategory;
+use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use BackedEnum;
 use UnitEnum;
 
 class CategoryResource extends Resource
