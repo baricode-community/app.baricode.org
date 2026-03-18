@@ -75,30 +75,6 @@
                             </p>
                         </div>
 
-                        <div class="mb-10">
-                            <div class="flex justify-center">
-                                <blockquote class="tiktok-embed"
-                                    cite="https://www.tiktok.com/@baricode_org/video/7615595451449904404"
-                                    data-video-id="7615595451449904404" style="max-width: 605px;min-width: 325px;">
-                                    <section> <a target="_blank" title="@baricode_org"
-                                            href="https://www.tiktok.com/@baricode_org?refer=embed">@baricode_org</a>
-                                        Mau belajar coding, tapi suka bingung karena GK ada pembingbing? Mari bergabung
-                                        dan belajar bareng dengan BARICODE <a title="fypdong" target="_blank"
-                                            href="https://www.tiktok.com/tag/fypdong?refer=embed">#fypdong</a> <a
-                                            title="coding" target="_blank"
-                                            href="https://www.tiktok.com/tag/coding?refer=embed">#coding</a> <a
-                                            title="viralvideotiktok" target="_blank"
-                                            href="https://www.tiktok.com/tag/viralvideotiktok?refer=embed">#viralvideotiktok</a>
-                                        <a title="codingtips" target="_blank"
-                                            href="https://www.tiktok.com/tag/codingtips?refer=embed">#codingtips</a> <a
-                                            target="_blank" title="♬ suara asli  - Baricode Community"
-                                            href="https://www.tiktok.com/music/suara-asli-Baricode-Community-7615595509167688469?refer=embed">♬
-                                            suara asli - Baricode Community</a> </section>
-                                </blockquote>
-                                <script async src="https://www.tiktok.com/embed.js"></script>
-                            </div>
-                        </div>
-
                         <div class="text-center">
                             <a href="https://www.tiktok.com/@baricode_org" target="_blank" rel="noopener noreferrer"
                                 class="inline-block px-10 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-full font-bold text-lg shadow-lg hover:shadow-pink-500/40 transition-all transform hover:scale-105 ring-2 ring-pink-400/30 hover:ring-4 hover:ring-purple-400/40">
