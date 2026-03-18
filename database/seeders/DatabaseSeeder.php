@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             TimelineSeeder::class,
             \Database\Seeders\Quiz\QuizSeeder::class,
             ShortLinkSeeder::class,
+            \Database\Seeders\RepoHub\RepoHubSeeder::class,
         ]);
     }
 }

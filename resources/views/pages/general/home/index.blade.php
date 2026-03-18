@@ -299,6 +299,18 @@
                             Lihat Timeline
                         </a>
                     </div>
+
+                    <!-- Card RepoHub -->
+                    <div
+                        class="bg-gradient-to-br from-emerald-500/10 to-transparent backdrop-blur-lg rounded-3xl p-8 border border-emerald-500/20 hover:border-emerald-500/50 transition-all hover:shadow-xl hover:shadow-emerald-500/20">
+                        <div class="text-5xl mb-4">🔥</div>
+                        <h3 class="text-2xl font-bold mb-3">RepoHub</h3>
+                        <p class="text-gray-300 mb-4">Koleksi repositori GitHub pilihan yang kami rekomendasikan khusus untuk developer Indonesia.</p>
+                        <a href="{{ route('repohub.index') }}"
+                            class="inline-block px-6 py-2 bg-emerald-600/80 text-white rounded-full font-semibold hover:bg-emerald-700 transition-all">
+                            Lihat RepoHub
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

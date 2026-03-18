@@ -48,3 +48,10 @@ Route::controller(\App\Http\Controllers\DailyCommitTrackerController::class)
         Route::get('/show/{date?}', 'show')->name('daily-commit-tracker.show');
         Route::get('/history', 'history')->name('daily-commit-tracker.history');
     });
+
+Route::controller(\App\Http\Controllers\Web\General\RepoHubController::class)
+    ->prefix('/repohub')
+    ->group(function () {
+        Route::get('/', 'index')->name('repohub.index');
+        Route::get('/{repoHub:slug}', 'show')->name('repohub.show');
+    });
