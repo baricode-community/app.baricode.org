@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\General\BlogController;
 use App\Http\Controllers\Web\General\DashboardController;
 use App\Http\Controllers\Web\General\FamilyController;
 use App\Http\Controllers\Web\General\HomeController;
+use App\Http\Controllers\Web\General\HowToLearnController;
 use App\Http\Controllers\Web\General\RepoHubController;
 use App\Http\Controllers\Web\General\ShortLinkController;
 use App\Http\Controllers\Web\General\TimelineController;
@@ -69,3 +70,5 @@ Route::controller(FamilyController::class)
         Route::get('/', 'index')->name('family.index');
         Route::get('/{user:username}', 'show')->name('family.show');
     });
+
+Route::get('/cara-belajar-di-baricode', [HowToLearnController::class, 'index'])->name('how-to-learn');

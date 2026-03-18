@@ -148,6 +148,17 @@ GitHub Actions runs:
 - Eager loads relationships for detail view: `meme`, `dailyCommitTrackers`, `meets`
 - Pagination with query string preservation for search
 
+#### How to Learn (Cara Belajar di Baricode) — Learning Guide
+- **How to Learn Guide** — Comprehensive guide for using Baricode (`/cara-belajar-di-baricode`)
+  - 6 learning steps: Setup → Path Selection → Courses → Daily Practice → Collaboration → Portfolio
+  - Learning resources & tools recommendations
+  - FAQ section for common questions
+  - Best practices & tips for each learning stage
+- **Public Access**: Anyone can view (no auth required)
+- **Controller**: `App\Http\Controllers\Web\General\HowToLearnController`
+- **View**: `resources/views/pages/general/how-to-learn/index.blade.php`
+- **Purpose**: Help new members understand how to effectively use Baricode platform and maximize learning
+
 ### Learning Management System (LMS) (`routes/web/lms.php`)
 
 #### LMS Core

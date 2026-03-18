@@ -267,6 +267,64 @@
             </div>
         </section>
 
+        <!-- How to Learn Guide CTA -->
+        <section class="py-16 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-r from-cyan-600/30 via-sky-600/30 to-blue-600/30 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-cyan-500/30">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">📚 Baru di Baricode?</h2>
+                            <p class="text-lg text-gray-200 mb-6">
+                                Pelajari cara optimal untuk belajar di platform kami. Panduan lengkap dari daftar akun hingga membangun portfolio yang impressive.
+                            </p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex gap-2">
+                                    <span class="text-cyan-400">✓</span>
+                                    <span>6 langkah pembelajaran yang terstruktur</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="text-cyan-400">✓</span>
+                                    <span>Tips & best practices dari komunitas</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span class="text-cyan-400">✓</span>
+                                    <span>FAQ & resources yang helpful</span>
+                                </li>
+                            </ul>
+                            <a href="{{ route('how-to-learn') }}" wire:navigate
+                                class="inline-block px-8 py-3 bg-gradient-to-r from-cyan-600 to-sky-600 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-cyan-500/40 transition-all transform hover:scale-105">
+                                📖 Baca Panduan Lengkap
+                            </a>
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-white/5 rounded-lg p-4 text-center border border-cyan-500/20">
+                                    <div class="text-3xl mb-2">📝</div>
+                                    <p class="text-sm font-semibold">Setup Profil</p>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 text-center border border-sky-500/20">
+                                    <div class="text-3xl mb-2">🗺️</div>
+                                    <p class="text-sm font-semibold">Pilih Path</p>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 text-center border border-blue-500/20">
+                                    <div class="text-3xl mb-2">📚</div>
+                                    <p class="text-sm font-semibold">Ikuti Kursus</p>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 text-center border border-cyan-500/20">
+                                    <div class="text-3xl mb-2">⚡</div>
+                                    <p class="text-sm font-semibold">Latihan Harian</p>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 text-center border border-sky-500/20 md:col-span-2">
+                                    <div class="text-3xl mb-2">🤝</div>
+                                    <p class="text-sm font-semibold">Berkolaborasi & Portfolio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Value Section -->
         <section class="py-20 px-4 relative">
             <div class="max-w-7xl mx-auto">
