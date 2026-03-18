@@ -80,3 +80,75 @@ Uses **Pest** with SQLite in-memory for tests. Feature tests in `tests/Feature/`
 GitHub Actions runs:
 - `.github/workflows/lint.yml` — PHP Pint linting
 - `.github/workflows/tests.yml` — Pest test suite (PHP 8.4, Node 22)
+
+## Web Features Catalog
+
+### Authentication & Settings (Protected Routes)
+- **Settings** — User account settings (requires `auth` middleware)
+  - Profile settings (`/settings/profile`)
+  - Password change (`/settings/password`)
+  - Appearance settings (`/settings/appearance`)
+  - Two-factor authentication (`/settings/two-factor`, conditional on Fortify config)
+- **Google OAuth** — Social login via Google (guest routes)
+  - Redirect to Google (`/auth/google`)
+  - Google callback handler (`/auth/google/callback`)
+
+### General / Public Features (`routes/web/general.php`)
+
+#### Home & Profiles
+- **Home** — Landing page (`/`)
+- **User Profile** — View user profile (`/profile/{username}`)
+
+#### Timelines
+- **Timelines Index** — Browse all timelines (`/timelines`)
+- **Timeline Show** — View single timeline (`/timelines/{timeline}`)
+
+#### Dashboard (Requires `auth` + `verified` middleware)
+- **Dashboard Home** — Main dashboard (`/dashboard`)
+- **Dashboard Settings** — Dashboard settings (`/dashboard/settings`)
+- **Dashboard Analytics** — Analytics view (`/dashboard/analytics`)
+- **Dashboard Fun** — Fun features area (`/dashboard/fun`)
+- **Dashboard Memes** — Memes collection (`/dashboard/memes`)
+
+#### Blog
+- **Blog Index** — Browse all posts (`/blog`)
+- **Blog Category** — Filter by category (`/blog/category/{slug}`)
+- **Blog Tag** — Filter by tag (`/blog/tag/{slug}`)
+- **Blog Post** — Read single post (`/blog/{slug}`)
+
+#### Short Links
+- **Short Link Redirect** — Redirect via short link (`/link/{slug}`)
+
+#### Daily Commit Tracker (Requires `auth` + `verified` middleware)
+- **Tracker Index** — View daily commits (`/daily-commit-tracker`)
+- **Tracker Show** — View by date (`/daily-commit-tracker/show/{date}`)
+- **Tracker History** — View history (`/daily-commit-tracker/history`)
+
+#### RepoHub
+- **RepoHub Index** — Browse repositories (`/repohub`)
+- **RepoHub Show** — View single repo (`/repohub/{slug}`)
+
+### Learning Management System (LMS) (`routes/web/lms.php`)
+
+#### LMS Core
+- **LMS Index** — LMS home page (`/lms`)
+- **All Courses** — Browse all courses (`/lms/courses`)
+- **Course Category** — Filter by category (`/lms/category/{slug}`)
+- **Course Detail** — View course (`/lms/course/{slug}`)
+- **Lesson** — View lesson content (`/lms/lesson/{lesson}`)
+
+#### Quiz System
+- **Quiz Index** — Browse all quizzes (`/quiz`)
+- **Quiz Show** — Take quiz (`/quiz/{quiz}`)
+
+### Fun Features (`routes/web/fun.php`)
+
+#### Memes (Community Content)
+- **Meme Index** — Browse all memes (`/meme`)
+- **Meme Create** — Create new meme (requires `auth` + `verified`) (`/meme/create`)
+- **Meme Users** — List users with memes (`/meme/user`)
+- **User's Memes** — View user's meme collection (`/meme/user/{username}`)
+- **Meme Detail** — View single meme (`/meme/show/{meme}`)
+
+### WhatsApp Integration (`routes/web/whatsapp.php`)
+- Currently redirects to home page (placeholder/stub implementation)
