@@ -110,6 +110,24 @@ function login() {
                         </div>
                     @endif
 
+                    <!-- Family Info -->
+                    <div class="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 rounded-xl p-4">
+                        <div class="flex gap-3">
+                            <div class="flex-shrink-0 text-2xl">👨‍👩‍👧‍👦</div>
+                            <div>
+                                <p class="text-sm text-gray-100 font-semibold mb-1">
+                                    Lihat <span class="text-indigo-300">Keluarga Baricode</span>
+                                </p>
+                                <p class="text-xs text-gray-300">
+                                    Jelajahi profile ribuan developer lainnya, lihat progress mereka, dan bangun koneksi baru.
+                                    <a href="{{ route('family.index') }}" class="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">
+                                        Cek Sekarang →
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Submit Button -->
                     <button
                         type="submit"
