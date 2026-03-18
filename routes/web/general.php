@@ -3,6 +3,7 @@
 use App\Http\Controllers\DailyCommitTrackerController;
 use App\Http\Controllers\Web\General\BlogController;
 use App\Http\Controllers\Web\General\DashboardController;
+use App\Http\Controllers\Web\General\FamilyController;
 use App\Http\Controllers\Web\General\HomeController;
 use App\Http\Controllers\Web\General\RepoHubController;
 use App\Http\Controllers\Web\General\ShortLinkController;
@@ -60,4 +61,11 @@ Route::controller(RepoHubController::class)
     ->group(function () {
         Route::get('/', 'index')->name('repohub.index');
         Route::get('/{repoHub:slug}', 'show')->name('repohub.show');
+    });
+
+Route::controller(FamilyController::class)
+    ->prefix('/family')
+    ->group(function () {
+        Route::get('/', 'index')->name('family.index');
+        Route::get('/{user:username}', 'show')->name('family.show');
     });

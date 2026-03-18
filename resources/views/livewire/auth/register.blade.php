@@ -146,6 +146,24 @@ function register() {
                         @enderror
                     </div>
 
+                    <!-- Family Info -->
+                    <div class="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 rounded-xl p-4">
+                        <div class="flex gap-3">
+                            <div class="flex-shrink-0 text-2xl">👨‍👩‍👧‍👦</div>
+                            <div>
+                                <p class="text-sm text-gray-100 font-semibold mb-1">
+                                    Setiap akun yang terdaftar otomatis menjadi bagian dari <span class="text-indigo-300">Keluarga Baricode</span>
+                                </p>
+                                <p class="text-xs text-gray-300">
+                                    Profil kamu akan muncul di direktori komunitas dan dapat dilihat oleh semua member.
+                                    <a href="{{ route('family.index') }}" class="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">
+                                        Lihat Keluarga →
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Terms Agreement -->
                     <div class="flex items-start gap-3">
                         <input

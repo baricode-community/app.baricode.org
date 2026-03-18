@@ -88,6 +88,77 @@
             </div>
         </section>
 
+        <!-- Family Section -->
+        <section class="py-20 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-br from-indigo-600/30 via-purple-600/30 to-violet-600/30 backdrop-blur-xl rounded-3xl p-8 md:p-16 border border-indigo-500/30">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <!-- Left: Content -->
+                        <div>
+                            <div class="mb-6">
+                                <span class="inline-block px-4 py-2 bg-indigo-500/30 border border-indigo-400/50 rounded-full text-indigo-300 font-semibold text-sm">
+                                    👨‍👩‍👧‍👦 Keluarga Baricode
+                                </span>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-violet-400 bg-clip-text text-transparent">
+                                Bergabunglah dengan Keluarga Kami
+                            </h2>
+                            <p class="text-xl text-gray-200 mb-6 leading-relaxed">
+                                Setiap anggota yang terdaftar secara otomatis menjadi bagian dari <span class="font-semibold text-indigo-300">Keluarga Baricode</span>. Profil kamu akan ditampilkan di direktori komunitas dan dapat dilihat oleh semua member.
+                            </p>
+                            <p class="text-lg text-gray-300 mb-8">
+                                Temui ribuan developer lainnya, lihat progress mereka, dan jalin koneksi yang bermakna dalam komunitas yang positif dan saling mendukung.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="{{ route('family.index') }}" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-indigo-500/40 transition-all transform hover:scale-105 text-center">
+                                    👥 Lihat Keluarga
+                                </a>
+                                <a href="{{ route('register') }}" class="px-8 py-4 bg-white/10 border border-white/20 rounded-xl font-semibold text-lg hover:bg-white/20 transition-all transform hover:scale-105 text-center">
+                                    ✨ Daftar Sekarang
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right: Stats -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 backdrop-blur-sm border border-indigo-500/30 rounded-xl p-6 text-center hover:bg-white/10 transition-all">
+                                <div class="text-4xl font-extrabold text-indigo-400 mb-2">
+                                    {{ \App\Models\User::count() }}
+                                </div>
+                                <p class="text-gray-300 font-semibold">
+                                    Anggota Aktif
+                                </p>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-xl p-6 text-center hover:bg-white/10 transition-all">
+                                <div class="text-4xl font-extrabold text-purple-400 mb-2">
+                                    100%
+                                </div>
+                                <p class="text-gray-300 font-semibold">
+                                    Transparan
+                                </p>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur-sm border border-violet-500/30 rounded-xl p-6 text-center hover:bg-white/10 transition-all">
+                                <div class="text-4xl font-extrabold text-violet-400 mb-2">
+                                    🌍
+                                </div>
+                                <p class="text-gray-300 font-semibold">
+                                    Indonesia
+                                </p>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur-sm border border-pink-500/30 rounded-xl p-6 text-center hover:bg-white/10 transition-all">
+                                <div class="text-4xl font-extrabold text-pink-400 mb-2">
+                                    ❤️
+                                </div>
+                                <p class="text-gray-300 font-semibold">
+                                    Community-Driven
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Feature Highlight Section -->
         <section class="py-10 px-4 relative">
             <div class="max-w-3xl mx-auto text-center">

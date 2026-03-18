@@ -128,6 +128,26 @@ GitHub Actions runs:
 - **RepoHub Index** — Browse repositories (`/repohub`)
 - **RepoHub Show** — View single repo (`/repohub/{slug}`)
 
+#### Family (Keluarga Baricode) — Community Member Directory
+- **Family Index** — Browse all registered members with search & pagination (`/family`)
+  - Search by name or username
+  - Paginated grid layout (12 members per page)
+  - Filter by creation date (newest first)
+- **Family Profile** — View comprehensive member profile (`/family/{username}`)
+  - Display: name, username, bio, join date
+  - Stats: daily commits tracked, events attended, memes shared
+  - **Security**: Email and phone number are never exposed
+- **Public Access**: Anyone can browse the Family directory (no auth required)
+- **Controllers**: `App\Http\Controllers\Web\General\FamilyController`
+- **Views**: `resources/views/pages/general/family/`
+- **Tests**: 35 tests (20 Feature + 15 Unit) covering search, pagination, security, and data integrity
+
+**Implementation Details**:
+- Uses route model binding with `{user:username}`
+- Query-level security: selects only safe fields (`name`, `username`, `bio`, `created_at`)
+- Eager loads relationships for detail view: `meme`, `dailyCommitTrackers`, `meets`
+- Pagination with query string preservation for search
+
 ### Learning Management System (LMS) (`routes/web/lms.php`)
 
 #### LMS Core
