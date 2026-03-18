@@ -102,7 +102,7 @@ class ShortLinksTable
                             .'</div>'
                             .'<canvas id="'.$canvasId.'" width="300" height="300" style="display:none"></canvas>'
                             .'<p class="text-sm text-gray-500 break-all">'.$url.'</p>'
-                            .'<button onclick="(function(){'
+                            .'<button type="button" onclick="(function(){'
                             .'var svg=document.getElementById(\''.$svgId.'\');'
                             .'var canvas=document.getElementById(\''.$canvasId.'\');'
                             .'var ctx=canvas.getContext(\'2d\');'
