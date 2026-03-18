@@ -90,20 +90,40 @@ class ShortLinksTable
                             new SvgImageBackEnd
                         );
                         $svg = (new Writer($renderer))->writeString($url);
-                        $dataUrl = 'data:image/svg+xml;base64,'.base64_encode($svg);
+                        $svgId = 'qr-svg-'.preg_replace('/[^a-z0-9]/i', '-', $record->slug);
+                        $svgWithId = preg_replace('/<svg\s/', '<svg id="'.$svgId.'" ', $svg, 1);
+                        $canvasId = 'qr-canvas-'.preg_replace('/[^a-z0-9]/i', '-', $record->slug);
+                        $filename = 'qrcode-'.$record->slug.'.png';
 
                         return new HtmlString(
                             '<div class="flex flex-col items-center gap-4 py-2">'
                             .'<div class="rounded-xl border border-gray-200 dark:border-gray-700 p-3 bg-white">'
-                            .$svg
+                            .$svgWithId
                             .'</div>'
+                            .'<canvas id="'.$canvasId.'" width="300" height="300" style="display:none"></canvas>'
                             .'<p class="text-sm text-gray-500 break-all">'.$url.'</p>'
-                            .'<a href="'.$dataUrl.'" download="qrcode-'.$record->slug.'.svg"'
-                            .' style="display:inline-block;padding:10px 28px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:14px;font-weight:600;text-decoration:none;border-radius:10px;box-shadow:0 4px 14px rgba(99,102,241,0.4);letter-spacing:0.03em;transition:all .15s ease"'
+                            .'<button onclick="(function(){'
+                            .'var svg=document.getElementById(\''.$svgId.'\');'
+                            .'var canvas=document.getElementById(\''.$canvasId.'\');'
+                            .'var ctx=canvas.getContext(\'2d\');'
+                            .'var blob=new Blob([new XMLSerializer().serializeToString(svg)],{type:\'image/svg+xml;charset=utf-8\'});'
+                            .'var url=URL.createObjectURL(blob);'
+                            .'var img=new Image();'
+                            .'img.onload=function(){'
+                            .'ctx.fillStyle=\'#ffffff\';ctx.fillRect(0,0,300,300);'
+                            .'ctx.drawImage(img,0,0,300,300);'
+                            .'URL.revokeObjectURL(url);'
+                            .'var a=document.createElement(\'a\');'
+                            .'a.download=\''.$filename.'\';'
+                            .'a.href=canvas.toDataURL(\'image/png\');'
+                            .'document.body.appendChild(a);a.click();document.body.removeChild(a);'
+                            .'};img.src=url;'
+                            .'})()"'
+                            .' style="display:inline-block;padding:10px 28px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:14px;font-weight:600;border:none;border-radius:10px;box-shadow:0 4px 14px rgba(99,102,241,0.4);letter-spacing:0.03em;cursor:pointer;transition:all .15s ease"'
                             .' onmouseover="this.style.boxShadow=\'0 6px 20px rgba(99,102,241,0.55)\';this.style.transform=\'translateY(-1px)\'"'
                             .' onmouseout="this.style.boxShadow=\'0 4px 14px rgba(99,102,241,0.4)\';this.style.transform=\'translateY(0)\'">'
                             .'Download QR Code'
-                            .'</a>'
+                            .'</button>'
                             .'</div>'
                         );
                     })
