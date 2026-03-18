@@ -1,4 +1,4 @@
-<x-layouts.fun :title="__('Ungkapkan dengan Seni')">
+<x-layouts.base :title="__('Ungkapkan dengan Seni')">
     <div class="py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
@@ -23,4 +23,4 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
         </svg>
     </a>
-</x-layouts.fun>
+</x-layouts.base>

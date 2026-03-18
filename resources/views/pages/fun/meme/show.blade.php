@@ -1,4 +1,4 @@
-<x-layouts.fun :title="__('Meme oleh ') . $meme->user->name">
+<x-layouts.base :title="__('Meme oleh ') . $meme->user->name">
     <div class="py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Main Content -->
@@ -211,4 +211,4 @@
             </div>
         </div>
     </div>
-</x-layouts.fun>
+</x-layouts.base>

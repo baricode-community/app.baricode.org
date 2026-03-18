@@ -1,4 +1,4 @@
-<x-layouts.fun :title="$user->name . ' - ' . __('Profile Memer')">
+<x-layouts.base :title="$user->name . ' - ' . __('Profile Memer')">
     <div class="py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Profile Header Card -->
@@ -183,4 +183,4 @@
             </div>
         </div>
     </div>
-</x-layouts.fun>
+</x-layouts.base>

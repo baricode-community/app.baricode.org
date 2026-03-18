@@ -1,4 +1,4 @@
-<x-layouts.fun :title="__('Buat Meme Baru')">
+<x-layouts.base :title="__('Buat Meme Baru')">
     <div class="py-12">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Back Button -->
@@ -19,4 +19,4 @@
             <livewire:fun.create-meme />
         </div>
     </div>
-</x-layouts.fun>
+</x-layouts.base>

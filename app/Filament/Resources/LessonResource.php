@@ -22,9 +22,9 @@ class LessonResource extends Resource
 
     protected static ?string $slug = 'lessons';
 
-    protected static BackedEnum|string|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static BackedEnum|string|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Learning Management System';
+    protected static UnitEnum|string|null $navigationGroup = 'Learning';
 
     protected static ?int $navigationSort = 3;
 

@@ -6,12 +6,14 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
+use App\Filament\Widgets\LatestBlogsWidget;
+use App\Filament\Widgets\LatestUsersWidget;
+use App\Filament\Widgets\StatsOverviewWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -38,8 +40,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                StatsOverviewWidget::class,
+                LatestUsersWidget::class,
+                LatestBlogsWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -52,7 +55,13 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->topNavigation()
+            ->navigationGroups([
+                NavigationGroup::make('Community'),
+                NavigationGroup::make('Content'),
+                NavigationGroup::make('Learning'),
+                NavigationGroup::make('Quiz'),
+                NavigationGroup::make('Utilities'),
+            ])
             ->authMiddleware([
                 Authenticate::class,
             ]);

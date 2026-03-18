@@ -23,7 +23,7 @@ class CourseResource extends Resource
 
     protected static BackedEnum|string|null $navigationIcon = Heroicon::OutlinedBookOpen;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Learning Management System';
+    protected static UnitEnum|string|null $navigationGroup = 'Learning';
 
     protected static ?int $navigationSort = 1;
 

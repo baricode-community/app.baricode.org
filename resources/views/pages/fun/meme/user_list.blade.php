@@ -1,4 +1,4 @@
-<x-layouts.fun :title="__('Profile Memer List')">
+<x-layouts.base :title="__('Profile Memer List')">
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header Section -->
@@ -202,4 +202,4 @@
             @endif
         </div>
     </div>
-</x-layouts.fun>
+</x-layouts.base>
