@@ -28,6 +28,9 @@ Route::controller(\App\Http\Controllers\Web\General\DashboardController::class)
         Route::get('/memes', 'memes')->name('dashboard.memes');
 });
 
+Route::get('/link/{slug}', [\App\Http\Controllers\Web\General\ShortLinkController::class, 'redirect'])
+    ->name('short-link.redirect');
+
 Route::controller(\App\Http\Controllers\Web\General\BlogController::class)
     ->prefix('/blog')
     ->group(function () {

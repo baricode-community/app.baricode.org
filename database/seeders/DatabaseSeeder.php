@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             \Database\Seeders\LMS\CourseCategorySeeder::class,
             TimelineSeeder::class,
             \Database\Seeders\Quiz\QuizSeeder::class,
+            ShortLinkSeeder::class,
         ]);
     }
 }
