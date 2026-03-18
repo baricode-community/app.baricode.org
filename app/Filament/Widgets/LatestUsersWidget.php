@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Filament\Resources\Users\UserResource;
 use App\Models\User;
+use Filament\Actions\Action;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
@@ -62,7 +63,7 @@ class LatestUsersWidget extends BaseWidget
                     ->color('gray'),
             ])
             ->actions([
-                Tables\Actions\Action::make('edit')
+                Action::make('edit')
                     ->label('Edit')
                     ->icon('heroicon-m-pencil-square')
                     ->url(fn (User $record): string => UserResource::getUrl('edit', ['record' => $record]))
