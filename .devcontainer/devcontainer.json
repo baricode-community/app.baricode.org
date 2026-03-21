@@ -1,0 +1,66 @@
+{
+    "name": "Baricode Dev Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+
+    // VS Code extensions untuk Laravel + Livewire development
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "MehediDracula.php-namespace-resolver",
+                "onecentlin.laravel-blade",
+                "amiralizadeh9480.laravel-extra-intellisense",
+                "ryannaddy.laravel-artisan",
+                "mikestead.dotenv",
+                "EditorConfig.EditorConfig",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "cweijan.vscode-database-client2",
+                "ms-azuretools.vscode-docker",
+                "GitHub.copilot"
+            ],
+            "settings": {
+                "php.validate.executablePath": "/usr/local/bin/php",
+                "intelephense.environment.phpVersion": "8.4.0",
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[php]": {
+                    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+                },
+                "tailwindCSS.includeLanguages": {
+                    "blade": "html"
+                },
+                "files.associations": {
+                    "*.blade.php": "blade"
+                },
+                "emmet.includeLanguages": {
+                    "blade": "html"
+                }
+            }
+        }
+    },
+
+    // Forward semua port yang dibutuhkan aplikasi
+    "forwardPorts": [
+        8000, // Laravel serve
+        5173, // Vite dev server
+        8080, // Laravel Reverb (WebSocket)
+        3306, // MySQL
+        6379 // Redis
+    ],
+    "portsAttributes": {
+        "8000": { "label": "Laravel App", "onAutoForward": "openBrowser" },
+        "5173": { "label": "Vite Dev Server", "onAutoForward": "silent" },
+        "8080": { "label": "Reverb WebSocket", "onAutoForward": "silent" },
+        "3306": { "label": "MySQL", "onAutoForward": "silent" },
+        "6379": { "label": "Redis", "onAutoForward": "silent" }
+    },
+
+    // Setup otomatis setelah container dibuat
+    "postCreateCommand": "bash .devcontainer/setup.sh",
+
+    "remoteUser": "vscode"
+}
