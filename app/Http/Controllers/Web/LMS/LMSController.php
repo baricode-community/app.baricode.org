@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Web\LMS;
 
+use App\Enums\LMS\EnrollmentStatus;
 use App\Http\Controllers\Controller;
+use App\Models\LMS\CategoryProgress;
 use App\Models\LMS\Course;
 use App\Models\LMS\CourseCategory;
+use App\Models\LMS\Enrollment;
 use App\Models\LMS\Lesson;
+use App\Models\LMS\LessonProgress;
 use Illuminate\Http\Request;
 
 class LMSController extends Controller
@@ -18,7 +22,6 @@ class LMSController extends Controller
         }])
             ->where('is_published', true)
             ->take(25)
-            // ->inRandomOrder()
             ->get();
 
         return view('pages.lms.index', compact('user', 'courses'));
@@ -35,12 +38,27 @@ class LMSController extends Controller
             }])
             ->get();
 
-        return view('pages.lms.course', compact('user', 'course', 'categories'));
+        $enrollment = null;
+        $categoryProgressMap = collect();
+
+        if ($user) {
+            $enrollment = Enrollment::where('user_id', $user->id)
+                ->where('course_id', $course->id)
+                ->first();
+
+            if ($enrollment && $enrollment->isActive()) {
+                $categoryProgressMap = CategoryProgress::where('enrollment_id', $enrollment->id)
+                    ->whereIn('category_id', $categories->pluck('id'))
+                    ->get()
+                    ->keyBy('category_id');
+            }
+        }
+
+        return view('pages.lms.course', compact('user', 'course', 'categories', 'enrollment', 'categoryProgressMap'));
     }
 
     public function category(CourseCategory $category)
     {
-        // Check if category is published
         if (! $category->is_published) {
             abort(404);
         }
@@ -48,18 +66,41 @@ class LMSController extends Controller
         $user = auth()->user();
         $course = $category->course;
 
-        // Get lessons for this category
         $lessons = $category->lessons()
             ->where('is_published', true)
             ->orderBy('order')
             ->get();
 
-        return view('pages.lms.category', compact('user', 'category', 'course', 'lessons'));
+        $enrollment = null;
+        $categoryProgress = null;
+        $lessonProgressMap = collect();
+
+        if ($user) {
+            $enrollment = Enrollment::where('user_id', $user->id)
+                ->where('course_id', $course->id)
+                ->where('status', EnrollmentStatus::Active->value)
+                ->first();
+
+            if ($enrollment) {
+                $categoryProgress = CategoryProgress::where('enrollment_id', $enrollment->id)
+                    ->where('category_id', $category->id)
+                    ->first();
+
+                $lessonProgressMap = LessonProgress::where('enrollment_id', $enrollment->id)
+                    ->whereIn('lesson_id', $lessons->pluck('id'))
+                    ->get()
+                    ->keyBy('lesson_id');
+            }
+        }
+
+        return view('pages.lms.category', compact(
+            'user', 'category', 'course', 'lessons',
+            'enrollment', 'categoryProgress', 'lessonProgressMap'
+        ));
     }
 
     public function lesson(Lesson $lesson)
     {
-        // Check if lesson is published
         if (! $lesson->is_published) {
             abort(404);
         }
@@ -68,13 +109,11 @@ class LMSController extends Controller
         $category = $lesson->category;
         $course = $category->course;
 
-        // Get youtube videos for this lesson
         $youtubeVideos = $lesson->youtubeVideos()
             ->where('is_published', true)
             ->orderBy('order')
             ->get();
 
-        // Get previous and next lessons
         $prevLesson = Lesson::where('category_id', $lesson->category_id)
             ->where('order', '<', $lesson->order)
             ->where('is_published', true)
@@ -87,7 +126,33 @@ class LMSController extends Controller
             ->orderBy('order')
             ->first();
 
-        return view('pages.lms.lesson', compact('user', 'lesson', 'category', 'course', 'youtubeVideos', 'prevLesson', 'nextLesson'));
+        $enrollment = null;
+        $lessonProgress = null;
+        $isCategoryLocked = false;
+
+        if ($user) {
+            $enrollment = Enrollment::where('user_id', $user->id)
+                ->where('course_id', $course->id)
+                ->where('status', EnrollmentStatus::Active->value)
+                ->first();
+
+            if ($enrollment) {
+                $lessonProgress = LessonProgress::where('enrollment_id', $enrollment->id)
+                    ->where('lesson_id', $lesson->id)
+                    ->first();
+
+                $catProgress = CategoryProgress::where('enrollment_id', $enrollment->id)
+                    ->where('category_id', $lesson->category_id)
+                    ->first();
+
+                $isCategoryLocked = $catProgress && $catProgress->isLocked();
+            }
+        }
+
+        return view('pages.lms.lesson', compact(
+            'user', 'lesson', 'category', 'course', 'youtubeVideos',
+            'prevLesson', 'nextLesson', 'enrollment', 'lessonProgress', 'isCategoryLocked'
+        ));
     }
 
     public function allCourses(Request $request)
@@ -99,7 +164,6 @@ class LMSController extends Controller
             $query->where('is_published', true)->orderBy('order');
         }])->where('is_published', true);
 
-        // Search functionality
         if ($search) {
             $coursesQuery->where(function ($query) use ($search) {
                 $query->where('title', 'like', "%{$search}%")
@@ -107,7 +171,6 @@ class LMSController extends Controller
             });
         }
 
-        // Pagination with 12 courses per page
         $courses = $coursesQuery->paginate(12);
 
         return view('pages.lms.all-courses', compact('user', 'courses', 'search'));

@@ -47,4 +47,12 @@ class Lesson extends Model
     {
         return $this->hasMany(YoutubeList::class, 'lesson_id')->orderBy('order');
     }
+
+    /**
+     * Get lesson progress records for this lesson.
+     */
+    public function lessonProgress(): HasMany
+    {
+        return $this->hasMany(LessonProgress::class);
+    }
 }

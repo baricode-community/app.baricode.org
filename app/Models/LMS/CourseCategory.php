@@ -49,6 +49,14 @@ class CourseCategory extends Model
     }
 
     /**
+     * Get category progress records for this category.
+     */
+    public function categoryProgress(): HasMany
+    {
+        return $this->hasMany(CategoryProgress::class, 'category_id');
+    }
+
+    /**
      * Get the route key for model binding.
      */
     public function getRouteKeyName(): string

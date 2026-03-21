@@ -13,11 +13,62 @@
                 <!-- Judul Pelajaran dan Metadata -->
                 <div class="bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 p-6 mb-6">
                     <div class="flex items-start justify-between mb-4">
-                        <div>
+                        <div class="flex-1">
                             <h1 class="text-3xl font-bold text-white">{{ $lesson->title }}</h1>
                             <p class="text-purple-300 mt-2">{{ $lesson->description }}</p>
                         </div>
+
+                        {{-- Lesson completion toggle --}}
+                        @if($enrollment)
+                            <div class="ml-4 flex-shrink-0">
+                                @if($isCategoryLocked)
+                                    <div class="flex items-center gap-2 px-4 py-2 rounded-lg
+                                        {{ $lessonProgress && $lessonProgress->is_completed ? 'bg-green-500/20 text-green-300 border border-green-500/30' : 'bg-white/5 text-purple-500 border border-purple-500/20' }}">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span class="text-sm font-medium">
+                                            {{ ($lessonProgress && $lessonProgress->is_completed) ? 'Selesai (Terkunci)' : 'Terkunci' }}
+                                        </span>
+                                    </div>
+                                @else
+                                    <form method="POST" action="{{ route('lms.lesson.progress.toggle', $lesson) }}">
+                                        @csrf
+                                        @php $done = $lessonProgress && $lessonProgress->is_completed; @endphp
+                                        <button type="submit"
+                                            class="flex items-center gap-2 px-4 py-2 rounded-lg border transition font-medium text-sm
+                                                {{ $done
+                                                    ? 'bg-green-600/30 border-green-500/60 text-green-300 hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-300'
+                                                    : 'bg-white/5 border-purple-500/30 text-purple-400 hover:bg-green-600/20 hover:border-green-500/40 hover:text-green-300' }}">
+                                            @if($done)
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                                </svg>
+                                                Selesai
+                                            @else
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Tandai Selesai
+                                            @endif
+                                        </button>
+                                    </form>
+                                @endif
+                            </div>
+                        @endif
                     </div>
+
+                    {{-- Flash messages --}}
+                    @if(session('success'))
+                        <div class="mt-2 px-3 py-2 bg-green-500/20 border border-green-500/40 rounded text-green-300 text-sm">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if(session('error'))
+                        <div class="mt-2 px-3 py-2 bg-red-500/20 border border-red-500/40 rounded text-red-300 text-sm">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 </div>
 
                 <!-- Bagian Video -->

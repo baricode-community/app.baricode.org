@@ -33,4 +33,12 @@ class Course extends Model
     {
         return $this->hasMany(CourseCategory::class, 'course_id')->orderBy('order');
     }
+
+    /**
+     * Get the enrollments for this course.
+     */
+    public function enrollments(): HasMany
+    {
+        return $this->hasMany(Enrollment::class);
+    }
 }

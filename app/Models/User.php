@@ -3,8 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\LMS\EnrollmentStatus;
 use App\Models\Fun\Meme;
 use App\Models\Fun\MemeVote;
+use App\Models\LMS\Enrollment;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -113,8 +115,28 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(DailyCommitTracker::class);
     }
 
+    /**
+     * Get the enrollments for this user.
+     */
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
+    /**
+     * Get active enrollments for this user.
+     */
+    public function activeEnrollments()
+    {
+        return $this->hasMany(Enrollment::class)
+            ->whereIn('status', [EnrollmentStatus::Active->value, EnrollmentStatus::Pending->value]);
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
-        return $panel->getId() === 'admin' && $this->hasRole('admin');
+        return match ($panel->getId()) {
+            'admin', 'admin-lms' => $this->hasRole('admin'),
+            default => false,
+        };
     }
 }

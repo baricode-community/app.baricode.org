@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /workspace/app/Filament/AdminLms -type f -name *.php)",
+      "Bash(xargs cat:*)",
+      "Bash(grep -r admin-lms /workspace --include=*.php -l)",
+      "Bash(php artisan:*)",
+      "Bash(php -l app/Services/LMS/EnrollmentService.php app/Models/LMS/Enrollment.php app/Models/LMS/CategoryProgress.php app/Models/LMS/LessonProgress.php app/Filament/AdminLms/Resources/EnrollmentResource/Tables/EnrollmentTable.php app/Filament/AdminLms/Resources/CategoryProgressResource/Tables/CategoryProgressTable.php)"
+    ]
+  }
+}
