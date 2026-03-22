@@ -21,11 +21,12 @@ class EnrollmentService
      */
     public function enroll(User $user, Course $course): Enrollment
     {
-        // Count active + pending enrollments
+        // Count active + pending + unenroll-requested enrollments
         $activeCount = Enrollment::where('user_id', $user->id)
             ->whereIn('status', [
                 EnrollmentStatus::Active->value,
                 EnrollmentStatus::Pending->value,
+                EnrollmentStatus::UnenrollRequested->value,
             ])
             ->count();
 
