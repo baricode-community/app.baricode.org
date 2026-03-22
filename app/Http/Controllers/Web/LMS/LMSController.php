@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web\LMS;
 
+use App\Enums\LMS\CategoryProgressStatus;
 use App\Enums\LMS\EnrollmentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\LMS\CategoryProgress;
@@ -24,7 +25,22 @@ class LMSController extends Controller
             ->take(25)
             ->get();
 
-        return view('pages.lms.index', compact('user', 'courses'));
+        $activeEnrollments = collect();
+        if ($user) {
+            $activeEnrollments = Enrollment::where('user_id', $user->id)
+                ->where('status', EnrollmentStatus::Active->value)
+                ->with([
+                    'course.categories' => function ($query) {
+                        $query->where('is_published', true);
+                    },
+                    'categoryProgress' => function ($query) {
+                        $query->where('status', CategoryProgressStatus::Approved->value);
+                    },
+                ])
+                ->get();
+        }
+
+        return view('pages.lms.index', compact('user', 'courses', 'activeEnrollments'));
     }
 
     public function course(Course $course)
