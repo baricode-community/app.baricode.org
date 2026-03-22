@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\AdminLms\Resources\EnrollmentResource\Pages;
+namespace App\Filament\Resources\EnrollmentResource\Pages;
 
-use App\Filament\AdminLms\Resources\EnrollmentResource;
+use App\Filament\Resources\EnrollmentResource;
 use Filament\Resources\Pages\ListRecords;
 
 class ListEnrollments extends ListRecords

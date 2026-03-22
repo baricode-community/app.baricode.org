@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\AdminLms\Resources;
+namespace App\Filament\Resources;
 
-use App\Filament\AdminLms\Resources\EnrollmentResource\Pages\ListEnrollments;
-use App\Filament\AdminLms\Resources\EnrollmentResource\Tables\EnrollmentTable;
+use App\Filament\Resources\EnrollmentResource\Pages\ListEnrollments;
+use App\Filament\Resources\EnrollmentResource\Tables\EnrollmentTable;
 use App\Models\LMS\Enrollment;
 use BackedEnum;
 use Filament\Resources\Resource;

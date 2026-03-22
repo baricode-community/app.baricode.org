@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\AdminLms\Resources\EnrollmentResource\Tables;
+namespace App\Filament\Resources\EnrollmentResource\Tables;
 
 use App\Enums\LMS\EnrollmentStatus;
 use App\Models\LMS\Enrollment;

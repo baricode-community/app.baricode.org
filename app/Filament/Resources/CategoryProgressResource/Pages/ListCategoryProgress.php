@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\AdminLms\Resources\CategoryProgressResource\Pages;
+namespace App\Filament\Resources\CategoryProgressResource\Pages;
 
-use App\Filament\AdminLms\Resources\CategoryProgressResource;
+use App\Filament\Resources\CategoryProgressResource;
 use Filament\Resources\Pages\ListRecords;
 
 class ListCategoryProgress extends ListRecords

@@ -8,7 +8,6 @@ use App\Providers\VoltServiceProvider;
 return [
     AppServiceProvider::class,
     AdminPanelProvider::class,
-    App\Providers\Filament\AdminLmsPanelProvider::class,
     FortifyServiceProvider::class,
     VoltServiceProvider::class,
 ];

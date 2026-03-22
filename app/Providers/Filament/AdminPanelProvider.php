@@ -60,6 +60,7 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make('Content'),
                 NavigationGroup::make('Learning'),
                 NavigationGroup::make('Quiz'),
+                NavigationGroup::make('Enrollment'),
                 NavigationGroup::make('Utilities'),
             ])
             ->authMiddleware([

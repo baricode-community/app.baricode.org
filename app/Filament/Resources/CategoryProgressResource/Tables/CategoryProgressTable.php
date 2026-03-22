@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\AdminLms\Resources\CategoryProgressResource\Tables;
+namespace App\Filament\Resources\CategoryProgressResource\Tables;
 
 use App\Enums\LMS\CategoryProgressStatus;
 use App\Models\LMS\CategoryProgress;

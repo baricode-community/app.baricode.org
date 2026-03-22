@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\AdminLms\Resources;
+namespace App\Filament\Resources;
 
-use App\Filament\AdminLms\Resources\CategoryProgressResource\Pages\ListCategoryProgress;
-use App\Filament\AdminLms\Resources\CategoryProgressResource\Tables\CategoryProgressTable;
+use App\Filament\Resources\CategoryProgressResource\Pages\ListCategoryProgress;
+use App\Filament\Resources\CategoryProgressResource\Tables\CategoryProgressTable;
 use App\Models\LMS\CategoryProgress;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -19,7 +19,7 @@ class CategoryProgressResource extends Resource
 
     protected static BackedEnum|string|null $navigationIcon = Heroicon::OutlinedCheckCircle;
 
-    protected static UnitEnum|string|null $navigationGroup = 'Progress';
+    protected static UnitEnum|string|null $navigationGroup = 'Enrollment';
 
     protected static ?string $navigationLabel = 'Category Progress';
 
