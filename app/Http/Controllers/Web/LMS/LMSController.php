@@ -25,22 +25,33 @@ class LMSController extends Controller
             ->take(25)
             ->get();
 
+        $pendingEnrollments = collect();
         $activeEnrollments = collect();
+
         if ($user) {
+            $pendingEnrollments = Enrollment::where('user_id', $user->id)
+                ->where('status', EnrollmentStatus::Pending->value)
+                ->with('course')
+                ->get();
+
             $activeEnrollments = Enrollment::where('user_id', $user->id)
                 ->where('status', EnrollmentStatus::Active->value)
                 ->with([
                     'course.categories' => function ($query) {
-                        $query->where('is_published', true);
+                        $query->where('is_published', true)
+                            ->with(['lessons' => function ($q) {
+                                $q->where('is_published', true)->select('id', 'category_id');
+                            }]);
                     },
-                    'categoryProgress' => function ($query) {
-                        $query->where('status', CategoryProgressStatus::Approved->value);
+                    'categoryProgress',
+                    'lessonProgress' => function ($query) {
+                        $query->where('is_completed', true)->select('enrollment_id', 'lesson_id');
                     },
                 ])
                 ->get();
         }
 
-        return view('pages.lms.index', compact('user', 'courses', 'activeEnrollments'));
+        return view('pages.lms.index', compact('user', 'courses', 'pendingEnrollments', 'activeEnrollments'));
     }
 
     public function course(Course $course)
