@@ -3,6 +3,7 @@
 namespace App\Filament\AdminLms\Resources\EnrollmentResource\Tables;
 
 use App\Enums\LMS\EnrollmentStatus;
+use App\Models\LMS\Enrollment;
 use App\Services\LMS\EnrollmentService;
 use Filament\Actions\Action;
 use Filament\Tables\Columns\BadgeColumn;
