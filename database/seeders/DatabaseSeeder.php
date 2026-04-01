@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
             QuizSeeder::class,
             ShortLinkSeeder::class,
             RepoHubSeeder::class,
+            CheatSheetSeeder::class,
         ]);
     }
 }

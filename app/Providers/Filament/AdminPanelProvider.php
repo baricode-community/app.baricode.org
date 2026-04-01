@@ -58,6 +58,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 NavigationGroup::make('Community'),
                 NavigationGroup::make('Content'),
+                NavigationGroup::make('Fun'),
                 NavigationGroup::make('Learning'),
                 NavigationGroup::make('Quiz'),
                 NavigationGroup::make('Enrollment'),

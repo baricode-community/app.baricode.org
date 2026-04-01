@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\General\BlogController;
 use App\Http\Controllers\Web\General\DashboardController;
 use App\Http\Controllers\Web\General\FamilyController;
 use App\Http\Controllers\Web\General\HomeController;
+use App\Http\Controllers\Web\General\CheatSheetController;
 use App\Http\Controllers\Web\General\HowToLearnController;
 use App\Http\Controllers\Web\General\RepoHubController;
 use App\Http\Controllers\Web\General\ShortLinkController;
@@ -72,3 +73,22 @@ Route::controller(FamilyController::class)
     });
 
 Route::get('/cara-belajar-di-baricode', [HowToLearnController::class, 'index'])->name('how-to-learn');
+
+Route::controller(CheatSheetController::class)
+    ->prefix('/cheatsheet')
+    ->group(function () {
+        Route::get('/', 'index')->name('cheatsheet.index');
+
+        Route::middleware(['auth', 'verified'])->group(function () {
+            Route::get('/create', 'create')->name('cheatsheet.create');
+            Route::post('/', 'store')->name('cheatsheet.store');
+        });
+
+        Route::get('/{cheatSheet}', 'show')->name('cheatsheet.show');
+
+        Route::middleware(['auth', 'verified'])->group(function () {
+            Route::get('/{cheatSheet}/edit', 'edit')->name('cheatsheet.edit');
+            Route::put('/{cheatSheet}', 'update')->name('cheatsheet.update');
+            Route::delete('/{cheatSheet}', 'destroy')->name('cheatsheet.destroy');
+        });
+    });

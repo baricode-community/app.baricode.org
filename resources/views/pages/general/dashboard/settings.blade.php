@@ -113,7 +113,7 @@
                     </p>
 
                     <div class="space-y-4">
-                        <a href="{{ route('profile', auth()->user()->username) }}"
+                        <a href="{{ route('profile.edit') }}"
                             class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-xl border border-violet-500/20 hover:border-violet-500/60 transition-all hover:shadow-xl hover:shadow-violet-500/20 group">
                             <div class="flex items-center gap-4">
                                 <div

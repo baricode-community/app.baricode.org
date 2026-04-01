@@ -63,6 +63,22 @@ class Meme extends Model
     }
 
     /**
+     * Relasi upvotes
+     */
+    public function upvotes()
+    {
+        return $this->hasMany(MemeVote::class)->where('vote_type', 'up');
+    }
+
+    /**
+     * Relasi downvotes
+     */
+    public function downvotes()
+    {
+        return $this->hasMany(MemeVote::class)->where('vote_type', 'down');
+    }
+
+    /**
      * Get upvotes count
      */
     public function upvotesCount()
