@@ -652,5 +652,115 @@
                 </div>
             </div>
         </section>
+
+        <!-- Astraloka Community Section -->
+        <section class="py-20 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-br from-green-600/20 via-emerald-600/20 to-teal-600/20 backdrop-blur-xl rounded-3xl p-8 md:p-16 border border-green-500/30 overflow-hidden relative">
+                    <!-- Background decorations -->
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-green-500/10 to-transparent rounded-full blur-3xl -mr-48 -mt-48"></div>
+                    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-500/10 to-transparent rounded-full blur-3xl -ml-48 -mb-48"></div>
+
+                    <div class="relative z-10">
+                        <!-- Header -->
+                        <div class="text-center mb-12">
+                            <span class="inline-block px-4 py-2 bg-green-500/20 border border-green-400/40 rounded-full text-green-300 font-semibold text-sm mb-6">
+                                🌱 Komunitas Saudara
+                            </span>
+                            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                                Astraloka
+                            </h2>
+                            <p class="text-2xl font-bold text-gray-100 mb-2">Membangun Kesadaran Lingkungan Bersama</p>
+                            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                                Mendorong Perubahan untuk Lingkungan yang Lebih Baik
+                            </p>
+                        </div>
+
+                        <!-- Feature Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 hover:bg-white/10 transition-all">
+                                <div class="text-4xl mb-4">🎓</div>
+                                <h3 class="font-bold text-lg mb-2">Edukasi Lingkungan</h3>
+                                <p class="text-sm text-gray-300">Program edukasi yang mengajarkan masyarakat tentang dampak limbah dan cara-cara efektif untuk mengelolanya melalui konten digital.</p>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 hover:bg-white/10 transition-all">
+                                <div class="text-4xl mb-4">🚀</div>
+                                <h3 class="font-bold text-lg mb-2">Bergabunglah Dengan Kami</h3>
+                                <p class="text-sm text-gray-300">Komunitas baru yang bersemangat membangun kesadaran lingkungan. Mari berkontribusi bersama dalam perjalanan menuju masa depan yang lebih hijau.</p>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 hover:bg-white/10 transition-all">
+                                <div class="text-4xl mb-4">🌱</div>
+                                <h3 class="font-bold text-lg mb-2">Inisiatif Pribadi</h3>
+                                <p class="text-sm text-gray-300">Tindakan nyata dari tim kami untuk memulai gerakan lingkungan dan memberikan contoh nyata kepada masyarakat.</p>
+                            </div>
+                        </div>
+
+                        <!-- Why Choose Us -->
+                        <div class="mb-12">
+                            <h3 class="text-2xl font-bold text-center mb-8 text-gray-100">Mengapa Memilih Kami?</h3>
+                            <p class="text-center text-gray-300 mb-8">Komitmen kami untuk pendidikan dan masyarakat adalah landasan dari setiap program yang kami jalankan.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-emerald-500/20 text-center hover:bg-white/10 transition-all">
+                                    <div class="text-4xl mb-3">🔥</div>
+                                    <h4 class="font-bold mb-2">Inisiatif Pribadi</h4>
+                                    <p class="text-sm text-gray-300">Semangat tinggi dari setiap anggota tim untuk menciptakan perubahan nyata dan menginspirasi masyarakat luas.</p>
+                                </div>
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-emerald-500/20 text-center hover:bg-white/10 transition-all">
+                                    <div class="text-4xl mb-3">💡</div>
+                                    <h4 class="font-bold mb-2">Program Inovatif</h4>
+                                    <p class="text-sm text-gray-300">Solusi kreatif dan berbasis riset untuk tantangan lingkungan yang kompleks.</p>
+                                </div>
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-emerald-500/20 text-center hover:bg-white/10 transition-all">
+                                    <div class="text-4xl mb-3">🌍</div>
+                                    <h4 class="font-bold mb-2">Dampak Nyata</h4>
+                                    <p class="text-sm text-gray-300">Hasil nyata walau sedikit yang memberikan perubahan positif bagi lingkungan dan masyarakat.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About + Stats -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4 text-gray-100">Tentang Kami</h3>
+                                <p class="text-gray-300 mb-4">Astraloka adalah komunitas yang berdedikasi untuk meningkatkan kesadaran lingkungan dan mendorong tindakan nyata dalam pengelolaan lingkungan yang berkelanjutan.</p>
+                                <p class="text-gray-300 mb-6">Kami percaya bahwa perubahan dimulai dari kesadaran individu. Melalui program edukasi dan inisiatif komunitas, kami bekerja untuk menciptakan dampak positif bagi lingkungan.</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center gap-2 text-green-300"><span class="text-green-400 font-bold">✓</span> Program edukasi berbasis digital</li>
+                                    <li class="flex items-center gap-2 text-green-300"><span class="text-green-400 font-bold">✓</span> Komunitas aktif dan peduli lingkungan</li>
+                                    <li class="flex items-center gap-2 text-green-300"><span class="text-green-400 font-bold">✓</span> Inisiatif nyata dengan transparansi penuh</li>
+                                </ul>
+                            </div>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 text-center">
+                                    <div class="text-3xl font-extrabold text-green-400 mb-2">100%</div>
+                                    <p class="text-sm text-gray-300">Komitmen terhadap Lingkungan</p>
+                                </div>
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 text-center">
+                                    <div class="text-3xl font-extrabold text-emerald-400 mb-2">∞</div>
+                                    <p class="text-sm text-gray-300">Potensi Dampak Positif</p>
+                                </div>
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 text-center">
+                                    <div class="text-3xl font-extrabold text-teal-400 mb-2">1</div>
+                                    <p class="text-sm text-gray-300">Misi Bersama: Bumi yang Lebih Hijau</p>
+                                </div>
+                                <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 text-center">
+                                    <div class="text-3xl font-extrabold text-green-300 mb-2">Anda</div>
+                                    <p class="text-sm text-gray-300">Bagian Penting dari Gerakan Kami</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="text-center">
+                            <a href="https://astraloka.my.id" target="_blank" rel="noopener noreferrer"
+                                class="inline-block px-10 py-4 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-full font-bold text-lg shadow-lg hover:shadow-green-500/40 transition-all transform hover:scale-105 ring-2 ring-green-400/30 hover:ring-4 hover:ring-emerald-400/40">
+                                🌍 Kunjungi Astraloka
+                            </a>
+                            <p class="text-sm text-gray-400 mt-4">Bersama Barizaloka, kami membangun ekosistem komunitas yang lebih baik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </x-layouts.base>
