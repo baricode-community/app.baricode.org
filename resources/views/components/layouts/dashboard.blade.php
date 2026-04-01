@@ -9,8 +9,9 @@
     <!-- Navbar -->
     <nav class="bg-purple-900 dark:bg-gray-900 border-b border-purple-700 dark:border-white/10">
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-            <div class="flex items-center">
-                <a href="{{ route('dashboard') }}" class="text-xl font-bold text-white dark:text-white">Baricode Community</a>
+            <div class="flex items-center gap-6">
+                <a href="{{ route('lms.index') }}" class="text-xl font-bold text-white dark:text-white">Baricode Community</a>
+                <a href="{{ route('dashboard') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors">Dashboard</a>
             </div>
         </div>
     </nav>
