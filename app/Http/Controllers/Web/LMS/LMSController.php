@@ -7,6 +7,7 @@ use App\Enums\LMS\EnrollmentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\LMS\CategoryProgress;
 use App\Models\LMS\Course;
+use App\Models\LMS\HowToLearn;
 use App\Models\LMS\CourseCategory;
 use App\Models\LMS\Enrollment;
 use App\Models\LMS\Lesson;
@@ -81,7 +82,11 @@ class LMSController extends Controller
             }
         }
 
-        return view('pages.lms.course', compact('user', 'course', 'categories', 'enrollment', 'categoryProgressMap'));
+        $howToLearns = $course->howToLearns()
+            ->where('is_active', true)
+            ->get();
+
+        return view('pages.lms.course', compact('user', 'course', 'categories', 'enrollment', 'categoryProgressMap', 'howToLearns'));
     }
 
     public function category(CourseCategory $category)

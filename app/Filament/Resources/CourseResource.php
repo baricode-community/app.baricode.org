@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CourseResource\Pages\CreateCourse;
 use App\Filament\Resources\CourseResource\Pages\EditCourse;
 use App\Filament\Resources\CourseResource\Pages\ListCourses;
+use App\Filament\Resources\CourseResource\RelationManagers\HowToLearnsRelationManager;
 use App\Filament\Resources\CourseResource\Schemas\CourseForm;
 use App\Filament\Resources\CourseResource\Tables\CoursesTable;
 use App\Models\LMS\Course;
@@ -40,7 +41,7 @@ class CourseResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            HowToLearnsRelationManager::class,
         ];
     }
 

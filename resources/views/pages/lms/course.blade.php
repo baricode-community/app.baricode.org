@@ -135,6 +135,73 @@
             </div>
         @endauth
 
+        <!-- How To Learn Guides -->
+        @if($howToLearns->isNotEmpty())
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    Panduan Belajar
+                </h2>
+
+                <div class="grid gap-4">
+                    @foreach($howToLearns as $guide)
+                        <div x-data="{ open: false }"
+                             class="bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 overflow-hidden">
+
+                            {{-- Header (clickable toggle) --}}
+                            <button type="button"
+                                @click="open = !open"
+                                class="w-full flex items-start justify-between px-6 py-4 text-left hover:bg-purple-500/10 transition">
+                                <div class="flex-1 pr-4">
+                                    <h3 class="text-lg font-semibold text-white">{{ $guide->title }}</h3>
+                                    @if($guide->description)
+                                        <p class="text-purple-400 text-sm mt-1">{{ $guide->description }}</p>
+                                    @endif
+                                </div>
+                                <svg class="w-5 h-5 text-purple-400 flex-shrink-0 mt-1 transition-transform duration-200"
+                                     :class="open ? 'rotate-180' : ''"
+                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            {{-- Markdown content (collapsible) --}}
+                            <div x-show="open"
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 -translate-y-2"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 translate-y-0"
+                                 x-transition:leave-end="opacity-0 -translate-y-2"
+                                 class="border-t border-purple-500/20 px-6 py-5">
+                                <div class="prose prose-invert prose-purple max-w-none
+                                            prose-headings:text-white prose-headings:font-bold
+                                            prose-h2:text-xl prose-h3:text-lg
+                                            prose-p:text-purple-200 prose-p:leading-relaxed
+                                            prose-a:text-purple-400 prose-a:no-underline hover:prose-a:text-purple-300
+                                            prose-strong:text-white
+                                            prose-code:text-purple-300 prose-code:bg-purple-900/40 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono
+                                            prose-pre:bg-gray-900/80 prose-pre:border prose-pre:border-purple-500/20 prose-pre:rounded-lg
+                                            prose-blockquote:border-l-purple-500 prose-blockquote:text-purple-300 prose-blockquote:bg-purple-900/20 prose-blockquote:rounded-r-lg prose-blockquote:py-1
+                                            prose-ul:text-purple-200 prose-ol:text-purple-200
+                                            prose-li:marker:text-purple-400
+                                            prose-hr:border-purple-500/30
+                                            prose-table:text-purple-200 prose-th:text-white prose-th:border-purple-500/30 prose-td:border-purple-500/20">
+                                    {!! \Illuminate\Support\Str::markdown($guide->content, [
+                                        'html_input'         => 'strip',
+                                        'allow_unsafe_links' => false,
+                                    ]) !!}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
         <!-- Categories and Lessons -->
         <div class="grid gap-6">
             @forelse($categories as $category)

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserMeet;
 use Database\Seeders\LMS\CourseCategorySeeder;
 use Database\Seeders\LMS\CourseSeeder;
+use Database\Seeders\LMS\HowToLearnSeeder;
 use Database\Seeders\Quiz\QuizSeeder;
 use Database\Seeders\RepoHub\RepoHubSeeder;
 use Illuminate\Database\Seeder;
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
             DailyCommitTrackerSeeder::class,
             CourseSeeder::class,
             CourseCategorySeeder::class,
+            HowToLearnSeeder::class,
             TimelineSeeder::class,
             QuizSeeder::class,
             ShortLinkSeeder::class,

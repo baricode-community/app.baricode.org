@@ -5,6 +5,7 @@ namespace App\Models\LMS;
 use Database\Factories\LMS\CourseFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
@@ -40,5 +41,13 @@ class Course extends Model
     public function enrollments(): HasMany
     {
         return $this->hasMany(Enrollment::class);
+    }
+
+    /**
+     * Get the how-to-learn guides for this course.
+     */
+    public function howToLearns(): BelongsToMany
+    {
+        return $this->belongsToMany(HowToLearn::class, 'course_how_to_learn');
     }
 }
