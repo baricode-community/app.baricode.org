@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\General\TimelineController;
+use App\Http\Controllers\Api\LMS\CourseController;
 use App\MCP\PlatformMcpServer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,14 @@ Route::get('/user', function (Request $request) {
 
 // MCP Server
 Mcp::web('/mcp', PlatformMcpServer::class);
+
+// LMS Routes
+Route::controller(CourseController::class)
+    ->prefix('courses')
+    ->group(function () {
+        Route::get('/', 'index');
+        Route::get('/{course}', 'show');
+    });
 
 // Timeline Routes
 Route::controller(TimelineController::class)
