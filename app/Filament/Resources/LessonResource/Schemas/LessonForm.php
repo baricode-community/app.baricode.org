@@ -29,6 +29,7 @@ class LessonForm
                 TextInput::make('duration')
                     ->numeric()
                     ->default(0)
+                    ->required()
                     ->helperText('Duration in minutes'),
                 TextInput::make('order')
                     ->numeric()
