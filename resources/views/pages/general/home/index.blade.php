@@ -762,5 +762,121 @@
                 </div>
             </div>
         </section>
+        <!-- FAQ Section -->
+        <section class="py-20 px-4 relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-2 bg-purple-500/20 border border-purple-400/40 rounded-full text-purple-300 font-semibold text-sm mb-6">
+                        ❓ FAQ
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                        Pertanyaan yang Sering Ditanyakan
+                    </h2>
+                    <p class="text-lg text-gray-300">Ada pertanyaan? Kami sudah siapkan jawabannya di sini.</p>
+                </div>
+
+                <div class="space-y-4" x-data="{ open: null }">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 1 ? null : 1"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Apa itu Baricode?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 1 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 1" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Baricode adalah komunitas IT Indonesia yang berfokus pada belajar, berbagi, dan berkolaborasi bersama. Platform kami menyediakan kursus gratis, forum diskusi, tantangan harian, dan berbagai fitur untuk membantu developer berkembang bersama-sama.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 2 ? null : 2"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Apakah Baricode gratis?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 2 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 2" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Ya, 100% gratis! Semua fitur di Baricode tidak berbayar dan tidak ada biaya tersembunyi. Kami percaya bahwa belajar dan berkembang bersama komunitas seharusnya dapat diakses oleh siapa saja tanpa hambatan finansial.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 3 ? null : 3"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Bagaimana cara bergabung dengan Baricode?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 3 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 3" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Cukup klik tombol <strong class="text-purple-300">Gabung Gratis</strong> dan daftarkan akunmu. Kamu bisa mendaftar menggunakan email atau akun Google. Setelah terdaftar, kamu langsung menjadi bagian dari Keluarga Baricode dan bisa menikmati semua fitur yang tersedia.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 4 ? null : 4"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Apa saja fitur yang tersedia di platform ini?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 4 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 4" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Baricode menyediakan berbagai fitur menarik, antara lain:
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex gap-2"><span class="text-purple-400">•</span> <strong>LMS (Learning Management System)</strong> — Kursus dan materi belajar terstruktur</li>
+                                <li class="flex gap-2"><span class="text-purple-400">•</span> <strong>Daily Commit Tracker</strong> — Pantau konsistensi belajar harianmu</li>
+                                <li class="flex gap-2"><span class="text-purple-400">•</span> <strong>RepoHub</strong> — Koleksi repositori GitHub pilihan untuk developer Indonesia</li>
+                                <li class="flex gap-2"><span class="text-purple-400">•</span> <strong>Quiz</strong> — Uji pemahamanmu dengan kuis interaktif</li>
+                                <li class="flex gap-2"><span class="text-purple-400">•</span> <strong>Keluarga Baricode</strong> — Direktori komunitas dan jaringan sesama developer</li>
+                                <li class="flex gap-2"><span class="text-purple-400">•</span> <strong>Blog & Meme</strong> — Konten edukatif dan hiburan dari komunitas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 5 ? null : 5"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Siapa saja yang bisa bergabung?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 5 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 5" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Semua orang yang tertarik dengan dunia IT dan teknologi! Baik kamu yang masih pemula dan baru mulai belajar coding, maupun yang sudah berpengalaman dan ingin berbagi ilmu. Baricode terbuka untuk semua kalangan, dari pelajar, mahasiswa, hingga profesional.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 6 ? null : 6"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Bagaimana cara mulai belajar di Baricode?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 6 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 6" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Setelah mendaftar, kamu bisa langsung mengakses halaman <strong class="text-purple-300">LMS</strong> untuk menemukan kursus yang sesuai dengan levelmu. Kami juga menyediakan panduan lengkap di halaman <a href="{{ route('how-to-learn') }}" class="text-cyan-400 hover:underline">Cara Belajar di Baricode</a> yang menjelaskan langkah-langkah optimal dari awal hingga membangun portfolio.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
+                        <button @click="open = open === 7 ? null : 7"
+                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-lg">
+                            <span>Apakah ada komunitas atau grup diskusi?</span>
+                            <span class="text-purple-400 transition-transform duration-300" :class="open === 7 ? 'rotate-45' : ''">+</span>
+                        </button>
+                        <div x-show="open === 7" x-transition class="px-6 pb-6 text-gray-300 leading-relaxed">
+                            Tentu! Kamu bisa bergabung dengan channel Telegram kami di <strong class="text-cyan-300">@baricode_org</strong> untuk mendapatkan update terbaru, tips coding, dan berdiskusi dengan sesama member. Kami juga aktif di TikTok dengan konten coding yang seru dan menghibur.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <p class="text-gray-400 mb-4">Masih ada pertanyaan lain?</p>
+                    <a href="https://t.me/baricode_org" target="_blank" rel="noopener noreferrer"
+                        class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105">
+                        Hubungi Kami di Telegram
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
 </x-layouts.base>
