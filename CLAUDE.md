@@ -37,11 +37,10 @@ Routes are split by feature domain under `routes/web/`:
 
 ### Admin Panels (Filament v5)
 
-Two separate Filament panels:
+One Filament panel:
 - `/admin` — main admin panel (`app/Filament/`)
-- `/admin-lms` — LMS-specific admin panel (`app/Filament/AdminLms/`)
 
-Each panel has its own `PanelProvider` and `Resources/` directory for CRUD resource definitions.
+Has its own `PanelProvider` and `Resources/` directory for CRUD resource definitions.
 
 ### Model Namespacing
 

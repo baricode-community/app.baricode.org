@@ -8,7 +8,7 @@
                     <p class="text-purple-300">{{ $course->description }}</p>
                 </div>
                 @can('update', $course)
-                    <a href="/admin-lms/courses/{{ $course->id }}/edit"
+                    <a href="/admin/courses/{{ $course->id }}/edit"
                         class="inline-flex items-center px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition font-medium">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -247,7 +247,7 @@
                                     </div>
                                     <div class="ml-4 flex items-center gap-2">
                                         @can('update', $lesson)
-                                            <a href="/admin-lms/lessons/{{ $lesson->id }}/edit"
+                                            <a href="/admin/lessons/{{ $lesson->id }}/edit"
                                                 class="inline-flex items-center px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition font-medium">
                                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
