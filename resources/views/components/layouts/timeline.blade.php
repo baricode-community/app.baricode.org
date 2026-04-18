@@ -9,13 +9,20 @@
     <!-- Navbar -->
     <nav class="bg-purple-900 dark:bg-gray-900 border-b border-purple-700 dark:border-white/10">
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-            <div class="flex items-center">
+            <div class="flex items-center gap-6">
+                <a href="{{ route('home') }}" class="text-xl font-bold text-white dark:text-white">Baricode</a>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="{{ route('timelines.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('timelines.*') ? 'text-white font-medium' : '' }}">Progres Komunitas</a>
+                    <a href="{{ route('family.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors">Keluarga</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
                 @guest
-                    <a href="{{ route('home') }}" class="text-xl font-bold text-white dark:text-white">Progres Komunitas</a>
+                    <a href="{{ route('login') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors">Masuk</a>
                 @endguest
                 @auth
-                    <a href="{{ route('dashboard') }}" class="text-xl font-bold text-white dark:text-white">Progres
-                        Komunitas</a>
+                    <a href="{{ route('dashboard') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors">Dashboard</a>
+                    <span class="text-sm text-purple-200 dark:text-gray-400">{{ auth()->user()->name }}</span>
                 @endauth
             </div>
         </div>

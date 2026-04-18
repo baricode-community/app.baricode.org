@@ -291,10 +291,23 @@
     <!-- Navigation -->
     <nav class="blog-nav">
         <div class="blog-nav-content">
-            <a href="{{ route('blog.index') }}" class="blog-logo">Blog Baricode</a>
+            <a href="{{ route('home') }}" class="blog-logo">Baricode</a>
             <ul class="blog-nav-links">
-                <li><a href="{{ route('blog.index') }}" class="blog-nav-link">Beranda</a></li>
-                <li><a href="{{ route('dashboard') }}" class="blog-nav-link">Dashboard</a></li>
+                <li><a href="{{ route('home') }}" class="blog-nav-link">Beranda</a></li>
+                <li><a href="{{ route('blog.index') }}" class="blog-nav-link">Blog</a></li>
+                <li><a href="{{ route('lms.index') }}" class="blog-nav-link">LMS</a></li>
+                @guest
+                    <li><a href="{{ route('login') }}" class="blog-nav-link">Masuk</a></li>
+                @endguest
+                @auth
+                    <li><a href="{{ route('dashboard') }}" class="blog-nav-link">Dashboard</a></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="blog-nav-link" style="background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;font-weight:inherit;">Keluar</button>
+                        </form>
+                    </li>
+                @endauth
             </ul>
         </div>
     </nav>
