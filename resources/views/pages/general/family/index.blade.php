@@ -48,7 +48,7 @@
                                     {{ $member->name }}
                                 </h3>
                                 <p class="text-gray-400 text-sm mb-3">
-                                    @{{ $member->username }}
+                                    @{{ '@' }}{{ $member->username }}
                                 </p>
 
                                 <!-- Bio -->
