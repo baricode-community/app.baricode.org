@@ -4,8 +4,8 @@
         <div class="mb-8">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <h1 class="text-4xl font-bold text-white mb-2">{{ $course->title }}</h1>
-                    <p class="text-purple-300">{{ $course->description }}</p>
+                    <h1 class="text-2xl font-bold text-white mb-1.5">{{ $course->title }}</h1>
+                    <p class="text-purple-300 text-sm">{{ $course->description }}</p>
                 </div>
                 @can('update', $course)
                     <a href="/admin/courses/{{ $course->id }}/edit"
@@ -138,7 +138,7 @@
         <!-- How To Learn Guides -->
         @if($howToLearns->isNotEmpty())
             <div class="mb-8">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <h2 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
                     <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -156,9 +156,9 @@
                                 @click="open = !open"
                                 class="w-full flex items-start justify-between px-6 py-4 text-left hover:bg-purple-500/10 transition">
                                 <div class="flex-1 pr-4">
-                                    <h3 class="text-lg font-semibold text-white">{{ $guide->title }}</h3>
+                                    <h3 class="text-sm font-semibold text-white">{{ $guide->title }}</h3>
                                     @if($guide->description)
-                                        <p class="text-purple-400 text-sm mt-1">{{ $guide->description }}</p>
+                                        <p class="text-purple-400 text-xs mt-0.5">{{ $guide->description }}</p>
                                     @endif
                                 </div>
                                 <svg class="w-5 h-5 text-purple-400 flex-shrink-0 mt-1 transition-transform duration-200"
@@ -179,7 +179,7 @@
                                  class="border-t border-purple-500/20 px-6 py-5">
                                 <div class="prose prose-invert prose-purple max-w-none
                                             prose-headings:text-white prose-headings:font-bold
-                                            prose-h2:text-xl prose-h3:text-lg
+                                            prose-h2:text-base prose-h3:text-sm
                                             prose-p:text-purple-200 prose-p:leading-relaxed
                                             prose-a:text-purple-400 prose-a:no-underline hover:prose-a:text-purple-300
                                             prose-strong:text-white
@@ -212,7 +212,7 @@
                     <!-- Category Header -->
                     <div class="bg-gradient-to-r from-purple-700 to-indigo-700 px-6 py-4 flex items-center justify-between">
                         <div>
-                            <h2 class="text-xl font-bold text-white">{{ $category->title }}</h2>
+                            <h2 class="text-base font-bold text-white">{{ $category->title }}</h2>
                             @if ($category->description)
                                 <p class="text-purple-200 text-sm mt-1">{{ $category->description }}</p>
                             @endif
@@ -236,7 +236,7 @@
                         @forelse($category->lessons as $lesson)
                             <div class="flex items-center px-6 py-4 hover:bg-purple-500/10 transition group">
                                 <a href="{{ route('lms.lesson', $lesson) }}" class="flex-1 min-w-0">
-                                    <h3 class="text-lg font-semibold text-white group-hover:text-purple-300 transition">
+                                    <h3 class="text-sm font-semibold text-white group-hover:text-purple-300 transition">
                                         {{ $lesson->title }}</h3>
                                     @if ($lesson->description)
                                         <p class="text-purple-400 text-sm mt-1">{{ $lesson->description }}</p>
@@ -273,7 +273,7 @@
                 </div>
             @empty
                 <div class="bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 px-6 py-12 text-center">
-                    <p class="text-purple-300 text-lg">No categories available for this course yet.</p>
+                    <p class="text-purple-300 text-sm">No categories available for this course yet.</p>
                 </div>
             @endforelse
         </div>
