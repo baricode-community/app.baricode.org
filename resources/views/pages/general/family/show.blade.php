@@ -23,9 +23,6 @@
                         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2">
                             {{ $user->name }}
                         </h1>
-                        <p class="text-xl text-gray-300 mb-4">
-                            @{{ $user->username }}
-                        </p>
                         <p class="text-gray-400">
                             Member sejak <span class="font-semibold text-indigo-300">{{ $user->created_at->format('F Y') }}</span>
                         </p>

@@ -47,10 +47,6 @@
                                 <h3 class="text-lg font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors">
                                     {{ $member->name }}
                                 </h3>
-                                <p class="text-gray-400 text-sm mb-3">
-                                    @{{ '@' }}{{ $member->username }}
-                                </p>
-
                                 <!-- Bio -->
                                 <p class="text-gray-300 text-sm line-clamp-2 mb-4">
                                     {{ $member->bio ?? 'Belum ada bio.' }}
