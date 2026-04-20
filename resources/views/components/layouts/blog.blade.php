@@ -254,6 +254,147 @@
             transform: translateY(-2px);
         }
 
+        .blog-article-body {
+            padding: 3rem;
+        }
+
+        .blog-content {
+            color: #e2e8f0;
+            line-height: 1.85;
+            font-size: 1.05rem;
+        }
+
+        .blog-content p {
+            margin: 0 0 1.25rem 0;
+        }
+
+        .blog-content h1,
+        .blog-content h2,
+        .blog-content h3,
+        .blog-content h4,
+        .blog-content h5,
+        .blog-content h6 {
+            color: #f1f5f9;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 2rem 0 0.75rem 0;
+        }
+
+        .blog-content h1 { font-size: 2rem; }
+        .blog-content h2 { font-size: 1.6rem; }
+        .blog-content h3 { font-size: 1.35rem; }
+        .blog-content h4 { font-size: 1.15rem; }
+        .blog-content h5,
+        .blog-content h6 { font-size: 1rem; }
+
+        .blog-content ul,
+        .blog-content ol {
+            margin: 0 0 1.25rem 1.5rem;
+            padding: 0;
+        }
+
+        .blog-content ul { list-style-type: disc; }
+        .blog-content ol { list-style-type: decimal; }
+
+        .blog-content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .blog-content li > ul,
+        .blog-content li > ol {
+            margin-top: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .blog-content blockquote {
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+            border-left: 4px solid #2563eb;
+            background: rgba(37, 99, 235, 0.08);
+            border-radius: 0 8px 8px 0;
+            color: #cbd5e1;
+            font-style: italic;
+        }
+
+        .blog-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .blog-content pre {
+            background: #0f172a;
+            border: 1px solid rgba(37, 99, 235, 0.25);
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .blog-content code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.88em;
+            background: rgba(37, 99, 235, 0.12);
+            color: #93c5fd;
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+        }
+
+        .blog-content pre code {
+            background: none;
+            padding: 0;
+            color: #e2e8f0;
+            font-size: inherit;
+        }
+
+        .blog-content a {
+            color: #60a5fa;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .blog-content a:hover {
+            color: #93c5fd;
+        }
+
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .blog-content hr {
+            border: none;
+            border-top: 2px solid rgba(37, 99, 235, 0.2);
+            margin: 2rem 0;
+        }
+
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .blog-content th,
+        .blog-content td {
+            padding: 0.65rem 1rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            text-align: left;
+        }
+
+        .blog-content th {
+            background: rgba(37, 99, 235, 0.15);
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .blog-content td {
+            color: #cbd5e1;
+        }
+
         @media (max-width: 768px) {
             .blog-nav-links {
                 gap: 1rem;
@@ -267,6 +408,14 @@
             .blog-meta {
                 gap: 1rem;
                 font-size: 0.85rem;
+            }
+
+            .blog-container {
+                padding: 0 0.75rem;
+            }
+
+            .blog-article-body {
+                padding: 1.25rem;
             }
         }
 

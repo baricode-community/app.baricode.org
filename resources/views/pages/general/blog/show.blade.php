@@ -48,7 +48,7 @@
             @endif --}}
 
             <!-- Article content -->
-            <div style="padding: 3rem;">
+            <div class="blog-article-body">
                 <!-- Category Badges -->
                 @if ($post->categories->count() > 0)
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
@@ -100,7 +100,7 @@
                 </div>
 
                 <!-- Article body -->
-                <div class="blog-content" style="color: #e2e8f0; line-height: 2; font-size: 1.1rem; margin-bottom: 2rem;">
+                <div class="blog-content" style="margin-bottom: 2rem;">
                     {!! $post->content !!}
                 </div>
 
