@@ -24,8 +24,13 @@ class EditLesson extends EditRecord
             Action::make('view_category')
                 ->label('Category')
                 ->icon('heroicon-o-tag')
-                ->url(CategoryResource::getUrl('edit', ['record' => $this->record->category_id]))
+                ->url(CategoryResource::getUrl('edit', ['record' => $this->record->category]))
                 ->color('info'),
+            Action::make('view_category_lessons')
+                ->label('Categories')
+                ->icon('heroicon-o-list-bullet')
+                ->url(LessonResource::getUrl('index').'?category='.$this->record->category_id)
+                ->color('gray'),
             DeleteAction::make(),
         ];
     }
