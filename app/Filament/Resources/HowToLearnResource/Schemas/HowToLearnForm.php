@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\HowToLearnResource\Schemas;
 
+use App\Models\LMS\Course;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -45,6 +47,15 @@ class HowToLearnForm
                         'table',
                         'undo',
                     ]),
+
+                Select::make('courses')
+                    ->label('Kursus')
+                    ->relationship('courses', 'title')
+                    ->multiple()
+                    ->searchable()
+                    ->preload()
+                    ->columnSpanFull()
+                    ->helperText('Pilih kursus yang menggunakan panduan ini.'),
 
                 Toggle::make('is_active')
                     ->label('Aktif')
