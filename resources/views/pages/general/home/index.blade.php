@@ -80,7 +80,7 @@
                                 class="inline-block px-10 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 rounded-full font-bold text-base shadow-lg hover:shadow-pink-500/40 transition-all transform hover:scale-105 ring-2 ring-pink-400/30 hover:ring-4 hover:ring-purple-400/40">
                                 🎵 Follow Baricode di TikTok
                             </a>
-                            <p class="text-sm text-gray-400 mt-4">Konten baru setiap hari • Jangan ketinggalan updates
+                            <p class="text-sm text-gray-400 mt-4">Konten baru secara rutin • Jangan ketinggalan updates
                                 terbaru!</p>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                                 Setiap anggota yang terdaftar secara otomatis menjadi bagian dari <span class="font-semibold text-indigo-300">Keluarga Baricode</span>. Profil kamu akan ditampilkan di direktori komunitas dan dapat dilihat oleh semua member.
                             </p>
                             <p class="text-base text-gray-300 mb-8">
-                                Temui ribuan developer lainnya, lihat progress mereka, dan jalin koneksi yang bermakna dalam komunitas yang positif dan saling mendukung.
+                                Temui ratusan developer lainnya, lihat progress mereka, dan jalin koneksi yang bermakna dalam komunitas yang positif dan saling mendukung.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <a href="{{ route('family.index') }}" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-base hover:shadow-2xl hover:shadow-indigo-500/40 transition-all transform hover:scale-105 text-center">
@@ -126,7 +126,7 @@
                                     {{ \App\Models\User::count() }}
                                 </div>
                                 <p class="text-gray-300 font-semibold text-sm">
-                                    Anggota Aktif
+                                    Anggota Terdaftar
                                 </p>
                             </div>
                             <div class="bg-white/5 backdrop-blur-sm border border-purple-500/30 rounded-xl p-6 text-center hover:bg-white/10 transition-all">
@@ -345,7 +345,7 @@
                         class="bg-gradient-to-br from-indigo-500/10 to-transparent backdrop-blur-lg rounded-3xl p-8 border border-indigo-500/20 hover:border-indigo-500/50 transition-all hover:shadow-xl hover:shadow-indigo-500/20">
                         <div class="text-5xl mb-4">📊</div>
                         <h3 class="text-xl font-bold mb-3">Daily Commit Tracker</h3>
-                        <p class="text-gray-300 text-sm">Pantau progress belajarmu setiap hari. Bangun kebiasaan coding yang
+                        <p class="text-gray-300 text-sm">Pantau progress belajarmu secara rutin. Bangun kebiasaan coding yang
                             konsisten.</p>
                         <a href="{{ route('daily-commit-tracker.history') }}"
                             class="inline-block px-6 py-2 bg-indigo-600/80 text-white rounded-full font-semibold hover:bg-indigo-700 transition-all">
