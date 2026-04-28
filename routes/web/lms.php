@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LMSController::class)
     ->prefix('/lms')
     ->group(function () {
-        Route::get('/', 'index')->name('lms.index');
+        Route::redirect('/', '/lms/courses')->name('lms.index');
+        // Route::get('/', 'index')->name('lms.index');
         Route::get('/courses', 'allCourses')->name('lms.all-courses');
         Route::get('/category/{category:slug}', 'category')->name('lms.category');
         Route::get('/course/{course:slug}', 'course')->name('lms.course');
