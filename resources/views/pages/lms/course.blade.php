@@ -259,9 +259,6 @@
                                             Edit
                                         </a>
                                     @endcan
-                                    <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.429 5.951 1.429a1 1 0 001.169-1.409l-7-14z"/>
-                                    </svg>
                                 </div>
                             </div>
                         @empty
