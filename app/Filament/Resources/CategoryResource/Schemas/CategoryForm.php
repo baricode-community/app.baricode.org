@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\CategoryResource\Schemas;
 
+use App\Models\Quiz\Quiz;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -30,6 +31,22 @@ class CategoryForm
                     ->required(),
                 Toggle::make('is_published')
                     ->default(true),
+                Select::make('quiz_id')
+                    ->label('Quiz Syarat Kelulusan')
+                    ->options(Quiz::where('is_active', true)->pluck('title', 'id'))
+                    ->searchable()
+                    ->nullable()
+                    ->live()
+                    ->helperText('Opsional. Jika diisi, user harus menyelesaikan quiz ini sebelum dapat mengajukan approval.'),
+                TextInput::make('passing_score')
+                    ->label('Nilai Minimum Kelulusan')
+                    ->numeric()
+                    ->minValue(0)
+                    ->maxValue(100)
+                    ->suffix('%')
+                    ->nullable()
+                    ->visible(fn ($get) => filled($get('quiz_id')))
+                    ->helperText('Nilai minimum (0–100) yang harus dicapai. Kosongkan untuk tidak ada batas minimum.'),
             ]);
     }
 }

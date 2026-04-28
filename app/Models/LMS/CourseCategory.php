@@ -2,6 +2,7 @@
 
 namespace App\Models\LMS;
 
+use App\Models\Quiz\Quiz;
 use Database\Factories\LMS\CourseCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -23,6 +24,8 @@ class CourseCategory extends Model
         'description',
         'order',
         'is_published',
+        'quiz_id',
+        'passing_score',
     ];
 
     protected $casts = [
@@ -30,6 +33,7 @@ class CourseCategory extends Model
         'description' => 'string',
         'order' => 'integer',
         'is_published' => 'boolean',
+        'passing_score' => 'integer',
     ];
 
     /**
@@ -54,6 +58,16 @@ class CourseCategory extends Model
     public function categoryProgress(): HasMany
     {
         return $this->hasMany(CategoryProgress::class, 'category_id');
+    }
+
+    public function quiz(): BelongsTo
+    {
+        return $this->belongsTo(Quiz::class);
+    }
+
+    public function requiresQuiz(): bool
+    {
+        return $this->quiz_id !== null;
     }
 
     /**
