@@ -56,7 +56,6 @@
         <!-- Mobile Menu -->
         <div x-show="open" x-transition class="md:hidden border-t border-white/10 bg-gray-900/95 px-4 py-3 space-y-1">
             <a href="{{ route('lms.index') }}" class="block text-sm text-gray-300 hover:text-white transition-colors py-2">LMS</a>
-            <a href="{{ route('blog.index') }}" class="block text-sm text-gray-300 hover:text-white transition-colors py-2">Blog</a>
             <a href="{{ route('family.index') }}" class="block text-sm text-gray-300 hover:text-white transition-colors py-2">Keluarga</a>
             <a href="{{ route('repohub.index') }}" class="block text-sm text-gray-300 hover:text-white transition-colors py-2">RepoHub</a>
             <div class="border-t border-white/10 pt-2 mt-2 space-y-1">
