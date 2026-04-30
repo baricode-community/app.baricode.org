@@ -15,17 +15,51 @@ class TakeQuiz extends Component
     /** @var array<int, list<int>> question_id => [option_id, ...] */
     public array $answers = [];
 
+    public int $currentIndex = 0;
+
+    public bool $showPreview = false;
+
     public ?int $totalScore = null;
 
     public bool $submitted = false;
 
     public function mount(): void
     {
-        // Pre-initialize each question key as an empty array so Livewire
-        // treats every checkbox group as array mode, not scalar/boolean mode.
         $this->answers = $this->quiz->questions
             ->mapWithKeys(fn ($q) => [$q->id => []])
             ->toArray();
+    }
+
+    public function nextQuestion(): void
+    {
+        if ($this->currentIndex < $this->quiz->questions->count() - 1) {
+            $this->currentIndex++;
+        }
+    }
+
+    public function previousQuestion(): void
+    {
+        if ($this->currentIndex > 0) {
+            $this->currentIndex--;
+        }
+    }
+
+    public function goToQuestion(int $index): void
+    {
+        if ($index >= 0 && $index < $this->quiz->questions->count()) {
+            $this->currentIndex = $index;
+            $this->showPreview = false;
+        }
+    }
+
+    public function openPreview(): void
+    {
+        $this->showPreview = true;
+    }
+
+    public function closePreview(): void
+    {
+        $this->showPreview = false;
     }
 
     public function submitQuiz(): void
@@ -36,7 +70,6 @@ class TakeQuiz extends Component
 
         $this->totalScore = Option::whereIn('id', $selectedOptionIds)->sum('score');
 
-        // Convert option IDs to strings for consistent JSON storage
         $answersForStorage = collect($this->answers)
             ->mapWithKeys(fn ($options, $qId) => [(string) $qId => collect($options)->map(fn ($id) => (string) $id)->toArray()])
             ->toArray();
@@ -53,6 +86,7 @@ class TakeQuiz extends Component
         }
 
         $this->submitted = true;
+        $this->showPreview = false;
     }
 
     public function retakeQuiz(): void
@@ -60,8 +94,10 @@ class TakeQuiz extends Component
         $this->answers = $this->quiz->questions
             ->mapWithKeys(fn ($q) => [$q->id => []])
             ->toArray();
+        $this->currentIndex = 0;
         $this->totalScore = null;
         $this->submitted = false;
+        $this->showPreview = false;
     }
 
     private function buildValidationRules(): array
