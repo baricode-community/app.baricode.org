@@ -2,9 +2,10 @@
 
 namespace App\Livewire\Quiz;
 
+use App\Enums\Quiz\QuizAttemptStatus;
 use App\Models\Quiz\Option;
 use App\Models\Quiz\Quiz;
-use App\Models\Quiz\QuizResult;
+use App\Models\Quiz\QuizAttempt;
 use Livewire\Component;
 
 class TakeQuiz extends Component
@@ -40,10 +41,16 @@ class TakeQuiz extends Component
             ->mapWithKeys(fn ($options, $qId) => [(string) $qId => collect($options)->map(fn ($id) => (string) $id)->toArray()])
             ->toArray();
 
-        QuizResult::create([
-            'total_score' => $this->totalScore,
-            'answers' => $answersForStorage,
-        ]);
+        if (auth()->check()) {
+            QuizAttempt::create([
+                'user_id' => auth()->id(),
+                'quiz_id' => $this->quiz->id,
+                'status' => QuizAttemptStatus::Passed,
+                'score' => $this->totalScore,
+                'answers' => $answersForStorage,
+                'completed_at' => now(),
+            ]);
+        }
 
         $this->submitted = true;
     }
