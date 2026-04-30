@@ -18,7 +18,6 @@
             <!-- Nav Links (Desktop) -->
             <div class="hidden md:flex items-center gap-6">
                 <a href="{{ route('lms.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors {{ request()->routeIs('lms.*') ? 'text-white font-medium' : '' }}">LMS</a>
-                <a href="{{ route('blog.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors {{ request()->routeIs('blog.*') ? 'text-white font-medium' : '' }}">Blog</a>
                 <a href="{{ route('family.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors {{ request()->routeIs('family.*') ? 'text-white font-medium' : '' }}">Keluarga</a>
                 <a href="{{ route('repohub.index') }}" class="text-sm text-gray-300 hover:text-white transition-colors {{ request()->routeIs('repohub.*') ? 'text-white font-medium' : '' }}">RepoHub</a>
             </div>
