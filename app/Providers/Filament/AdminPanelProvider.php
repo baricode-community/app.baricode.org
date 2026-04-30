@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Widgets\LatestBlogsWidget;
 use App\Filament\Widgets\LatestUsersWidget;
 use App\Filament\Widgets\StatsOverviewWidget;
 use Filament\Http\Middleware\Authenticate;
@@ -42,7 +41,6 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 StatsOverviewWidget::class,
                 LatestUsersWidget::class,
-                LatestBlogsWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

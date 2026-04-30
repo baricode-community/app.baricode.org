@@ -2,7 +2,6 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Blog;
 use App\Models\Fun\Meme;
 use App\Models\LMS\Course;
 use App\Models\Quiz\Quiz;
@@ -21,21 +20,12 @@ class StatsOverviewWidget extends BaseWidget
             ->whereYear('created_at', now()->year)
             ->count();
 
-        $publishedBlogs = Blog::published()->count();
-        $draftBlogs = Blog::where('is_published', false)->count();
-
         return [
             Stat::make('Total Member', User::count())
                 ->description("+{$newUsersThisMonth} bulan ini")
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('success')
                 ->icon('heroicon-o-users'),
-
-            Stat::make('Blog Terbit', $publishedBlogs)
-                ->description("{$draftBlogs} draft belum terbit")
-                ->descriptionIcon('heroicon-m-document-text')
-                ->color('info')
-                ->icon('heroicon-o-newspaper'),
 
             Stat::make('Kursus LMS', Course::count())
                 ->description(Course::where('is_published', true)->count().' aktif')

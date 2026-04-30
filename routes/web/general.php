@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\DailyCommitTrackerController;
-use App\Http\Controllers\Web\General\BlogController;
 use App\Http\Controllers\Web\General\DashboardController;
 use App\Http\Controllers\Web\General\FamilyController;
 use App\Http\Controllers\Web\General\HomeController;
@@ -39,15 +38,6 @@ Route::controller(DashboardController::class)
 
 Route::get('/link/{slug}', [ShortLinkController::class, 'redirect'])
     ->name('short-link.redirect');
-
-Route::controller(BlogController::class)
-    ->prefix('/blog')
-    ->group(function () {
-        Route::get('/', 'index')->name('blog.index');
-        Route::get('/category/{slug}', 'category')->name('blog.category');
-        Route::get('/tag/{slug}', 'tag')->name('blog.tag');
-        Route::get('/{slug}', 'show')->name('blog.show');
-    });
 
 Route::controller(DailyCommitTrackerController::class)
     ->prefix('/daily-commit-tracker')
