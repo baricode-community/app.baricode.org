@@ -592,67 +592,6 @@
             </div>
         </section> --}}
 
-        <!-- Telegram Channel Section -->
-        <section class="py-20 px-4 relative">
-            <div class="max-w-6xl mx-auto">
-                <div
-                    class="bg-gradient-to-r from-cyan-600/40 via-sky-600/40 to-blue-600/40 backdrop-blur-xl rounded-3xl p-12 border border-cyan-500/30 overflow-hidden relative">
-                    <!-- Animated background elements -->
-                    <div
-                        class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-full blur-3xl -mr-48 -mt-48">
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl -ml-48 -mb-48">
-                    </div>
-
-                    <div class="relative z-10">
-                        <div class="text-center mb-12">
-                            <div class="inline-block mb-6">
-                                <div class="text-7xl animate-bounce">📱</div>
-                            </div>
-                            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Jangan Ketinggalan Update Terbaru!
-                            </h2>
-                            <p class="text-lg md:text-xl text-gray-100 font-semibold mb-4">
-                                Bergabunglah dengan Telegram Channel Baricode
-                            </p>
-                            <p class="text-base text-cyan-200 max-w-3xl mx-auto">
-                                Dapatkan update terbaru tentang fitur baru, challenge menarik, event komunitas, dan tips
-                                & trik coding langsung ke Telegram kamu. Jadilah yang pertama tahu setiap perkembangan!
-                            </p>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                            <!-- Benefit 1 -->
-                            <div
-                                class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
-                                <div class="text-4xl mb-3">⚡</div>
-                                <h3 class="font-bold mb-2">Update Real-time</h3>
-                                <p class="text-sm text-gray-300">Notifikasi langsung untuk fitur baru dan event penting
-                                </p>
-                            </div>
-
-                            <!-- Benefit 2 -->
-                            <div
-                                class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 text-center hover:bg-white/10 transition-all">
-                                <div class="text-4xl mb-3">💡</div>
-                                <h3 class="font-bold mb-2">Tips & Tricks</h3>
-                                <p class="text-sm text-gray-300">Pelajari cara maksimalkan semua fitur Baricode</p>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <a href="https://t.me/baricode_org" target="_blank" rel="noopener noreferrer"
-                                class="inline-block px-10 py-4 bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 rounded-full font-bold text-base shadow-lg hover:shadow-cyan-500/40 transition-all transform hover:scale-105 ring-2 ring-cyan-400/30 hover:ring-4 hover:ring-blue-400/40">
-                                🚀 Bergabung di Telegram Sekarang
-                            </a>
-                            <p class="text-sm text-gray-400 mt-4">Gratis • Tanpa biaya tersembunyi • Bisa keluar kapan
-                                saja</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Astraloka Community Section -->
         <section class="py-20 px-4 relative">
             <div class="max-w-6xl mx-auto">
@@ -855,25 +794,13 @@
                             Setelah mendaftar, kamu bisa langsung mengakses halaman <strong class="text-purple-300">LMS</strong> untuk menemukan kursus yang sesuai dengan levelmu. Kami juga menyediakan panduan lengkap di halaman <a href="{{ route('how-to-learn') }}" class="text-cyan-400 hover:underline">Cara Belajar di Baricode</a> yang menjelaskan langkah-langkah optimal dari awal hingga membangun portfolio.
                         </div>
                     </div>
-
-                    <!-- FAQ 7 -->
-                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all overflow-hidden">
-                        <button @click="open = open === 7 ? null : 7"
-                            class="w-full flex items-center justify-between p-6 text-left font-semibold text-base">
-                            <span>Apakah ada komunitas atau grup diskusi?</span>
-                            <span class="text-purple-400 transition-transform duration-300" :class="open === 7 ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open === 7" x-transition class="px-6 pb-6 text-gray-300 text-sm leading-relaxed">
-                            Tentu! Kamu bisa bergabung dengan channel Telegram kami di <strong class="text-cyan-300">@baricode_org</strong> untuk mendapatkan update terbaru, tips coding, dan berdiskusi dengan sesama member. Kami juga aktif di TikTok dengan konten coding yang seru dan menghibur.
-                        </div>
-                    </div>
                 </div>
 
                 <div class="text-center mt-12">
                     <p class="text-gray-400 text-sm mb-4">Masih ada pertanyaan lain?</p>
-                    <a href="https://t.me/baricode_org" target="_blank" rel="noopener noreferrer"
+                    <a href="https://chat.whatsapp.com/Fb2ZFMIKDz7JJZyBVpzXws" target="_blank" rel="noopener noreferrer"
                         class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full font-semibold text-base hover:shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105">
-                        Hubungi Kami di Telegram
+                        Hubungi Kami di WhatsApp
                     </a>
                 </div>
             </div>
