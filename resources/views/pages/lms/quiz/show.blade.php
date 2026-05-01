@@ -1,5 +1,5 @@
 <x-layouts.dashboard :title="$quiz->title">
-    <div class="max-w-3xl mx-auto px-4 py-10">
+    <div class="p-3">
 
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 text-sm text-purple-400 mb-8">
