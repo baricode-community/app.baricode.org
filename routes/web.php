@@ -9,6 +9,7 @@ require __DIR__.'/web/general.php';
 require __DIR__.'/web/whatsapp.php';
 require __DIR__.'/web/lms.php';
 require __DIR__.'/web/fun.php';
+require __DIR__.'/web/mentoring.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

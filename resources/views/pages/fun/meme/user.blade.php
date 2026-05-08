@@ -155,7 +155,7 @@
                     <p class="text-gray-400 mb-6">{{ $user->name }} {{ __('belum membuat meme apapun.') }}</p>
                     @if(Auth::check() && Auth::user()->id === $user->id)
                         <a 
-                            href="{{ route('memes.create') }}"
+                            href="{{ route('meme.create') }}"
                             wire:navigate
                             class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
                         >
@@ -171,7 +171,7 @@
             <!-- Back Button -->
             <div class="mt-12">
                 <a 
-                    href="{{ route('memes.index') }}"
+                    href="{{ route('meme.index') }}"
                     wire:navigate
                     class="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
                 >

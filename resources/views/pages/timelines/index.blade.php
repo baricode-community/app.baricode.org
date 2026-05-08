@@ -12,7 +12,7 @@
         @endphp
 
         @foreach($filters as $status => $label)
-            <a href="{{ route('timelines.index', $status ? ['status' => $status] : []) }}"
+            <a href="{{ route('timeline.index', $status ? ['status' => $status] : []) }}"
                 @class([
                     'px-4 py-2 rounded-lg font-medium transition border',
                     'bg-purple-600 text-white border-purple-600' => request('status') === $status,
@@ -36,7 +36,7 @@
                 };
             @endphp
 
-            <a href="{{ route('timelines.show', $timeline) }}"
+            <a href="{{ route('timeline.show', $timeline) }}"
                 class="group block bg-white/5 backdrop-blur-lg rounded-lg border border-purple-500/20 border-l-4 {{ $borderColor }} hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-1">
                 
                 <div class="p-6">

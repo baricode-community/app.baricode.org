@@ -66,7 +66,7 @@
                         <div class="px-6 py-4 border-t border-gray-800 flex items-center gap-3">
                             <!-- Share Button -->
                             @php
-                                $shareUrl = route('memes.show', $meme->id);
+                                $shareUrl = route('meme.show', $meme->id);
                             @endphp
                             <livewire:fun.meme-share :memeId="$meme->id" />
                         </div>
@@ -92,7 +92,7 @@
                         @endif
 
                         <a
-                            href="{{ route('memes.user', $meme->user->username) }}"
+                            href="{{ route('meme.user', $meme->user->username) }}"
                             wire:navigate
                             class="block w-full bg-white text-purple-600 hover:bg-purple-50 text-center py-2 rounded-lg font-semibold transition-colors"
                         >
@@ -198,7 +198,7 @@
 
                     <!-- Back Button -->
                     <a
-                        href="{{ route('memes.index') }}"
+                        href="{{ route('meme.index') }}"
                         wire:navigate
                         class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:shadow-lg hover:shadow-purple-500/50 text-white py-3 rounded-lg font-semibold transition-all"
                     >

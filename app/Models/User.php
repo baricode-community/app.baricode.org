@@ -7,6 +7,7 @@ use App\Enums\LMS\EnrollmentStatus;
 use App\Models\Fun\Meme;
 use App\Models\Fun\MemeVote;
 use App\Models\LMS\Enrollment;
+use App\Models\Mentoring\MentoringEnrollment;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -131,6 +132,11 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Enrollment::class)
             ->whereIn('status', [EnrollmentStatus::Active->value, EnrollmentStatus::Pending->value]);
+    }
+
+    public function mentoringEnrollments()
+    {
+        return $this->hasMany(MentoringEnrollment::class);
     }
 
     public function canAccessPanel(Panel $panel): bool

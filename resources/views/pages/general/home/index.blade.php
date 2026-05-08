@@ -26,17 +26,35 @@
                     Bangun proyek bareng, ikut tantangan harian, dan berkembang bersama komunitas developer yang
                     positif.
                 </p>
-                <p class="text-base text-gray-400 mb-10 max-w-2xl mx-auto italic">
+                <p class="text-base text-gray-400 mb-8 max-w-2xl mx-auto italic">
                     Kami berbasis komunitas, jadi ada banyak fitur menarik yang tersedia khusus untuk kamu.<br>
                     <span class="font-semibold text-purple-300">Yuk, eksplorasi dan manfaatkan semua fiturnya!</span>
                 </p>
+
+                <!-- Two Learning Approach Cards -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10 max-w-2xl mx-auto">
+                    <div class="flex-1 bg-gradient-to-br from-purple-500/20 to-indigo-500/10 backdrop-blur-lg rounded-2xl p-5 border border-purple-500/30 text-left hover:border-purple-400/60 transition-all">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-xl shrink-0">📚</div>
+                            <h3 class="font-bold text-base text-white">Kursus</h3>
+                        </div>
+                        <p class="text-sm text-gray-300">Belajar mandiri dengan materi terstruktur, dari pemula hingga mahir. Gratis untuk semua member.</p>
+                    </div>
+                    <div class="flex-1 bg-gradient-to-br from-violet-500/20 to-purple-500/10 backdrop-blur-lg rounded-2xl p-5 border border-violet-500/30 text-left hover:border-violet-400/60 transition-all">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center text-xl shrink-0">🤝</div>
+                            <h3 class="font-bold text-base text-white">Bimbingan</h3>
+                        </div>
+                        <p class="text-sm text-gray-300">Mentoring personal dari anggota komunitas berpengalaman. Belajar lebih cepat dengan pendampingan langsung.</p>
+                    </div>
+                </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
                     <a href="{{ route('dashboard') }}" wire:navigate
                         class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-base shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
                         🚀 Gabung Gratis
                     </a>
-                    <a href="{{ route('lms.all-courses') }}" wire:navigate
+                    <a href="{{ route('lms.courses') }}" wire:navigate
                         class="px-10 py-4 bg-white/10 backdrop-blur-lg rounded-full font-semibold text-base border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center ring-1 ring-white/10 hover:ring-2 hover:ring-purple-300/30">
                         👀 Dapatkan Kursus Gratis
                     </a>
@@ -258,7 +276,7 @@
                                 class="text-purple-300 font-bold">Kami Aktif!</span> dan terus bergerak maju untuk
                             memberikan yang terbaik bagi komunitas.
                         </p>
-                        <a href="{{ route('timelines.index') }}" wire:navigate
+                        <a href="{{ route('timeline.index') }}" wire:navigate
                             class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full font-bold text-base shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
                             📊 Lihat Transparansi Lengkap
                         </a>
@@ -369,7 +387,7 @@
                         <h3 class="text-xl font-bold mb-3">Meme Zone</h3>
                         <p class="text-gray-300 text-sm mb-4">Belajar sambil ketawa. Share meme favoritmu dengan
                             komunitas.</p>
-                        <a href="{{ route('memes.index') }}"
+                        <a href="{{ route('meme.index') }}"
                             class="inline-block px-6 py-2 bg-purple-600/80 text-white rounded-full font-semibold hover:bg-purple-700 transition-all">
                             Lihat Meme
                         </a>
@@ -399,7 +417,7 @@
                         <h3 class="text-xl font-bold mb-3">Timeline Komunitas</h3>
                         <p class="text-gray-300 text-sm mb-4">Track milestone dan perjalanan komunitas Baricode dari awal
                             hingga sekarang.</p>
-                        <a href="{{ route('timelines.index') }}"
+                        <a href="{{ route('timeline.index') }}"
                             class="inline-block px-6 py-2 bg-pink-600/80 text-white rounded-full font-semibold hover:bg-pink-700 transition-all text-sm">
                             Lihat Timeline
                         </a>

@@ -4,7 +4,7 @@
             <!-- Back Button -->
             <div class="mb-8">
                 <a 
-                    href="{{ route('memes.index') }}" 
+                    href="{{ route('meme.index') }}" 
                     wire:navigate
                     class="inline-flex items-center gap-2 text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-purple-200 transition-colors"
                 >

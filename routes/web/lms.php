@@ -12,7 +12,7 @@ Route::controller(LMSController::class)
     ->group(function () {
         Route::redirect('/', '/lms/courses')->name('lms.index');
         // Route::get('/', 'index')->name('lms.index');
-        Route::get('/courses', 'allCourses')->name('lms.all-courses');
+        Route::get('/courses', 'allCourses')->name('lms.courses');
         Route::get('/category/{category:slug}', 'category')->name('lms.category');
         Route::get('/course/{course:slug}', 'course')->name('lms.course');
         Route::get('/lesson/{lesson}', 'lesson')->name('lms.lesson');
@@ -36,7 +36,7 @@ Route::middleware(['auth', 'verified'])->prefix('/lms')->group(function () {
 });
 
 Route::controller(QuizController::class)
-    ->prefix('/quiz')
+    ->prefix('/lms/quiz')
     ->group(function () {
         Route::get('/', 'index')->name('lms.quiz.index');
         Route::get('/{quiz}', 'show')->name('lms.quiz.show');

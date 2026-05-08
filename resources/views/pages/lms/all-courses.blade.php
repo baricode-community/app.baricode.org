@@ -28,7 +28,7 @@
     <div class="max-w-7xl mx-auto px-4 py-12">
         <!-- Search Section -->
         <div class="mb-12">
-            <form action="{{ route('lms.all-courses') }}" method="GET" class="max-w-2xl">
+            <form action="{{ route('lms.courses') }}" method="GET" class="max-w-2xl">
                 <div class="relative group">
                     <input
                         type="text"
@@ -50,7 +50,7 @@
                 @if($search)
                     <div class="mt-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg flex items-center justify-between">
                         <p class="text-purple-300">Hasil pencarian untuk: <span class="font-bold text-white">{{ $search }}</span></p>
-                        <a href="{{ route('lms.all-courses') }}" class="text-purple-400 hover:text-purple-300 text-sm">Bersihkan</a>
+                        <a href="{{ route('lms.courses') }}" class="text-purple-400 hover:text-purple-300 text-sm">Bersihkan</a>
                     </div>
                 @endif
             </form>
@@ -170,7 +170,7 @@
                 </svg>
                 <h3 class="text-2xl font-bold text-white mb-2">Tidak Ada Kursus Ditemukan</h3>
                 <p class="text-purple-300 mb-6">Maaf, tidak ada kursus yang sesuai dengan pencarian "<span class="font-semibold text-white">{{ $search }}</span>"</p>
-                <a href="{{ route('lms.all-courses') }}" class="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition">
+                <a href="{{ route('lms.courses') }}" class="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition">
                     Lihat Semua Kursus
                 </a>
             </div>

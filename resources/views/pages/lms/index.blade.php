@@ -188,7 +188,7 @@
         <div>
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-bold text-white">Beberapa Kursus Tersedia</h2>
-                <a href="{{ route('lms.all-courses') }}"
+                <a href="{{ route('lms.courses') }}"
                     class="text-purple-300 hover:text-purple-200 text-sm transition">Jelajahi Semua Kursus →</a>
             </div>
 

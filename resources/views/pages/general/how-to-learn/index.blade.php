@@ -606,7 +606,7 @@
                         <a href="{{ route('register') }}" class="px-10 py-4 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105">
                             ✨ Daftar Sekarang (Gratis)
                         </a>
-                        <a href="{{ route('lms.all-courses') }}" class="px-10 py-4 bg-white/10 border border-white/20 rounded-full font-bold text-lg hover:bg-white/20 transition-all transform hover:scale-105">
+                        <a href="{{ route('lms.courses') }}" class="px-10 py-4 bg-white/10 border border-white/20 rounded-full font-bold text-lg hover:bg-white/20 transition-all transform hover:scale-105">
                             📚 Lihat Kursus
                         </a>
                     </div>

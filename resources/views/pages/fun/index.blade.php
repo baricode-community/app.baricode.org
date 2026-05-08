@@ -22,7 +22,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-2">{{ __('Jelajahi Meme') }}</h3>
             <p class="text-gray-600 dark:text-gray-300">{{ __('Telusuri galeri meme yang dibuat oleh komunitas kami dan temukan tawa baru setiap hari.') }}</p>
-            <a href="{{ route('memes.index') }}" class="inline-block mt-4 px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">{{ __('Lihat Meme') }}</a>
+            <a href="{{ route('meme.index') }}" class="inline-block mt-4 px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">{{ __('Lihat Meme') }}</a>
         </div>
     </div>
 </x-layouts.fun>

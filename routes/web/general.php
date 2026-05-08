@@ -21,8 +21,8 @@ Route::redirect('/timeline', '/timelines');
 Route::controller(TimelineController::class)
     ->prefix('/timelines')
     ->group(function () {
-        Route::get('/', 'index')->name('timelines.index');
-        Route::get('/{timeline}', 'show')->name('timelines.show');
+        Route::get('/', 'index')->name('timeline.index');
+        Route::get('/{timeline}', 'show')->name('timeline.show');
     });
 
 Route::controller(DashboardController::class)
@@ -32,7 +32,6 @@ Route::controller(DashboardController::class)
         Route::get('/', 'index')->name('dashboard');
         Route::get('/settings', 'settings')->name('dashboard.settings');
         Route::get('/analytics', 'analytics')->name('dashboard.analytics');
-        Route::get('/fun', 'fun')->name('dashboard.fun');
         Route::get('/memes', 'memes')->name('dashboard.memes');
     });
 
@@ -44,7 +43,7 @@ Route::controller(DailyCommitTrackerController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('daily-commit-tracker.index');
-        Route::get('/show/{date?}', 'show')->name('daily-commit-tracker.show');
+        Route::get('/{date?}', 'show')->name('daily-commit-tracker.show');
         Route::get('/history', 'history')->name('daily-commit-tracker.history');
     });
 

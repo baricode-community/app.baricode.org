@@ -138,7 +138,7 @@
                 <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-dashed border-purple-500/30 p-8 text-center">
                     <div class="text-4xl mb-3">📚</div>
                     <p class="text-purple-300 text-sm mb-4">Kamu belum mendaftar kursus apapun.</p>
-                    <a href="{{ route('lms.all-courses') }}"
+                    <a href="{{ route('lms.courses') }}"
                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white text-sm font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">
                         Jelajahi Kursus
                     </a>
@@ -250,7 +250,7 @@
                 </a>
 
                 {{-- Meme --}}
-                <a href="{{ route('memes.index') }}" class="group card-delay-6 animate-slideIn bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-yellow-400/40 p-4 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-200 hover:-translate-y-0.5">
+                <a href="{{ route('meme.index') }}" class="group card-delay-6 animate-slideIn bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-yellow-400/40 p-4 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-200 hover:-translate-y-0.5">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mb-3 text-xl">
                         😂
                     </div>
@@ -259,7 +259,7 @@
                 </a>
 
                 {{-- Timelines --}}
-                <a href="{{ route('timelines.index') }}" class="group card-delay-7 animate-slideIn bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-violet-400/40 p-4 hover:shadow-lg hover:shadow-violet-500/10 transition-all duration-200 hover:-translate-y-0.5">
+                <a href="{{ route('timeline.index') }}" class="group card-delay-7 animate-slideIn bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-violet-400/40 p-4 hover:shadow-lg hover:shadow-violet-500/10 transition-all duration-200 hover:-translate-y-0.5">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mb-3">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
@@ -317,7 +317,7 @@
                        class="flex-1 text-center px-4 py-2.5 bg-white/10 hover:bg-white/15 border border-purple-400/20 hover:border-purple-400/40 rounded-xl text-purple-200 text-sm font-medium transition-all">
                         👥 Lihat Keluarga Baricode
                     </a>
-                    <a href="{{ route('timelines.index') }}"
+                    <a href="{{ route('timeline.index') }}"
                        class="flex-1 text-center px-4 py-2.5 bg-white/10 hover:bg-white/15 border border-purple-400/20 hover:border-purple-400/40 rounded-xl text-purple-200 text-sm font-medium transition-all">
                         📅 Lihat Timeline
                     </a>

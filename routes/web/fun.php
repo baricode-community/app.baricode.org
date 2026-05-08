@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(FunController::class)
     ->prefix('/dashboard/fun')
+    ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('dashboard.fun');
     });
@@ -13,14 +14,14 @@ Route::controller(FunController::class)
 Route::controller(MemeController::class)
     ->prefix('/meme')
     ->group(function () {
-        Route::get('/', 'index')->name('memes.index');
+        Route::get('/', 'index')->name('meme.index');
 
         Route::get('/create', 'create')
             ->middleware(['auth', 'verified'])
-            ->name('memes.create');
+            ->name('meme.create');
 
-        Route::get('/user', 'user_list')->name('memes.user_list');
-        Route::get('/user/{user:username}', 'user')->name('memes.user');
+        Route::get('/user', 'user_list')->name('meme.users');
+        Route::get('/user/{user:username}', 'user')->name('meme.user');
 
-        Route::get('/show/{meme}', 'show')->name('memes.show');
+        Route::get('/{meme}', 'show')->name('meme.show');
     });

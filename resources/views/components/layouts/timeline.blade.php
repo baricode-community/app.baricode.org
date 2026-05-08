@@ -12,7 +12,7 @@
             <div class="flex items-center gap-6">
                 <a href="{{ route('home') }}" class="text-xl font-bold text-white dark:text-white">Baricode</a>
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="{{ route('timelines.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('timelines.*') ? 'text-white font-medium' : '' }}">Progres Komunitas</a>
+                    <a href="{{ route('timeline.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('timeline.*') ? 'text-white font-medium' : '' }}">Progres Komunitas</a>
                     <a href="{{ route('family.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors">Keluarga</a>
                 </div>
             </div>

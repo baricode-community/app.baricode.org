@@ -16,7 +16,7 @@ new class extends Component {
     {
         $this->memeId = $memeId;
         $meme = Meme::find($memeId);
-        $this->memeUrl = route('memes.show', $meme);
+        $this->memeUrl = route('meme.show', $meme);
     }
 
     /**

@@ -12,7 +12,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ($users as $userStats)
                         <a
-                            href="{{ route('memes.user', $userStats['user']->username) }}"
+                            href="{{ route('meme.user', $userStats['user']->username) }}"
                             class="group relative bg-gradient-to-br from-gray-900 to-black border border-purple-500/30 rounded-2xl overflow-hidden hover:border-purple-500/60 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
                             wire:navigate
                         >
@@ -139,7 +139,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="{{ route('memes.user', $userStats['user']->username) }}" wire:navigate class="flex items-center gap-3 hover:text-purple-400 transition-colors">
+                                                <a href="{{ route('meme.user', $userStats['user']->username) }}" wire:navigate class="flex items-center gap-3 hover:text-purple-400 transition-colors">
                                                     <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 flex items-center justify-center text-white font-bold text-sm">
                                                         {{ $userStats['user']->initials() }}
                                                     </div>
@@ -189,7 +189,7 @@
                     <h3 class="text-2xl font-bold text-gray-300 mb-2">{{ __('Belum Ada Kreator Meme') }}</h3>
                     <p class="text-gray-400 mb-6">{{ __('Mulai buat meme pertamamu sekarang!') }}</p>
                     <a 
-                        href="{{ route('memes.create') }}"
+                        href="{{ route('meme.create') }}"
                         wire:navigate
                         class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
                     >

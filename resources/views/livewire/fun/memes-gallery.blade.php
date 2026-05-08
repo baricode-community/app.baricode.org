@@ -79,7 +79,7 @@ new class extends Component {
                             </div>
 
                             <div>
-                                <a href="{{ route('memes.user', $meme['user']['username']) }}"
+                                <a href="{{ route('meme.user', $meme['user']['username']) }}"
                                     wire:navigate
                                     class="text-gray-800 dark:text-white font-semibold hover:text-purple-500 dark:hover:text-purple-300 transition-colors block">
                                     {{ $meme['user']['name'] }}
@@ -164,7 +164,7 @@ new class extends Component {
                 {{ __('Jadilah yang pertama membuat meme di komunitas kami! Bagikan kreativitasmu dan buat orang lain tertawa.') }}
             </p>
 
-            <a href="{{ route('memes.create') }}"
+            <a href="{{ route('meme.create') }}"
                 wire:navigate
                 class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-white hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105">
                 {{ __('Buat Meme Pertamamu') }}

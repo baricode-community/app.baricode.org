@@ -14,7 +14,7 @@
                 <div class="hidden md:flex items-center gap-4">
                     <a href="{{ route('dashboard') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('dashboard') ? 'text-white font-medium' : '' }}">Dashboard</a>
                     <a href="{{ route('lms.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('lms.*') ? 'text-white font-medium' : '' }}">LMS</a>
-                    <a href="{{ route('lms.quiz.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('quiz.*') ? 'text-white font-medium' : '' }}">Quiz</a>
+                    <a href="{{ route('lms.quiz.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('lms.quiz.*') ? 'text-white font-medium' : '' }}">Quiz</a>
                 </div>
             </div>
             <div class="hidden md:flex items-center gap-3">

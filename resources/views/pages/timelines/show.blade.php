@@ -1,6 +1,6 @@
 <x-layouts.timeline title="{{ $timeline->title }}">
     <div class="">
-        <a href="{{ route('timelines.index') }}"
+        <a href="{{ route('timeline.index') }}"
             class="group inline-flex items-center text-purple-400 hover:text-white mb-8 font-medium transition-all duration-200">
             <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
