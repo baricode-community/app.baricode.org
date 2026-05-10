@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DailyCommitTrackerController;
+use App\Http\Controllers\Web\General\DailyCommitTrackerController;
 use App\Http\Controllers\Web\General\DashboardController;
 use App\Http\Controllers\Web\General\FamilyController;
 use App\Http\Controllers\Web\General\HomeController;
@@ -43,8 +43,8 @@ Route::controller(DailyCommitTrackerController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', 'index')->name('daily-commit-tracker.index');
-        Route::get('/{date?}', 'show')->name('daily-commit-tracker.show');
         Route::get('/history', 'history')->name('daily-commit-tracker.history');
+        Route::get('/{date?}', 'show')->name('daily-commit-tracker.show');
     });
 
 Route::controller(RepoHubController::class)

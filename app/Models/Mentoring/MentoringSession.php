@@ -2,12 +2,21 @@
 
 namespace App\Models\Mentoring;
 
+use Database\Factories\Mentoring\MentoringSessionFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class MentoringSession extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory(): MentoringSessionFactory
+    {
+        return MentoringSessionFactory::new();
+    }
+
     protected $fillable = [
         'uuid',
         'mentoring_enrollment_id',

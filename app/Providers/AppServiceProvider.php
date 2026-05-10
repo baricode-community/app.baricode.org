@@ -6,9 +6,12 @@ use App\Listeners\General\Security\LogUserLogin;
 use App\Listeners\General\Security\LogUserLogout;
 use App\Models\ProgressJournal;
 use App\Observers\ProgressJournalObserver;
+use App\Models\Mentoring\MentoringEnrollment;
+use App\Policies\Mentoring\MentoringEnrollmentPolicy;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -38,5 +41,8 @@ class AppServiceProvider extends ServiceProvider
 
         // Register observers
         ProgressJournal::observe(ProgressJournalObserver::class);
+
+        // Register policies
+        Gate::policy(MentoringEnrollment::class, MentoringEnrollmentPolicy::class);
     }
 }

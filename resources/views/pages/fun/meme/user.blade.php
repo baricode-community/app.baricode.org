@@ -23,7 +23,20 @@
                         </div>
 
                         <!-- Action Button -->
-                        {{-- TODO --}}
+                        @if(Auth::check() && Auth::user()->id === $user->id)
+                            <div class="flex-shrink-0">
+                                <a
+                                    href="{{ route('meme.create') }}"
+                                    wire:navigate
+                                    class="inline-flex items-center px-5 py-2.5 bg-white/20 hover:bg-white/30 text-white rounded-xl font-semibold transition-all backdrop-blur-sm border border-white/30"
+                                >
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                    {{ __('Buat Meme') }}
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

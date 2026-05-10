@@ -33,20 +33,20 @@
 
                 <!-- Two Learning Approach Cards -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10 max-w-2xl mx-auto">
-                    <div class="flex-1 bg-gradient-to-br from-purple-500/20 to-indigo-500/10 backdrop-blur-lg rounded-2xl p-5 border border-purple-500/30 text-left hover:border-purple-400/60 transition-all">
+                    <a href="{{ route('lms.courses') }}" wire:navigate class="flex-1 bg-gradient-to-br from-purple-500/20 to-indigo-500/10 backdrop-blur-lg rounded-2xl p-5 border border-purple-500/30 text-left hover:border-purple-400/60 transition-all">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-xl shrink-0">📚</div>
                             <h3 class="font-bold text-base text-white">Kursus</h3>
                         </div>
                         <p class="text-sm text-gray-300">Belajar mandiri dengan materi terstruktur, dari pemula hingga mahir. Gratis untuk semua member.</p>
-                    </div>
-                    <div class="flex-1 bg-gradient-to-br from-violet-500/20 to-purple-500/10 backdrop-blur-lg rounded-2xl p-5 border border-violet-500/30 text-left hover:border-violet-400/60 transition-all">
+                    </a>
+                    <a href="{{ route('mentoring.index') }}" wire:navigate class="flex-1 bg-gradient-to-br from-violet-500/20 to-purple-500/10 backdrop-blur-lg rounded-2xl p-5 border border-violet-500/30 text-left hover:border-violet-400/60 transition-all">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center text-xl shrink-0">🤝</div>
                             <h3 class="font-bold text-base text-white">Bimbingan</h3>
                         </div>
                         <p class="text-sm text-gray-300">Mentoring personal dari anggota komunitas berpengalaman. Belajar lebih cepat dengan pendampingan langsung.</p>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">

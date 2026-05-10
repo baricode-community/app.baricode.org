@@ -4,6 +4,8 @@ namespace App\Models\Mentoring;
 
 use App\Enums\Mentoring\MentoringEnrollmentStatus;
 use App\Models\User;
+use Database\Factories\Mentoring\MentoringEnrollmentFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,6 +13,13 @@ use Illuminate\Support\Str;
 
 class MentoringEnrollment extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory(): MentoringEnrollmentFactory
+    {
+        return MentoringEnrollmentFactory::new();
+    }
+
     protected $fillable = [
         'uuid',
         'mentoring_program_id',

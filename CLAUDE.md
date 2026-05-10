@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Baricode Community Platform** — an Indonesian IT community platform for learning, sharing, and collaboration. Built with Laravel 12 + Livewire/Volt + Filament admin panels.
+**Baricode Community Platform** — an Indonesian IT community platform for learning, sharing, and collaboration. Built with Laravel 13 + Livewire/Volt + Filament admin panels.
 
 ## Commands
 
@@ -33,7 +33,7 @@ Routes are split by feature domain under `routes/web/`:
 - `general.php` — public/general routes
 - `lms.php` — Learning Management System routes
 - `fun.php` — fun/entertainment features (memes, etc.)
-- `whatsapp.php` — WhatsApp bot integration
+- `mentoring.php` — mentoring/bimbingan feature
 
 ### Admin Panels (Filament v5)
 
@@ -180,5 +180,3 @@ GitHub Actions runs:
 - **User's Memes** — View user's meme collection (`/meme/user/{username}`)
 - **Meme Detail** — View single meme (`/meme/show/{meme}`)
 
-### WhatsApp Integration (`routes/web/whatsapp.php`)
-- Currently redirects to home page (placeholder/stub implementation)

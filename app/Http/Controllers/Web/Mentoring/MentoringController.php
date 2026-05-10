@@ -30,7 +30,7 @@ class MentoringController extends Controller
 
     public function show(MentoringEnrollment $enrollment)
     {
-        abort_if($enrollment->user_id !== auth()->id(), 403);
+        $this->authorize('view', $enrollment);
 
         $enrollment->load(['program', 'sessions']);
 
