@@ -9,41 +9,9 @@ use Illuminate\Http\Request;
 
 class CheatSheetController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->get('q');
-        $categoryId = $request->get('category');
-
-        $publicSheets = CheatSheet::query()
-            ->with(['user:id,name,username', 'category'])
-            ->where('is_public', true)
-            ->when(auth()->check(), fn ($q) => $q->where('user_id', '!=', auth()->id()))
-            ->when($search, fn ($q) => $q->where(function ($query) use ($search) {
-                $query->where('title', 'like', "%{$search}%")
-                    ->orWhere('description', 'like', "%{$search}%");
-            }))
-            ->when($categoryId, fn ($q) => $q->where('cheat_sheet_category_id', $categoryId))
-            ->latest()
-            ->paginate(12)
-            ->withQueryString();
-
-        $mySheets = null;
-        if (auth()->check()) {
-            $mySheets = CheatSheet::query()
-                ->with('category')
-                ->where('user_id', auth()->id())
-                ->when($search, fn ($q) => $q->where(function ($query) use ($search) {
-                    $query->where('title', 'like', "%{$search}%")
-                        ->orWhere('description', 'like', "%{$search}%");
-                }))
-                ->when($categoryId, fn ($q) => $q->where('cheat_sheet_category_id', $categoryId))
-                ->latest()
-                ->get();
-        }
-
-        $categories = CheatSheetCategory::orderBy('name')->get();
-
-        return view('pages.general.cheatsheet.index', compact('publicSheets', 'mySheets', 'search', 'categoryId', 'categories'));
+        return view('pages.general.cheatsheet.index');
     }
 
     public function show(CheatSheet $cheatSheet)
@@ -67,11 +35,11 @@ class CheatSheetController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title'                    => 'required|string|max:255',
-            'description'              => 'nullable|string|max:500',
-            'content'                  => 'required|string',
-            'cheat_sheet_category_id'  => 'required|exists:cheat_sheet_categories,id',
-            'is_public'                => 'boolean',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string|max:500',
+            'content' => 'required|string',
+            'cheat_sheet_category_id' => 'required|exists:cheat_sheet_categories,id',
+            'is_public' => 'boolean',
         ]);
 
         $validated['user_id'] = auth()->id();
@@ -97,11 +65,11 @@ class CheatSheetController extends Controller
         abort_if($cheatSheet->user_id !== auth()->id(), 403);
 
         $validated = $request->validate([
-            'title'                    => 'required|string|max:255',
-            'description'              => 'nullable|string|max:500',
-            'content'                  => 'required|string',
-            'cheat_sheet_category_id'  => 'required|exists:cheat_sheet_categories,id',
-            'is_public'                => 'boolean',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string|max:500',
+            'content' => 'required|string',
+            'cheat_sheet_category_id' => 'required|exists:cheat_sheet_categories,id',
+            'is_public' => 'boolean',
         ]);
 
         $validated['is_public'] = $request->boolean('is_public');

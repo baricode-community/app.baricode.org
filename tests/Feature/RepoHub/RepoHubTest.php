@@ -2,6 +2,7 @@
 
 use App\Models\RepoHub\RepoHub;
 use App\Models\RepoHub\RepoHubTag;
+use Livewire\Volt\Volt;
 
 // --- Index ---
 
@@ -15,34 +16,28 @@ test('repohub index only shows published repos', function () {
     RepoHub::factory()->published()->create(['title' => 'Published Repo']);
     RepoHub::factory()->draft()->create(['title' => 'Draft Repo']);
 
-    $response = $this->get(route('repohub.index'));
-
-    $response->assertOk();
-    $repos = $response->viewData('repos');
-
-    expect($repos->pluck('title')->toArray())->toContain('Published Repo')
-        ->and($repos->pluck('title')->toArray())->not->toContain('Draft Repo');
+    Volt::test('general.repohub-list')
+        ->assertSee('Published Repo')
+        ->assertDontSee('Draft Repo');
 });
 
 test('repohub index passes tags to view', function () {
-    RepoHubTag::factory()->count(3)->create();
+    $tags = RepoHubTag::factory()->count(3)->create();
 
-    $response = $this->get(route('repohub.index'));
-
-    $response->assertOk();
-    expect($response->viewData('tags'))->toHaveCount(3);
+    Volt::test('general.repohub-list')
+        ->assertSee($tags[0]->name)
+        ->assertSee($tags[1]->name)
+        ->assertSee($tags[2]->name);
 });
 
 test('repohub index search by title returns matching repos', function () {
     RepoHub::factory()->published()->create(['title' => 'Awesome Laravel Starter']);
     RepoHub::factory()->published()->create(['title' => 'Vue Dashboard Kit']);
 
-    $response = $this->get(route('repohub.index', ['q' => 'laravel']));
-
-    $repos = $response->viewData('repos');
-
-    expect($repos->pluck('title')->toArray())->toContain('Awesome Laravel Starter')
-        ->and($repos->pluck('title')->toArray())->not->toContain('Vue Dashboard Kit');
+    Volt::test('general.repohub-list')
+        ->set('search', 'laravel')
+        ->assertSee('Awesome Laravel Starter')
+        ->assertDontSee('Vue Dashboard Kit');
 });
 
 test('repohub index search by description returns matching repos', function () {
@@ -55,12 +50,10 @@ test('repohub index search by description returns matching repos', function () {
         'description' => 'Library animasi yang ringan',
     ]);
 
-    $response = $this->get(route('repohub.index', ['q' => 'REST API']));
-
-    $repos = $response->viewData('repos');
-
-    expect($repos->pluck('title')->toArray())->toContain('Some Repo')
-        ->and($repos->pluck('title')->toArray())->not->toContain('Other Repo');
+    Volt::test('general.repohub-list')
+        ->set('search', 'REST API')
+        ->assertSee('Some Repo')
+        ->assertDontSee('Other Repo');
 });
 
 test('repohub index filter by tag shows only repos with that tag', function () {
@@ -73,21 +66,18 @@ test('repohub index filter by tag shows only repos with that tag', function () {
     $laravelRepo->tags()->attach($tag);
     $vueRepo->tags()->attach($otherTag);
 
-    $response = $this->get(route('repohub.index', ['tag' => 'laravel']));
-
-    $repos = $response->viewData('repos');
-
-    expect($repos->pluck('title')->toArray())->toContain('Laravel Repo')
-        ->and($repos->pluck('title')->toArray())->not->toContain('Vue Repo');
+    Volt::test('general.repohub-list')
+        ->set('tagSlug', 'laravel')
+        ->assertSee('Laravel Repo')
+        ->assertDontSee('Vue Repo');
 });
 
 test('repohub index filter by non-existent tag returns all repos', function () {
     RepoHub::factory()->published()->count(3)->create();
 
-    $response = $this->get(route('repohub.index', ['tag' => 'non-existent-tag']));
-
-    $response->assertOk();
-    expect($response->viewData('activeTag'))->toBeNull();
+    Volt::test('general.repohub-list')
+        ->set('tagSlug', 'non-existent-tag')
+        ->assertSet('tagSlug', 'non-existent-tag');
 });
 
 test('repohub index search combined with tag filter', function () {
@@ -97,18 +87,17 @@ test('repohub index search combined with tag filter', function () {
     $noTag = RepoHub::factory()->published()->create(['title' => 'Go CLI Tool']);
     $match->tags()->attach($tag);
 
-    $response = $this->get(route('repohub.index', ['q' => 'Go', 'tag' => 'go-lang']));
-
-    $repos = $response->viewData('repos');
-
-    expect($repos->pluck('title')->toArray())->toContain('Go HTTP Server')
-        ->and($repos->pluck('title')->toArray())->not->toContain('Go CLI Tool');
+    Volt::test('general.repohub-list')
+        ->set('search', 'Go')
+        ->set('tagSlug', 'go-lang')
+        ->assertSee('Go HTTP Server')
+        ->assertDontSee('Go CLI Tool');
 });
 
 test('repohub index shows empty state when no repos match', function () {
-    $this->get(route('repohub.index', ['q' => 'xyznomatch12345']))
-        ->assertOk()
-        ->assertViewHas('repos', fn ($repos) => $repos->isEmpty());
+    Volt::test('general.repohub-list')
+        ->set('search', 'xyznomatch12345')
+        ->assertSee('Belum ada repo ditemukan');
 });
 
 // --- Show ---

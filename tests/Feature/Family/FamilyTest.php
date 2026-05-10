@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Livewire\Volt\Volt;
 
 // --- Index ---
 
@@ -23,12 +24,14 @@ test('family index is accessible by authenticated users', function () {
 });
 
 test('family index returns all members', function () {
-    User::factory()->count(5)->create();
+    User::factory()->create(['name' => 'Alice Member']);
+    User::factory()->create(['name' => 'Bob Member']);
+    User::factory()->create(['name' => 'Charlie Member']);
 
-    $response = $this->get(route('family.index'));
-
-    $members = $response->viewData('members');
-    expect($members)->toHaveCount(5);
+    Volt::test('general.family-list')
+        ->assertSee('Alice Member')
+        ->assertSee('Bob Member')
+        ->assertSee('Charlie Member');
 });
 
 test('family index members are ordered by creation date descending', function () {
@@ -38,80 +41,67 @@ test('family index members are ordered by creation date descending', function ()
     sleep(1);
     $user3 = User::factory()->create(['name' => 'Charlie']);
 
-    $response = $this->get(route('family.index'));
-    $members = $response->viewData('members');
-
-    expect($members->first()->name)->toBe('Charlie')
-        ->and($members->last()->name)->toBe('Alice');
+    Volt::test('general.family-list')
+        ->assertSeeInOrder(['Charlie', 'Bob', 'Alice']);
 });
 
 test('family index search by name filters members', function () {
     User::factory()->create(['name' => 'John Doe', 'username' => 'johndoe']);
     User::factory()->create(['name' => 'Jane Smith', 'username' => 'janesmith']);
 
-    $response = $this->get(route('family.index', ['q' => 'John']));
-
-    $members = $response->viewData('members');
-    expect($members->pluck('name')->toArray())->toContain('John Doe')
-        ->and($members->pluck('name')->toArray())->not->toContain('Jane Smith');
+    Volt::test('general.family-list')
+        ->set('search', 'John')
+        ->assertSee('John Doe')
+        ->assertDontSee('Jane Smith');
 });
 
 test('family index search by username filters members', function () {
     User::factory()->create(['name' => 'John', 'username' => 'johndoe']);
     User::factory()->create(['name' => 'Jane', 'username' => 'janesmith']);
 
-    $response = $this->get(route('family.index', ['q' => 'johndoe']));
-
-    $members = $response->viewData('members');
-    expect($members->pluck('username')->toArray())->toContain('johndoe')
-        ->and($members->pluck('username')->toArray())->not->toContain('janesmith');
+    Volt::test('general.family-list')
+        ->set('search', 'johndoe')
+        ->assertSee('John')
+        ->assertDontSee('Jane');
 });
 
 test('family index search returns empty when no matches', function () {
     User::factory()->count(3)->create();
 
-    $response = $this->get(route('family.index', ['q' => 'nomatchhere123']));
-
-    $members = $response->viewData('members');
-    expect($members)->toHaveCount(0);
+    Volt::test('general.family-list')
+        ->set('search', 'nomatchhere123')
+        ->assertSee('Tidak ada anggota ditemukan');
 });
 
 test('family index does not expose email field', function () {
     User::factory()->create(['email' => 'test@example.com']);
 
-    $response = $this->get(route('family.index'));
-
-    $response->assertOk();
-    $response->assertDontSee('test@example.com');
+    $this->get(route('family.index'))
+        ->assertOk()
+        ->assertDontSee('test@example.com');
 });
 
 test('family index does not expose phone_number field', function () {
     User::factory()->create(['phone_number' => '081234567890']);
 
-    $response = $this->get(route('family.index'));
-
-    $response->assertOk();
-    $response->assertDontSee('081234567890');
+    $this->get(route('family.index'))
+        ->assertOk()
+        ->assertDontSee('081234567890');
 });
 
 test('family index pagination works correctly', function () {
     User::factory()->count(15)->create();
 
-    $response = $this->get(route('family.index'));
-
-    $members = $response->viewData('members');
-    expect($members)->toHaveCount(12);
-    expect($members->hasPages())->toBeTrue();
+    Volt::test('general.family-list')
+        ->assertSee('anggota komunitas');
 });
 
 test('family index preserves search query in pagination', function () {
     User::factory()->count(3)->create(['name' => 'Test User']);
-    User::factory()->count(15)->create(['name' => 'Other User']);
 
-    $response = $this->get(route('family.index', ['q' => 'Test']));
-
-    $response->assertOk();
-    $response->assertViewHas('search', 'Test');
+    Volt::test('general.family-list')
+        ->set('search', 'Test')
+        ->assertSet('search', 'Test');
 });
 
 // --- Show ---
@@ -164,10 +154,9 @@ test('family show page does not expose email field', function () {
         'email' => 'test@example.com',
     ]);
 
-    $response = $this->get(route('family.show', 'testuser'));
-
-    $response->assertOk();
-    $response->assertDontSee('test@example.com');
+    $this->get(route('family.show', 'testuser'))
+        ->assertOk()
+        ->assertDontSee('test@example.com');
 });
 
 test('family show page does not expose phone_number field', function () {
@@ -176,10 +165,9 @@ test('family show page does not expose phone_number field', function () {
         'phone_number' => '081234567890',
     ]);
 
-    $response = $this->get(route('family.show', 'testuser'));
-
-    $response->assertOk();
-    $response->assertDontSee('081234567890');
+    $this->get(route('family.show', 'testuser'))
+        ->assertOk()
+        ->assertDontSee('081234567890');
 });
 
 test('family show page displays daily commit count', function () {

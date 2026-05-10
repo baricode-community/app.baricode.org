@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Web\LMS;
 
-use App\Enums\LMS\CategoryProgressStatus;
 use App\Enums\LMS\EnrollmentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\LMS\CategoryProgress;
 use App\Models\LMS\Course;
-use App\Models\LMS\HowToLearn;
 use App\Models\LMS\CourseCategory;
 use App\Models\LMS\Enrollment;
 use App\Models\LMS\Lesson;
 use App\Models\LMS\LessonProgress;
-use Illuminate\Http\Request;
 
 class LMSController extends Controller
 {
@@ -187,24 +184,8 @@ class LMSController extends Controller
         ));
     }
 
-    public function allCourses(Request $request)
+    public function allCourses()
     {
-        $user = auth()->user();
-        $search = $request->get('search', '');
-
-        $coursesQuery = Course::with(['categories.lessons' => function ($query) {
-            $query->where('is_published', true)->orderBy('order');
-        }])->where('is_published', true);
-
-        if ($search) {
-            $coursesQuery->where(function ($query) use ($search) {
-                $query->where('title', 'like', "%{$search}%")
-                    ->orWhere('description', 'like', "%{$search}%");
-            });
-        }
-
-        $courses = $coursesQuery->paginate(12);
-
-        return view('pages.lms.all-courses', compact('user', 'courses', 'search'));
+        return view('pages.lms.all-courses');
     }
 }
