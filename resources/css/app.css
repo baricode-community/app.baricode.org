@@ -47,6 +47,47 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
     }
+
+    /* Scrollbar Styling */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-zinc-300) transparent;
+    }
+
+    .dark * {
+        scrollbar-color: var(--color-zinc-600) transparent;
+    }
+
+    /* Webkit browsers (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-zinc-300);
+        border-radius: 20px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-zinc-400);
+        background-clip: content-box;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+        background: var(--color-zinc-600);
+    }
+
+    .dark ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-zinc-500);
+        background-clip: content-box;
+    }
 }
 
 [data-flux-field]:not(ui-radio, ui-checkbox) {

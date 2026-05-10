@@ -20,6 +20,10 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
+use Illuminate\Support\HtmlString;
+
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -65,5 +69,34 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+    }
+
+    public function boot(): void
+    {
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::HEAD_END,
+            fn (): HtmlString => new HtmlString('
+                <style>
+                    * {
+                        scrollbar-width: thin;
+                        scrollbar-color: #d4d4d4 transparent;
+                    }
+                    .dark * {
+                        scrollbar-color: #525252 transparent;
+                    }
+                    ::-webkit-scrollbar { width: 10px; height: 10px; }
+                    ::-webkit-scrollbar-track { background: transparent; }
+                    ::-webkit-scrollbar-thumb {
+                        background: #d4d4d4;
+                        border-radius: 20px;
+                        border: 2px solid transparent;
+                        background-clip: content-box;
+                    }
+                    ::-webkit-scrollbar-thumb:hover { background: #a3a3a3; }
+                    .dark ::-webkit-scrollbar-thumb { background: #525252; }
+                    .dark ::-webkit-scrollbar-thumb:hover { background: #737373; }
+                </style>
+            '),
+        );
     }
 }
