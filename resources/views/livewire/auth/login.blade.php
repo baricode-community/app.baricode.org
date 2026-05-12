@@ -58,7 +58,6 @@ function login() {
                             type="email"
                             :value="old('email')"
                             required
-                            autofocus
                             autocomplete="email"
                             placeholder="kamu@example.com"
                             class="w-full px-4 py-3 bg-white/5 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all"
