@@ -13,7 +13,7 @@
     <nav class="bg-gray-900/95 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50" x-data="{ open: false }">
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
             <!-- Logo -->
-            <a href="{{ route('home') }}" class="text-xl font-bold text-white">Baricode</a>
+            <a href="{{ route('home') }}" class="text-xl font-bold text-white">Baricode Community</a>
 
             <!-- Nav Links (Desktop) -->
             <div class="hidden md:flex items-center gap-6">

@@ -77,8 +77,70 @@ new class extends Component {
         </div>
 
         @if ($members->hasPages())
-            <div class="flex justify-center">
-                {{ $members->links() }}
+            @php
+                $currentPage = $members->currentPage();
+                $lastPage = $members->lastPage();
+                $range = 2;
+            @endphp
+            <div class="flex flex-col items-center gap-4 mt-4">
+                <div class="flex items-center gap-2">
+                    {{-- Previous --}}
+                    <button
+                        wire:click="previousPage"
+                        @disabled($members->onFirstPage())
+                        class="px-4 py-2 rounded-lg text-sm font-medium transition-all
+                            {{ $members->onFirstPage()
+                                ? 'bg-gray-800/30 text-gray-600 cursor-not-allowed'
+                                : 'bg-gray-800/50 border border-gray-700 text-gray-300 hover:border-indigo-500 hover:text-white cursor-pointer' }}"
+                    >
+                        ← Prev
+                    </button>
+
+                    {{-- First page + dots --}}
+                    @if ($currentPage > $range + 1)
+                        <button wire:click="gotoPage(1)" class="px-3 py-2 rounded-lg text-sm bg-gray-800/50 border border-gray-700 text-gray-300 hover:border-indigo-500 hover:text-white transition-all cursor-pointer">1</button>
+                        @if ($currentPage > $range + 2)
+                            <span class="text-gray-600 px-1 select-none">···</span>
+                        @endif
+                    @endif
+
+                    {{-- Page numbers around current --}}
+                    @for ($page = max(1, $currentPage - $range); $page <= min($lastPage, $currentPage + $range); $page++)
+                        <button
+                            wire:click="gotoPage({{ $page }})"
+                            class="px-3 py-2 rounded-lg text-sm font-medium transition-all
+                                {{ $page === $currentPage
+                                    ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg shadow-indigo-500/30 cursor-default'
+                                    : 'bg-gray-800/50 border border-gray-700 text-gray-300 hover:border-indigo-500 hover:text-white cursor-pointer' }}"
+                        >
+                            {{ $page }}
+                        </button>
+                    @endfor
+
+                    {{-- Dots + last page --}}
+                    @if ($currentPage < $lastPage - $range)
+                        @if ($currentPage < $lastPage - $range - 1)
+                            <span class="text-gray-600 px-1 select-none">···</span>
+                        @endif
+                        <button wire:click="gotoPage({{ $lastPage }})" class="px-3 py-2 rounded-lg text-sm bg-gray-800/50 border border-gray-700 text-gray-300 hover:border-indigo-500 hover:text-white transition-all cursor-pointer">{{ $lastPage }}</button>
+                    @endif
+
+                    {{-- Next --}}
+                    <button
+                        wire:click="nextPage"
+                        @disabled(!$members->hasMorePages())
+                        class="px-4 py-2 rounded-lg text-sm font-medium transition-all
+                            {{ !$members->hasMorePages()
+                                ? 'bg-gray-800/30 text-gray-600 cursor-not-allowed'
+                                : 'bg-gray-800/50 border border-gray-700 text-gray-300 hover:border-indigo-500 hover:text-white cursor-pointer' }}"
+                    >
+                        Next →
+                    </button>
+                </div>
+
+                <p class="text-gray-500 text-xs">
+                    Halaman {{ $currentPage }} dari {{ $lastPage }}
+                </p>
             </div>
         @endif
     @else
