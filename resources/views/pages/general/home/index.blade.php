@@ -45,18 +45,7 @@
                             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center text-xl shrink-0">🤝</div>
                             <h3 class="font-bold text-base text-white">Bimbingan</h3>
                         </div>
-                        <p class="text-sm text-gray-300">Mentoring personal dari anggota komunitas berpengalaman. Belajar lebih cepat dengan pendampingan langsung.</p>
-                    </a>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-                    <a href="{{ route('dashboard') }}" wire:navigate
-                        class="px-10 py-4 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-full font-bold text-base shadow-lg hover:shadow-purple-500/40 transition-all transform hover:scale-105 flex items-center justify-center ring-2 ring-purple-400/30 hover:ring-4 hover:ring-indigo-400/40">
-                        🚀 Gabung Gratis
-                    </a>
-                    <a href="{{ route('lms.courses') }}" wire:navigate
-                        class="px-10 py-4 bg-white/10 backdrop-blur-lg rounded-full font-semibold text-base border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center ring-1 ring-white/10 hover:ring-2 hover:ring-purple-300/30">
-                        👀 Dapatkan Kursus Gratis
+                        <p class="text-sm text-gray-300">Mentoring personal di grub dari anggota komunitas berpengalaman / admin langsung. Belajar lebih cepat dengan pendampingan langsung.</p>
                     </a>
                 </div>
             </div>
