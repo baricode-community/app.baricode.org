@@ -21,6 +21,7 @@ class MemesTable
             ->columns([
                 ImageColumn::make('image_path')
                     ->label('Gambar')
+                    ->disk('public')
                     ->square()
                     ->size(80)
                     ->defaultImageUrl(fn () => 'https://placehold.co/80x80?text=No+Image'),

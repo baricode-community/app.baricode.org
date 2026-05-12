@@ -43,6 +43,7 @@ class MemeForm
                         FileUpload::make('image_path')
                             ->label('Gambar Meme')
                             ->image()
+                            ->disk('public')
                             ->directory('memes')
                             ->imageResizeMode('contain')
                             ->maxSize(5120)
