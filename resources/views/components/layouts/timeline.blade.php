@@ -30,7 +30,7 @@
 
     <div
         class="min-h-screen bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 text-white dark:text-white">
-        <div class="max-w-5xl px-4 py-8 md:px-8">
+        <div class="p-2">
             @if (isset($slot))
                 {{ $slot }}
             @else
