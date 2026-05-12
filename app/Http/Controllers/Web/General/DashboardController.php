@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\General;
 use App\Enums\LMS\EnrollmentStatus;
 use App\Http\Controllers\Controller;
 use App\Models\LMS\Enrollment;
+use App\Models\Onboarding\OnboardingTask;
 use App\Models\Timeline;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,14 @@ class DashboardController extends Controller
             'completed' => Timeline::where('status', 'completed')->count(),
         ];
 
+        $onboardingTasks = OnboardingTask::active()
+            ->orderBy('order')
+            ->get()
+            ->map(fn ($task) => $task->setAttribute('is_completed', $task->isCompletedBy($user)));
+
+        $onboardingTotal     = $onboardingTasks->count();
+        $onboardingCompleted = $onboardingTasks->filter(fn ($t) => $t->is_completed)->count();
+
         return view('pages.general.dashboard.index', compact(
             'user',
             'totalCommits',
@@ -46,6 +55,9 @@ class DashboardController extends Controller
             'completedEnrollments',
             'totalMembers',
             'timelines',
+            'onboardingTasks',
+            'onboardingTotal',
+            'onboardingCompleted',
         ));
     }
 

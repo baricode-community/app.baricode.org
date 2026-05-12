@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
             RepoHubSeeder::class,
             CheatSheetSeeder::class,
             MentoringSeeder::class,
+            OnboardingTaskSeeder::class,
         ]);
     }
 }

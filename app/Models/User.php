@@ -8,6 +8,7 @@ use App\Models\Fun\Meme;
 use App\Models\Fun\MemeVote;
 use App\Models\LMS\Enrollment;
 use App\Models\Mentoring\MentoringEnrollment;
+use App\Models\Onboarding\OnboardingTaskCompletion;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -137,6 +138,11 @@ class User extends Authenticatable implements FilamentUser
     public function mentoringEnrollments()
     {
         return $this->hasMany(MentoringEnrollment::class);
+    }
+
+    public function onboardingTaskCompletions()
+    {
+        return $this->hasMany(OnboardingTaskCompletion::class);
     }
 
     public function canAccessPanel(Panel $panel): bool

@@ -1,5 +1,5 @@
 <x-layouts.base :title="$repoHub->title . ' — RepoHub'">
-    <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="m-3">
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 text-sm text-purple-400 mb-8">
             <a href="{{ route('repohub.index') }}" class="hover:text-purple-300 transition">RepoHub</a>

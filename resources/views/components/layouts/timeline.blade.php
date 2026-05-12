@@ -13,8 +13,7 @@
                 <a href="{{ route('home') }}" class="text-xl font-bold text-white">Baricode</a>
                 <div class="hidden md:flex items-center gap-4">
                     <a href="{{ route('lms.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('lms.*') ? 'text-white font-medium' : '' }}">LMS</a>
-                    <a href="{{ route('family.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('family.*') ? 'text-white font-medium' : '' }}">Keluarga</a>
-                    <a href="{{ route('repohub.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('repohub.*') ? 'text-white font-medium' : '' }}">RepoHub</a>
+                    <a href="{{ route('mentoring.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('mentoring.*') ? 'text-white font-medium' : '' }}">Bimbingan</a>
                     <a href="{{ route('timeline.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('timeline.*') ? 'text-white font-medium' : '' }}">Timelines</a>
                 </div>
             </div>
@@ -48,8 +47,7 @@
         <!-- Mobile Menu -->
         <div x-show="open" x-transition class="md:hidden border-t border-purple-700 dark:border-white/10 bg-purple-900 dark:bg-gray-900 px-4 py-3 space-y-1">
             <a href="{{ route('lms.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">LMS</a>
-            <a href="{{ route('family.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Keluarga</a>
-            <a href="{{ route('repohub.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">RepoHub</a>
+            <a href="{{ route('mentoring.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Bimbingan</a>
             <a href="{{ route('timeline.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Timelines</a>
             <div class="border-t border-purple-700 dark:border-white/10 pt-2 mt-2 space-y-1">
                 @guest

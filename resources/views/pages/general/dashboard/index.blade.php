@@ -50,6 +50,96 @@
             </a>
         </div>
 
+        {{-- ─── ONBOARDING CHECKLIST ─── --}}
+        @if($onboardingTotal > 0)
+        <div class="animate-slideIn section-delay-2">
+            @if($onboardingCompleted >= $onboardingTotal)
+                {{-- All done state --}}
+                <div class="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 backdrop-blur-lg rounded-2xl border border-emerald-500/30 p-5">
+                    <div class="flex items-center justify-between flex-wrap gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-xl">
+                                🎉
+                            </div>
+                            <div>
+                                <h2 class="text-white font-bold text-sm">Semua Selesai!</h2>
+                                <p class="text-emerald-300 text-xs">Kamu telah menyelesaikan semua langkah onboarding.</p>
+                            </div>
+                        </div>
+                        <a href="{{ route('dashboard.onboarding.index') }}"
+                           class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 hover:border-emerald-400/50 rounded-xl text-emerald-300 text-xs font-medium transition-all">
+                            Lihat semua task →
+                        </a>
+                    </div>
+                </div>
+            @else
+                {{-- In-progress state --}}
+                <div class="bg-white/5 backdrop-blur-lg rounded-2xl border border-purple-500/20 p-5">
+                    <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                        <div>
+                            <h2 class="text-white font-bold text-sm">Mulai Perjalananmu 🚀</h2>
+                            <p class="text-purple-300 text-xs mt-0.5">
+                                {{ $onboardingCompleted }} dari {{ $onboardingTotal }} langkah selesai
+                            </p>
+                        </div>
+                        <span class="text-purple-400 text-xs">
+                            {{ $onboardingTotal > 0 ? round(($onboardingCompleted / $onboardingTotal) * 100) : 0 }}%
+                        </span>
+                    </div>
+
+                    {{-- Progress bar --}}
+                    <div class="w-full bg-white/10 rounded-full h-1.5 mb-4">
+                        <div class="bg-gradient-to-r from-purple-500 to-indigo-500 h-1.5 rounded-full transition-all duration-500"
+                             style="width: {{ $onboardingTotal > 0 ? round(($onboardingCompleted / $onboardingTotal) * 100) : 0 }}%">
+                        </div>
+                    </div>
+
+                    {{-- Task list --}}
+                    <div class="space-y-2">
+                        @foreach($onboardingTasks as $task)
+                        <div class="flex items-center gap-3 group">
+                            {{-- Toggle checkbox --}}
+                            <form method="POST" action="{{ route('dashboard.onboarding.toggle', $task->slug) }}" class="flex-shrink-0">
+                                @csrf
+                                <button type="submit"
+                                        class="w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 cursor-pointer
+                                               {{ $task->is_completed
+                                                    ? 'bg-emerald-500 border-emerald-500'
+                                                    : 'border-purple-500/50 hover:border-purple-400 bg-transparent' }}">
+                                    @if($task->is_completed)
+                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                    @endif
+                                </button>
+                            </form>
+
+                            {{-- Task link --}}
+                            <a href="{{ route('dashboard.onboarding.show', $task->slug) }}"
+                               class="flex-1 min-w-0 flex items-center gap-2 py-1">
+                                @if($task->icon)
+                                    <span class="text-base flex-shrink-0">{{ $task->icon }}</span>
+                                @endif
+                                <span class="text-sm transition-colors
+                                             {{ $task->is_completed ? 'text-purple-400 line-through' : 'text-white group-hover:text-purple-300' }}">
+                                    {{ $task->title }}
+                                </span>
+                            </a>
+
+                            <a href="{{ route('dashboard.onboarding.show', $task->slug) }}"
+                               class="flex-shrink-0 text-purple-500 hover:text-purple-300 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+        </div>
+        @endif
+
         {{-- ─── QUICK STATS ─── --}}
         <div class="animate-slideIn section-delay-2">
             <h2 class="text-purple-300 text-xs font-semibold uppercase tracking-wider mb-3">Statistik Kamu</h2>
