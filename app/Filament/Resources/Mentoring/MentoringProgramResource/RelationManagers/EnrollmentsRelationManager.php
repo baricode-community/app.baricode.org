@@ -3,7 +3,12 @@
 namespace App\Filament\Resources\Mentoring\MentoringProgramResource\RelationManagers;
 
 use App\Enums\Mentoring\MentoringEnrollmentStatus;
+use App\Models\User;
+use Filament\Actions\CreateAction;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -14,6 +19,30 @@ class EnrollmentsRelationManager extends RelationManager
     protected static string $relationship = 'enrollments';
 
     protected static ?string $recordTitleAttribute = 'user.name';
+
+    public function form(Schema $schema): Schema
+    {
+        return $schema->schema([
+            Select::make('user_id')
+                ->label('Murid')
+                ->searchable()
+                ->required()
+                ->getSearchResultsUsing(fn (string $search) => User::query()
+                    ->where('name', 'like', "%{$search}%")
+                    ->orWhere('username', 'like', "%{$search}%")
+                    ->limit(20)
+                    ->pluck('name', 'id')
+                )
+                ->getOptionLabelUsing(fn ($value) => User::find($value)?->name)
+                ->columnSpanFull(),
+
+            Textarea::make('goal_notes')
+                ->label('Catatan / Tujuan Murid')
+                ->placeholder('Apa yang ingin dicapai murid ini?')
+                ->rows(3)
+                ->columnSpanFull(),
+        ]);
+    }
 
     public function table(Table $table): Table
     {
@@ -47,6 +76,15 @@ class EnrollmentsRelationManager extends RelationManager
                         fn (MentoringEnrollmentStatus $s) => [$s->value => $s->label()]
                     )),
             ])
-            ->defaultSort('created_at', 'desc');
+            ->defaultSort('created_at', 'desc')
+            ->headerActions([
+                CreateAction::make()
+                    ->label('Tambah Murid')
+                    ->mutateFormDataUsing(function (array $data): array {
+                        $data['status'] = MentoringEnrollmentStatus::Active;
+                        $data['started_at'] = now();
+                        return $data;
+                    }),
+            ]);
     }
 }
