@@ -15,6 +15,8 @@
                     <a href="{{ route('dashboard') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('dashboard') ? 'text-white font-medium' : '' }}">Dashboard</a>
                     <a href="{{ route('lms.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('lms.*') ? 'text-white font-medium' : '' }}">LMS</a>
                     <a href="{{ route('lms.quiz.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('lms.quiz.*') ? 'text-white font-medium' : '' }}">Quiz</a>
+                    <a href="{{ route('meme.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('meme.*') ? 'text-white font-medium' : '' }}">Meme</a>
+                    <a href="{{ route('family.index') }}" class="text-sm text-purple-200 dark:text-gray-300 hover:text-white transition-colors {{ request()->routeIs('family.*') ? 'text-white font-medium' : '' }}">Keluarga</a>
                 </div>
             </div>
             <div class="hidden md:flex items-center gap-3">
@@ -45,6 +47,8 @@
             <a href="{{ route('dashboard') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Dashboard</a>
             <a href="{{ route('lms.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">LMS</a>
             <a href="{{ route('lms.quiz.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Quiz</a>
+            <a href="{{ route('meme.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Meme</a>
+            <a href="{{ route('family.index') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Keluarga</a>
             @auth
                 <div class="border-t border-purple-700 dark:border-white/10 pt-2 mt-2 space-y-1">
                     <a href="{{ route('profile.edit') }}" class="block text-sm text-purple-200 hover:text-white transition-colors py-2">Pengaturan</a>
@@ -57,7 +61,7 @@
         </div>
     </nav>
 
-    <div class="min-h-screen bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 text-white dark:text-white">
+    <div class="min-h-screen bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 text-white">
         <div class="p-3">
             @if (isset($slot))
                 {{ $slot }}

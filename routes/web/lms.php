@@ -11,7 +11,6 @@ Route::controller(LMSController::class)
     ->prefix('/lms')
     ->group(function () {
         Route::redirect('/', '/lms/courses')->name('lms.index');
-        // Route::get('/', 'index')->name('lms.index');
         Route::get('/courses', 'allCourses')->name('lms.courses');
         Route::get('/category/{category:slug}', 'category')->name('lms.category');
         Route::get('/course/{course:slug}', 'course')->name('lms.course');

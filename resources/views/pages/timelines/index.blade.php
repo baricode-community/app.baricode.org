@@ -1,3 +1,3 @@
-<x-layouts.timeline title="Progres Komunitas">
+<x-layouts.base title="Progres Komunitas">
     <livewire:general.timeline-list />
-</x-layouts.timeline>
+</x-layouts.base>

@@ -1,4 +1,4 @@
-<x-layouts.fun :title="__('Platform Bahagia')">
+<x-layouts.base :title="__('Platform Bahagia')">
     <div class="py-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
@@ -25,4 +25,4 @@
             <a href="{{ route('meme.index') }}" class="inline-block mt-4 px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">{{ __('Lihat Meme') }}</a>
         </div>
     </div>
-</x-layouts.fun>
+</x-layouts.base>

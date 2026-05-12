@@ -1,4 +1,4 @@
-<x-layouts.timeline title="{{ $timeline->title }}">
+<x-layouts.base title="{{ $timeline->title }}">
     <div class="">
         <a href="{{ route('timeline.index') }}"
             class="group inline-flex items-center text-purple-400 hover:text-white mb-8 font-medium transition-all duration-200">
@@ -215,4 +215,4 @@
             }
         }
     </style>
-</x-layouts.timeline>
+</x-layouts.base>
