@@ -3,8 +3,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="mb-12 text-center">
-                <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Ungkapkan dengan Seni') }}</h1>
-                <p class="text-gray-600 dark:text-gray-300">{{ __('Galeri meme dari komunitas Baricode') }}</p>
+                <h1 class="text-4xl font-bold text-white mb-2">{{ __('Ungkapkan dengan Seni') }}</h1>
+                <p class="text-gray-300">{{ __('Galeri meme dari komunitas Baricode') }}</p>
             </div>
 
             <!-- Memes Gallery Section -->

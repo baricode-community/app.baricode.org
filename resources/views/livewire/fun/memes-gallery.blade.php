@@ -81,16 +81,16 @@ new class extends Component {
                             <div>
                                 <a href="{{ route('meme.user', $meme['user']['username']) }}"
                                     wire:navigate
-                                    class="text-gray-800 dark:text-white font-semibold hover:text-purple-500 dark:hover:text-purple-300 transition-colors block">
+                                    class="text-white font-semibold hover:text-purple-300 transition-colors block">
                                     {{ $meme['user']['name'] }}
                                 </a>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">
+                                <p class="text-xs text-gray-400">
                                     {{ $meme['user']['username'] }}
                                 </p>
                             </div>
                         </div>
 
-                        <div class="text-xs text-gray-500 dark:text-gray-400">
+                        <div class="text-xs text-gray-400">
                             {{ \Carbon\Carbon::parse($meme['created_at'])->diffForHumans() }}
                         </div>
                     </div>
@@ -113,7 +113,7 @@ new class extends Component {
                     <!-- Caption -->
                     @if ($meme['caption'])
                         <div class="px-4 py-3">
-                            <p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
+                            <p class="text-gray-200 text-sm leading-relaxed">
                                 {{ $meme['caption'] }}
                             </p>
                         </div>
@@ -139,7 +139,7 @@ new class extends Component {
         <!-- End Message -->
         @if (!$hasMoreMemes && count($memes) > 0)
             <div class="max-w-2xl mx-auto text-center py-8">
-                <p class="text-gray-500 dark:text-gray-400 text-sm">{{ __('Tidak ada meme lagi') }} 😅</p>
+                <p class="text-gray-400 text-sm">{{ __('Tidak ada meme lagi') }} 😅</p>
                 <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">{{ __('Total') }} {{ $totalMemes }} {{ __('meme dimuat') }}</p>
             </div>
         @endif
@@ -156,11 +156,11 @@ new class extends Component {
                 </svg>
             </div>
 
-            <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-3">
+            <h3 class="text-2xl font-semibold text-white mb-3">
                 {{ __('Belum Ada Meme') }}
             </h3>
 
-            <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">
+            <p class="text-gray-400 mb-8 max-w-md mx-auto">
                 {{ __('Jadilah yang pertama membuat meme di komunitas kami! Bagikan kreativitasmu dan buat orang lain tertawa.') }}
             </p>
 

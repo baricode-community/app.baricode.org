@@ -61,8 +61,8 @@ new class extends Component {
 
     <!-- Header -->
     <div class="mb-8">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ __('Buat Meme Baru') }}</h2>
-        <p class="text-gray-600 dark:text-gray-300">{{ __('Bagikan kreativitasmu dengan komunitas Baricode') }}</p>
+        <h2 class="text-2xl font-bold text-white mb-2">{{ __('Buat Meme Baru') }}</h2>
+        <p class="text-gray-300">{{ __('Bagikan kreativitasmu dengan komunitas Baricode') }}</p>
     </div>
 
     <!-- Alert Messages -->
@@ -87,7 +87,7 @@ new class extends Component {
     <form wire:submit="createMeme" class="space-y-6">
         <!-- Image Upload -->
         <div>
-            <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+            <label for="image" class="block text-sm font-medium text-gray-300 mb-3">
                 {{ __('Unggah Gambar Meme') }} <span class="text-red-500">*</span>
             </label>
 
@@ -114,8 +114,8 @@ new class extends Component {
                                 <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-12l-3.172-3.172a4 4 0 00-5.656 0L28 12M12 32l3.172-3.172a4 4 0 015.656 0L28 32"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{ __('Klik untuk unggah atau drag and drop') }}</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('PNG, JPG, GIF atau WebP (Maks. 5MB)') }}</p>
+                            <p class="mt-2 text-sm text-gray-300">{{ __('Klik untuk unggah atau drag and drop') }}</p>
+                            <p class="text-xs text-gray-400">{{ __('PNG, JPG, GIF atau WebP (Maks. 5MB)') }}</p>
                         </div>
                     </label>
                 @endif
@@ -132,7 +132,7 @@ new class extends Component {
 
         <!-- Caption -->
         <div>
-            <label for="caption" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+            <label for="caption" class="block text-sm font-medium text-gray-300 mb-3">
                 {{ __('Caption (Opsional)') }}
             </label>
 
@@ -141,14 +141,14 @@ new class extends Component {
                 wire:model="caption"
                 placeholder="{{ __('Tambahkan caption untuk meme kamu...') }}"
                 rows="4"
-                class="w-full px-4 py-3 bg-white/60 dark:bg-white/5 border border-purple-500/20 dark:border-purple-500/30 rounded-xl text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
+                class="w-full px-4 py-3 bg-white/5 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500/60 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
             ></textarea>
 
             @error('caption')
                 <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
             @enderror
 
-            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{{ strlen($caption) }}/500 {{ __('karakter') }}</p>
+            <p class="mt-1 text-xs text-gray-400">{{ strlen($caption) }}/500 {{ __('karakter') }}</p>
         </div>
 
         <!-- Submit Button -->
@@ -156,7 +156,7 @@ new class extends Component {
             <a
                 href="{{ route('meme.index') }}"
                 wire:navigate
-                class="flex-1 px-6 py-3 bg-gray-300 dark:bg-gray-600/50 border border-gray-400 dark:border-gray-500/50 rounded-xl font-semibold text-lg text-gray-800 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600/70 transition-all text-center"
+                class="flex-1 px-6 py-3 bg-white/10 border border-white/20 rounded-xl font-semibold text-lg text-white hover:bg-white/20 transition-all text-center"
             >
                 {{ __('Batal') }}
             </a>
