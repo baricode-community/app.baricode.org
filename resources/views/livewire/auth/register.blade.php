@@ -174,11 +174,11 @@ function register() {
                         />
                         <label for="agree_terms" class="text-sm text-gray-300 cursor-pointer">
                             {{ __('Saya setuju dengan') }}
-                            <a href="#" class="text-purple-400 hover:text-purple-300 transition-colors">
+                            <a href="{{ route('terms') }}" target="_blank" class="text-purple-400 hover:text-purple-300 transition-colors">
                                 {{ __('Syarat & Ketentuan') }}
                             </a>
                             {{ __('dan') }}
-                            <a href="#" class="text-purple-400 hover:text-purple-300 transition-colors">
+                            <a href="{{ route('privacy') }}" target="_blank" class="text-purple-400 hover:text-purple-300 transition-colors">
                                 {{ __('Kebijakan Privasi') }}
                             </a>
                         </label>
