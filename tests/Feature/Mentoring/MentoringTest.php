@@ -123,3 +123,16 @@ test('mentoring show blocks other users from viewing enrollment', function () {
         ->get(route('mentoring.show', $enrollment->uuid))
         ->assertForbidden();
 });
+
+test('mentoring show allows admin to view any enrollment', function () {
+    \Spatie\Permission\Models\Role::create(['name' => 'admin']);
+    $admin = User::factory()->create();
+    $admin->assignRole('admin');
+    $student = User::factory()->create();
+    $program = MentoringProgram::factory()->create();
+    $enrollment = MentoringEnrollment::factory()->for($student)->for($program, 'program')->create();
+
+    $this->actingAs($admin)
+        ->get(route('mentoring.show', $enrollment->uuid))
+        ->assertOk();
+});
