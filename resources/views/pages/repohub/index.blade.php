@@ -13,6 +13,26 @@
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                 Kumpulan repositori GitHub pilihan yang kami rekomendasikan untuk developer Indonesia.
             </p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                @auth
+                    <a href="{{ route('repohub.submit') }}"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-sm hover:from-purple-500 hover:to-indigo-500 transition shadow-lg hover:shadow-purple-500/30">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        Submit Repo
+                    </a>
+                    <a href="{{ route('repohub.my-submissions') }}"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-xl font-semibold text-sm hover:bg-white/20 transition">
+                        Submission Saya
+                    </a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 rounded-xl font-semibold text-sm hover:bg-white/20 transition">
+                        Login untuk Submit Repo
+                    </a>
+                @endauth
+            </div>
         </div>
     </div>
 

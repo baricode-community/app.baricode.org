@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\RepoHubResource\Schemas;
 
+use App\Enums\RepoHub\RepoHubStatus;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -25,6 +26,21 @@ class RepoHubForm
                     ->required()
                     ->unique(ignoreRecord: true)
                     ->label('Slug'),
+
+                Select::make('status')
+                    ->label('Status')
+                    ->options(collect(RepoHubStatus::cases())->mapWithKeys(
+                        fn (RepoHubStatus $s) => [$s->value => $s->label()]
+                    ))
+                    ->default(RepoHubStatus::Approved->value)
+                    ->required(),
+
+                Textarea::make('rejection_note')
+                    ->label('Rejection Note')
+                    ->nullable()
+                    ->rows(3)
+                    ->columnSpanFull()
+                    ->visible(fn ($get) => $get('status') === RepoHubStatus::Rejected->value),
 
                 TextInput::make('repo_url')
                     ->required()

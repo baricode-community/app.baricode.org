@@ -7,6 +7,8 @@ use App\Enums\LMS\EnrollmentStatus;
 use App\Models\Fun\Meme;
 use App\Models\Fun\MemeVote;
 use App\Models\LMS\Enrollment;
+use App\Models\Certificate\Certificate;
+use App\Models\Certificate\CertificateUser;
 use App\Models\Mentoring\MentoringEnrollment;
 use App\Models\Onboarding\OnboardingTaskCompletion;
 use Database\Factories\UserFactory;
@@ -143,6 +145,15 @@ class User extends Authenticatable implements FilamentUser
     public function onboardingTaskCompletions()
     {
         return $this->hasMany(OnboardingTaskCompletion::class);
+    }
+
+    public function certificates()
+    {
+        return $this->belongsToMany(Certificate::class, 'certificate_user')
+            ->using(CertificateUser::class)
+            ->withPivot('issued_at', 'notes')
+            ->withTimestamps()
+            ->orderByPivot('issued_at', 'desc');
     }
 
     public function canAccessPanel(Panel $panel): bool

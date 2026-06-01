@@ -13,3 +13,4 @@ require __DIR__.'/web/tracker.php';
 require __DIR__.'/web/lms.php';
 require __DIR__.'/web/fun.php';
 require __DIR__.'/web/mentoring.php';
+require __DIR__.'/web/certificate.php';

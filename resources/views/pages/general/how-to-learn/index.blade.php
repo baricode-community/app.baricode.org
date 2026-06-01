@@ -325,7 +325,11 @@
                     <div class="flex-shrink-0 text-4xl">🤝</div>
                     <div>
                         <h2 class="text-4xl font-bold mb-4">5. Berkolaborasi dengan Komunitas</h2>
-                        <p class="text-gray-300 text-lg mb-6">Belajar sendirian itu membosankan. Belajar bareng komunitas itu seru dan lebih efektif.</p>
+                        <p class="text-gray-300 text-lg mb-2">Belajar sendirian itu membosankan. Belajar bareng komunitas itu seru dan lebih efektif.</p>
+                        <div class="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 text-yellow-300 text-sm px-3 py-1.5 rounded-lg mb-4">
+                            <span>🚧</span>
+                            <span>Sebagian fitur di section ini masih dalam tahap pengembangan</span>
+                        </div>
                     </div>
                 </div>
 
