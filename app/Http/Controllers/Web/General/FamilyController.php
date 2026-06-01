@@ -14,7 +14,7 @@ class FamilyController extends Controller
 
     public function show(User $user)
     {
-        $user->load(['meme', 'dailyCommitTrackers', 'meets']);
+        $user->load(['meme', 'dailyCommitTrackers', 'meets', 'certificates', 'activeEnrollments.course']);
 
         return view('pages.general.family.show', compact('user'));
     }

@@ -19,4 +19,5 @@ Route::get('/cara-belajar-di-baricode', [HowToLearnController::class, 'index'])
 Route::view('/syarat-ketentuan', 'pages.general.legal.terms')->name('terms');
 Route::view('/kebijakan-privasi', 'pages.general.legal.privacy')->name('privacy');
 
+Route::view('/roadmap', 'pages.general.roadmap.index')->name('roadmap');
 Route::view('/roadmap/website-developer', 'pages.general.roadmap.website-developer')->name('roadmap.website-developer');

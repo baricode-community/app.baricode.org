@@ -6,6 +6,7 @@ use Database\Factories\Mentoring\MentoringProgramFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Support\Str;
 
 class MentoringProgram extends Model
@@ -52,5 +53,15 @@ class MentoringProgram extends Model
     public function activeEnrollments(): HasMany
     {
         return $this->hasMany(MentoringEnrollment::class)->where('status', 'active');
+    }
+
+    public function sessions(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            MentoringSession::class,
+            MentoringEnrollment::class,
+            'mentoring_program_id',
+            'mentoring_enrollment_id',
+        );
     }
 }

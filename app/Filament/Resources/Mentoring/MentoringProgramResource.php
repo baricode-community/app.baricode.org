@@ -5,7 +5,9 @@ namespace App\Filament\Resources\Mentoring;
 use App\Filament\Resources\Mentoring\MentoringProgramResource\Pages\CreateMentoringProgram;
 use App\Filament\Resources\Mentoring\MentoringProgramResource\Pages\EditMentoringProgram;
 use App\Filament\Resources\Mentoring\MentoringProgramResource\Pages\ListMentoringPrograms;
+use App\Filament\Resources\Mentoring\MentoringProgramResource\Pages\ViewMentoringProgram;
 use App\Filament\Resources\Mentoring\MentoringProgramResource\RelationManagers\EnrollmentsRelationManager;
+use App\Filament\Resources\Mentoring\MentoringProgramResource\RelationManagers\ProgramSessionsRelationManager;
 use App\Filament\Resources\Mentoring\MentoringProgramResource\Schemas\MentoringProgramForm;
 use App\Filament\Resources\Mentoring\MentoringProgramResource\Tables\MentoringProgramsTable;
 use App\Models\Mentoring\MentoringProgram;
@@ -44,6 +46,7 @@ class MentoringProgramResource extends Resource
     {
         return [
             EnrollmentsRelationManager::class,
+            ProgramSessionsRelationManager::class,
         ];
     }
 
@@ -52,6 +55,7 @@ class MentoringProgramResource extends Resource
         return [
             'index' => ListMentoringPrograms::route('/'),
             'create' => CreateMentoringProgram::route('/create'),
+            'view' => ViewMentoringProgram::route('/{record}'),
             'edit' => EditMentoringProgram::route('/{record}/edit'),
         ];
     }
