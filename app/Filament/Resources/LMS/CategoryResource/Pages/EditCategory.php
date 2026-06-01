@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Filament\Resources\LMS\CategoryResource\Pages;
+
+use App\Filament\Resources\LMS\CategoryResource;
+use App\Filament\Resources\LMS\LessonResource;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditCategory extends EditRecord
+{
+    protected static string $resource = CategoryResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('view_lessons')
+                ->label('Lessons')
+                ->icon('heroicon-o-rectangle-stack')
+                ->url(LessonResource::getUrl('index', ['category' => $this->record->id]))
+                ->color('info'),
+            DeleteAction::make(),
+        ];
+    }
+}
