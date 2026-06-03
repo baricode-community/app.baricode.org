@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\General\TimelineController;
 use App\Http\Controllers\Api\LMS\CourseController;
+use App\Http\Controllers\Web\Academy\OrderController;
 use App\MCP\PlatformMcpServer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,7 @@ Route::controller(TimelineController::class)
         Route::get('/', 'index');
         Route::get('/{timeline}', 'show');
     });
+
+// Academy Payment Webhook
+Route::post('/academy/payment/notification', [OrderController::class, 'notification'])
+    ->name('academy.payment.notification');

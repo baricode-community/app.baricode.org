@@ -332,6 +332,75 @@
             </div>
         </section>
 
+        <!-- Baricode Academy Section -->
+        <section class="py-20 px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="relative overflow-hidden rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-950/60 via-orange-950/40 to-yellow-950/30 backdrop-blur-xl p-8 md:p-14">
+                    <!-- Glow decorations -->
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <!-- Left: Copy -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-5">
+                                <span class="px-3 py-1 bg-amber-500/20 border border-amber-400/40 rounded-full text-amber-300 text-xs font-bold tracking-wide uppercase">Baru</span>
+                                <span class="text-amber-400/60 text-xs font-semibold">Program Berbayar</span>
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent">
+                                Baricode Academy
+                            </h2>
+                            <p class="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
+                                Belajar bersama dalam <span class="text-amber-300 font-semibold">sesi online private kelompok kecil</span> bareng instruktur. Lebih intensif, lebih terarah, lebih cepat berkembang.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✓</span> Pertemuan online live terjadwal bersama instruktur</li>
+                                <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✓</span> Kelompok kecil — belajar lebih fokus dan interaktif</li>
+                                <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✓</span> Rekaman sesi tersedia di YouTube untuk peserta</li>
+                                <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✓</span> Kuota terbatas — pastikan tempatmu sekarang</li>
+                            </ul>
+                            <a href="{{ route('academy.index') }}" wire:navigate
+                                class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 rounded-full font-bold text-sm shadow-lg shadow-amber-500/30 transition-all transform hover:scale-105">
+                                Lihat Program Academy
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+
+                        <!-- Right: Visual cards -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="col-span-2 bg-white/5 border border-amber-500/20 rounded-2xl p-5 flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-xl shrink-0">🎓</div>
+                                <div>
+                                    <p class="font-bold text-white text-sm mb-1">Live Class Private Group</p>
+                                    <p class="text-gray-400 text-xs">Sesi langsung bersama instruktur, bukan video rekaman semata.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 text-center">
+                                <div class="text-3xl mb-2">👥</div>
+                                <p class="text-xs font-semibold text-gray-200">Kelompok Kecil</p>
+                                <p class="text-[11px] text-gray-400 mt-1">Kuota terbatas</p>
+                            </div>
+                            <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 text-center">
+                                <div class="text-3xl mb-2">🗓️</div>
+                                <p class="text-xs font-semibold text-gray-200">Jadwal Tetap</p>
+                                <p class="text-[11px] text-gray-400 mt-1">Terstruktur per batch</p>
+                            </div>
+                            <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 text-center">
+                                <div class="text-3xl mb-2">▶️</div>
+                                <p class="text-xs font-semibold text-gray-200">Rekaman YT</p>
+                                <p class="text-[11px] text-gray-400 mt-1">Replay kapan saja</p>
+                            </div>
+                            <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-4 text-center">
+                                <div class="text-3xl mb-2">🏅</div>
+                                <p class="text-xs font-semibold text-gray-200">Sertifikat</p>
+                                <p class="text-[11px] text-gray-400 mt-1">Bukti keikutsertaan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Value Section -->
         <section class="py-20 px-4 relative">
             <div class="max-w-7xl mx-auto">
