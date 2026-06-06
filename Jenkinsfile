@@ -10,19 +10,18 @@ pipeline {
     }
 
     stages {
-        stage('Install PHP Dependencies') {
-            steps {
-                echo '📦 Instalasi Composer dependencies...'
-                sh '''
-                    docker run --rm \
-                        -v "$(pwd):/app" \
-                        -w /app \
-                        composer:latest \
-                        php:8.4-cli \
-                        composer install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
-                '''
-            }
-        }
+stage('Install PHP Dependencies') {
+    steps {
+        echo '📦 Instalasi Composer dependencies...'
+        sh '''
+            docker run --rm \
+                -v "$(pwd):/app" \
+                -w /app \
+                composer:latest \
+                composer install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
+        '''
+    }
+}
 
         stage('Install Node & Build Assets') {
             steps {
