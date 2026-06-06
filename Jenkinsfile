@@ -47,7 +47,7 @@ pipeline {
             }
         }
 
-        stage('Deploy public/build ke cPanel') {
+        stage('Deploy Zip ke cPanel') {
             steps {
                 echo '🚀 Mengirim zip ke server cPanel...'
                 withCredentials([usernamePassword(
@@ -57,7 +57,23 @@ pipeline {
                 )]) {
                     sh '''
                         sshpass -p "$SSH_PASS" scp -o StrictHostKeyChecking=no \
-                            ${ZIP_NAME} ${SSH_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                            ${ZIP_NAME} ${SSH_USER}@${REMOTE_HOST}:${APP_PATH}/${ZIP_NAME}
+                    '''
+                }
+            }
+        }
+
+        stage('Cek Zip di Server') {
+            steps {
+                echo '🔍 Verifikasi zip sudah sampai...'
+                withCredentials([usernamePassword(
+                    credentialsId: 'cpanel-ssh-barizaloka',
+                    usernameVariable: 'SSH_USER',
+                    passwordVariable: 'SSH_PASS'
+                )]) {
+                    sh '''
+                        sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
+                            ${SSH_USER}@${REMOTE_HOST} "ls -lh ${APP_PATH}/${ZIP_NAME}"
                     '''
                 }
             }
@@ -75,8 +91,8 @@ pipeline {
                         sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
                             ${SSH_USER}@${REMOTE_HOST} "
                                 rm -rf ${REMOTE_PATH}/* &&
-                                unzip -o ${REMOTE_PATH}/${ZIP_NAME} -d ${REMOTE_PATH} &&
-                                rm -f ${REMOTE_PATH}/${ZIP_NAME}
+                                unzip -o ${APP_PATH}/${ZIP_NAME} -d ${REMOTE_PATH} &&
+                                rm -f ${APP_PATH}/${ZIP_NAME}
                             "
                     '''
                 }
