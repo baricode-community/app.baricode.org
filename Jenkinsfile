@@ -146,7 +146,7 @@ pipeline {
     }
 
     post {
-        success { echo '✅ Deploy baricode.org berhasil!' }
+        success { echo '✅ Deploy app.baricode.org berhasil!' }
         failure { echo '❌ Deploy gagal, cek log di atas!' }
     }
 }
