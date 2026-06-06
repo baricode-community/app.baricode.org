@@ -10,18 +10,18 @@ pipeline {
     }
 
     stages {
-stage('Install PHP Dependencies') {
-    steps {
-        echo '📦 Instalasi Composer dependencies...'
-        sh '''
-            docker run --rm \
-                -v "$(pwd):/app" \
-                -w /app \
-                composer:latest \
-                composer install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
-        '''
-    }
-}
+        stage('Install PHP Dependencies') {
+            steps {
+                echo '📦 Instalasi Composer dependencies...'
+                sh '''
+                    docker run --rm \
+                        -v "$(pwd):/app" \
+                        -w /app \
+                        composer:latest \
+                        composer install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
+                '''
+            }
+        }
 
         stage('Install Node & Build Assets') {
             steps {
@@ -114,7 +114,7 @@ stage('Install PHP Dependencies') {
                         sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
                             ${SSH_USER}@${REMOTE_HOST} "
                                 cd ${APP_PATH} &&
-                                php artisan migrate
+                                php artisan migrate --force
                             "
                     '''
                 }
