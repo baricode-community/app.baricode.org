@@ -48,6 +48,25 @@
                         <p class="text-sm text-gray-300">Mentoring personal di grub dari anggota komunitas berpengalaman / admin langsung. Belajar lebih cepat dengan pendampingan langsung.</p>
                     </a>
                 </div>
+
+                <!-- Academy -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6 max-w-3xl mx-auto">
+                    <a href="{{ route('academy.index') }}" wire:navigate class="flex-1 bg-gradient-to-br from-amber-500/20 to-orange-500/10 backdrop-blur-lg rounded-2xl p-5 border border-amber-500/30 text-left hover:border-amber-400/60 transition-all">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-xl shrink-0">🎓</div>
+                            <h3 class="font-bold text-base text-white">Academy <span class="text-xs font-normal text-amber-300 ml-1">Berbayar / Gratis</span></h3>
+                        </div>
+                        <p class="text-sm text-gray-300">Live class online kelompok kecil bersama instruktur. Lebih intensif, terjadwal, dan ada rekaman YouTube untuk peserta.</p>
+                    </a>
+                </div>
+
+                <!-- How to Learn CTA -->
+                <div class="text-center">
+                    <a href="{{ route('how-to-learn') }}" wire:navigate
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-cyan-500/30 rounded-full text-sm text-cyan-300 hover:bg-cyan-500/10 hover:border-cyan-400/60 transition-all">
+                        📖 Bingung pilih jalur? Baca panduan cara belajar →
+                    </a>
+                </div>
             </div>
         </section>
 

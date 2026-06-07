@@ -16,6 +16,8 @@ Route::get('/link/{slug}', [ShortLinkController::class, 'redirect'])
 Route::get('/cara-belajar-di-baricode', [HowToLearnController::class, 'index'])
     ->name('how-to-learn');
 
+Route::view('/tentang', 'pages.general.about.index')->name('about');
+
 Route::view('/syarat-ketentuan', 'pages.general.legal.terms')->name('terms');
 Route::view('/kebijakan-privasi', 'pages.general.legal.privacy')->name('privacy');
 
