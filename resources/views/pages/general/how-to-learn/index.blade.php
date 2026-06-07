@@ -219,10 +219,10 @@
                         <h3 class="text-2xl font-bold text-pink-300 mb-3">Bimbingan</h3>
                         <p class="text-gray-300 text-sm mb-4">Belajar dengan pendampingan mentor berpengalaman. Cocok untuk kamu yang butuh arahan dan feedback langsung.</p>
                         <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex gap-2"><span class="text-pink-400">✓</span> Sesi 1-on-1 dengan mentor</li>
+                            <li class="flex gap-2"><span class="text-pink-400">✓</span> Sesi group chat bersama mentor</li>
                             <li class="flex gap-2"><span class="text-pink-400">✓</span> Feedback & code review</li>
                             <li class="flex gap-2"><span class="text-pink-400">✓</span> Jadwal fleksibel</li>
-                            <li class="flex gap-2"><span class="text-pink-400">✓</span> Personal learning plan</li>
+                            <li class="flex gap-2"><span class="text-pink-400">✓</span> Diskusi bersama di group chat</li>
                         </ul>
                         <div class="mt-6 text-pink-300 text-sm font-semibold group-hover:underline">Lihat detail →</div>
                     </a>
@@ -349,7 +349,7 @@
                             <div class="space-y-3 text-gray-300">
                                 <div class="flex gap-3">
                                     <span class="text-pink-400">→</span>
-                                    <span><strong>Sesi 1-on-1</strong> dengan mentor secara terjadwal</span>
+                                    <span><strong>Sesi group chat</strong> bersama mentor secara terjadwal</span>
                                 </div>
                                 <div class="flex gap-3">
                                     <span class="text-pink-400">→</span>
@@ -357,7 +357,7 @@
                                 </div>
                                 <div class="flex gap-3">
                                     <span class="text-pink-400">→</span>
-                                    <span><strong>Personal plan</strong> belajar sesuai tujuan kamu</span>
+                                    <span><strong>Diskusi kelompok</strong> bersama peserta dan mentor</span>
                                 </div>
                             </div>
                             <div class="space-y-3 text-gray-300">
@@ -828,7 +828,7 @@
                         </summary>
                         <div class="text-gray-300 mt-4 space-y-2">
                             <p><strong class="text-cyan-300">Kursus</strong> — belajar mandiri, gratis, tidak ada jadwal mengikat. Cocok untuk eksplorasi bebas.</p>
-                            <p><strong class="text-pink-300">Bimbingan</strong> — ada mentor yang mendampingi, ada sesi terjadwal, lebih personal. Cocok jika sering stuck atau butuh feedback.</p>
+                            <p><strong class="text-pink-300">Bimbingan</strong> — ada mentor yang mendampingi via group chat, ada sesi terjadwal, diskusi bersama. Cocok jika sering stuck atau butuh feedback.</p>
                             <p><strong class="text-amber-300">Akademi</strong> — program intensif dengan batch dan kurikulum penuh dari awal sampai siap kerja. Berbayar, ada sertifikat.</p>
                         </div>
                     </details>
