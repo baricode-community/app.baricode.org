@@ -26,7 +26,7 @@
                     Belajar lebih dalam, bersama kelompok kecil, dipandu instruktur secara langsung.
                 </p>
                 <p class="text-base text-gray-400 mb-10 max-w-2xl mx-auto">
-                    Bukan kursus video biasa. Di sini kamu belajar lewat <span class="text-amber-300">sesi online live private</span> bareng-bareng — tanya jawab langsung, feedback langsung, tumbuh bareng.
+                    Bukan kursus video biasa. Di sini kamu belajar lewat <span class="text-amber-300">sesi online live private</span> bareng-bareng — tanya jawab langsung, feedback langsung, tumbuh bareng. Ada program yang <span class="text-green-400 font-semibold">gratis</span>, ada yang berbayar.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -49,7 +49,7 @@
 
                 {{-- Floating badges --}}
                 <div class="hidden md:flex justify-center gap-6 mt-16 flex-wrap">
-                    @foreach(['👥 Kelompok Kecil', '🎯 Live Session', '▶️ Rekaman YouTube', '🗓️ Jadwal Terstruktur', '🏅 Sertifikat'] as $badge)
+                    @foreach(['🆓 Ada yang Gratis', '👥 Kelompok Kecil', '🎯 Live Session', '▶️ Rekaman YouTube', '🗓️ Jadwal Terstruktur', '🏅 Sertifikat'] as $badge)
                         <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
                             {{ $badge }}
                         </span>
@@ -88,7 +88,13 @@
                         <div class="text-4xl mb-3 mt-2">🎓</div>
                         <h3 class="font-bold text-amber-300 mb-2">Academy</h3>
                         <p class="text-sm text-gray-300">Sesi live online private bersama kelompok kecil + instruktur. Intensif dan terstruktur per batch.</p>
-                        <p class="text-xs text-amber-400 mt-3 font-semibold">⚡ Berbayar · Kuota Terbatas</p>
+                        <div class="flex justify-center gap-2 mt-3 flex-wrap">
+                            <span class="text-xs text-green-400 font-semibold">✓ Ada yang Gratis</span>
+                            <span class="text-gray-600">·</span>
+                            <span class="text-xs text-amber-400 font-semibold">⚡ Ada yang Berbayar</span>
+                            <span class="text-gray-600">·</span>
+                            <span class="text-xs text-gray-400 font-semibold">Kuota Terbatas</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,13 +105,13 @@
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-14">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Gimana Cara Kerjanya?</h2>
-                    <p class="text-gray-400">Simple. Daftar, bayar, join sesi, berkembang.</p>
+                    <p class="text-gray-400">Simple. Pilih, daftar, join sesi, berkembang.</p>
                 </div>
 
                 <div class="space-y-4">
                     @foreach([
-                        ['01', 'Pilih Program & Batch', 'Lihat program yang tersedia dan pilih batch yang cocok dengan jadwalmu. Setiap batch punya kuota terbatas.', 'from-amber-500 to-orange-500'],
-                        ['02', 'Daftar & Selesaikan Pembayaran', 'Bayar via Midtrans — support VA, QRIS, kartu kredit, dan lebih. Proses cepat, aman, dan terkonfirmasi otomatis.', 'from-orange-500 to-red-500'],
+                        ['01', 'Pilih Program & Batch', 'Lihat program yang tersedia — ada yang gratis, ada yang berbayar. Pilih batch yang cocok dengan jadwalmu. Setiap batch punya kuota terbatas.', 'from-amber-500 to-orange-500'],
+                        ['02', 'Daftar & Konfirmasi', 'Untuk program gratis, langsung terdaftar setelah klik daftar. Untuk yang berbayar, selesaikan pembayaran via Midtrans — support VA, QRIS, kartu kredit, dan lebih.', 'from-orange-500 to-red-500'],
                         ['03', 'Ikuti Sesi Live Online', 'Setiap sesi ada link meeting yang akan dibagikan. Join tepat waktu, tanya bebas, interaksi langsung dengan instruktur dan peserta lain.', 'from-amber-400 to-yellow-500'],
                         ['04', 'Akses Rekaman YouTube', 'Ketinggalan sesi? Tenang. Rekaman tersedia eksklusif di YouTube untuk peserta terdaftar, bisa diulang kapan saja.', 'from-yellow-500 to-amber-400'],
                     ] as [$num, $title, $desc, $gradient])
@@ -148,17 +154,33 @@
                 @else
                     <div class="grid gap-6 md:grid-cols-2">
                         @foreach($programs as $program)
+                            @php
+                                $activeBatches = $program->activeBatches;
+                                $hasFreeBatch = $activeBatches->where('price', 0)->isNotEmpty();
+                                $hasPaidBatch = $activeBatches->where('price', '>', 0)->isNotEmpty();
+                                $minPaidPrice = $hasPaidBatch ? $activeBatches->where('price', '>', 0)->min('price') : null;
+                            @endphp
                             <a href="{{ route('academy.show', $program->uuid) }}"
                                 class="group block bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10 transition-all">
 
                                 @if($program->thumbnail)
-                                    <div class="h-44 overflow-hidden">
+                                    <div class="h-44 overflow-hidden relative">
                                         <img src="{{ $program->thumbnail }}" alt="{{ $program->title }}"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                        @if($hasFreeBatch)
+                                            <span class="absolute top-3 left-3 px-2.5 py-1 bg-green-500/90 text-white text-xs font-bold rounded-full backdrop-blur-sm">
+                                                ✓ Ada yang Gratis
+                                            </span>
+                                        @endif
                                     </div>
                                 @else
-                                    <div class="h-44 bg-gradient-to-br from-amber-900/50 to-orange-900/30 flex items-center justify-center">
+                                    <div class="h-44 bg-gradient-to-br from-amber-900/50 to-orange-900/30 flex items-center justify-center relative">
                                         <span class="text-6xl">🎓</span>
+                                        @if($hasFreeBatch)
+                                            <span class="absolute top-3 left-3 px-2.5 py-1 bg-green-500/90 text-white text-xs font-bold rounded-full">
+                                                ✓ Ada yang Gratis
+                                            </span>
+                                        @endif
                                     </div>
                                 @endif
 
@@ -170,10 +192,18 @@
                                         <p class="text-gray-400 text-sm line-clamp-2 mb-4">{{ $program->description }}</p>
                                     @endif
                                     <div class="flex items-center justify-between text-sm">
-                                        <span class="text-gray-500">
-                                            {{ $program->activeBatches->count() }} batch tersedia
-                                        </span>
-                                        <span class="text-amber-400 font-semibold group-hover:translate-x-1 transition-transform inline-block">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <span class="text-gray-500">{{ $activeBatches->count() }} batch tersedia</span>
+                                            @if($hasFreeBatch && !$hasPaidBatch)
+                                                <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-xs font-semibold rounded-full border border-green-500/30">Gratis</span>
+                                            @elseif($hasFreeBatch && $hasPaidBatch)
+                                                <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-xs font-semibold rounded-full border border-green-500/30">Gratis</span>
+                                                <span class="px-2 py-0.5 bg-amber-500/15 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/30">Mulai Rp {{ number_format($minPaidPrice, 0, ',', '.') }}</span>
+                                            @elseif($hasPaidBatch)
+                                                <span class="px-2 py-0.5 bg-amber-500/15 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/30">Mulai Rp {{ number_format($minPaidPrice, 0, ',', '.') }}</span>
+                                            @endif
+                                        </div>
+                                        <span class="text-amber-400 font-semibold group-hover:translate-x-1 transition-transform inline-block shrink-0">
                                             Lihat detail →
                                         </span>
                                     </div>
@@ -203,11 +233,11 @@
 
                 <div class="space-y-3" x-data="{ open: null }">
                     @foreach([
-                        ['1', 'Apakah ini berbeda dari LMS & Bimbingan yang sudah gratis?', 'Ya, berbeda. LMS dan Bimbingan tetap gratis seperti biasa. Academy adalah program berbayar dengan format live session kelompok kecil — lebih intensif, ada jadwal tetap, dan interaksi langsung dengan instruktur.'],
-                        ['2', 'Kenapa berbayar?', 'Karena instruktur menyiapkan materi, hadir langsung di setiap sesi, dan memberikan feedback personal. Biaya ini untuk menghargai waktu dan tenaga instruktur agar kualitas tetap terjaga.'],
+                        ['1', 'Apakah semua program Academy gratis?', 'Tidak semua. Ada program Academy yang sepenuhnya gratis, dan ada yang berbayar. Kamu bisa lihat badge "Gratis" atau informasi harga langsung di setiap card program. LMS dan Bimbingan tetap gratis seperti biasa — Academy hanya berbeda di format live session-nya.'],
+                        ['2', 'Kenapa ada yang berbayar?', 'Program berbayar hadir karena instruktur menyiapkan materi, hadir langsung di setiap sesi, dan memberikan feedback personal. Biaya ini untuk menghargai waktu dan tenaga instruktur agar kualitas tetap terjaga. Program gratis biasanya didukung oleh komunitas atau sponsor.'],
                         ['3', 'Bagaimana jika saya tidak bisa hadir di salah satu sesi?', 'Rekaman setiap sesi akan diunggah ke YouTube dan bisa diakses kapan saja oleh peserta yang terdaftar. Tapi disarankan untuk hadir langsung agar bisa tanya jawab.'],
                         ['4', 'Berapa kuota per batch?', 'Setiap batch punya kuota terbatas yang ditentukan per program. Ini sengaja agar sesi lebih kondusif dan instruktur bisa fokus ke setiap peserta.'],
-                        ['5', 'Metode pembayaran apa yang tersedia?', 'Kami menggunakan Midtrans — tersedia Virtual Account semua bank, QRIS, kartu kredit/debit, dan berbagai e-wallet. Konfirmasi otomatis setelah pembayaran berhasil.'],
+                        ['5', 'Metode pembayaran apa yang tersedia untuk program berbayar?', 'Kami menggunakan Midtrans — tersedia Virtual Account semua bank, QRIS, kartu kredit/debit, dan berbagai e-wallet. Konfirmasi otomatis setelah pembayaran berhasil. Untuk program gratis, tidak ada proses pembayaran sama sekali.'],
                     ] as [$id, $q, $a])
                         <div class="bg-white/5 border border-white/10 hover:border-amber-500/30 rounded-2xl overflow-hidden transition-colors">
                             <button @click="open = open === {{ $id }} ? null : {{ $id }}"

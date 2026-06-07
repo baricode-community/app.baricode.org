@@ -10,7 +10,7 @@ use App\Filament\Resources\Academy\AcademyBatchResource\RelationManagers\Session
 use App\Models\Academy\AcademyBatch;
 use BackedEnum;
 use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
