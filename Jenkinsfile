@@ -1,94 +1,80 @@
 pipeline {
     agent any
 
+    // ─── Konfigurasi global deployment ───────────────────────────────────────
     environment {
-        ZIP_NAME = 'public_build.zip'
-        REMOTE_USER = 'barizaloka'
+        ZIP_NAME    = 'public_build.zip'
         REMOTE_HOST = '103.138.189.213'
+        APP_PATH    = '/home/barizaloka/app.baricode.org'
         REMOTE_PATH = '/home/barizaloka/app.baricode.org/public/build'
-        APP_PATH = '/home/barizaloka/app.baricode.org'
+        CRED_ID     = 'cpanel-ssh-barizaloka'
     }
 
     stages {
-        stage('Install PHP Dependencies') {
+
+        // ─── 1. Install dependency PHP via Composer (dalam Docker) ────────────
+        stage('Composer Install') {
             steps {
-                echo '📦 Instalasi Composer dependencies...'
                 sh '''
                     docker run --rm \
-                        -v "$(pwd):/app" \
-                        -w /app \
+                        -v "$(pwd):/app" -w /app \
                         composer:latest \
-                        composer install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
+                        composer install \
+                            --no-interaction \
+                            --prefer-dist \
+                            --optimize-autoloader \
+                            --ignore-platform-reqs
                 '''
             }
         }
 
-        stage('Install Node & Build Assets') {
+        // ─── 2. Install dependency Node & build asset frontend ────────────────
+        stage('Node Build') {
             steps {
-                echo '🎨 Instalasi Node dependencies & build assets...'
                 sh '''
                     docker run --rm \
-                        -v "$(pwd):/app" \
-                        -w /app \
+                        -v "$(pwd):/app" -w /app \
                         node:20-alpine \
                         sh -c "npm ci && npm run build"
                 '''
             }
         }
 
-        stage('Zip public/build') {
+        // ─── 3. Zip folder public/build hasil kompilasi asset ─────────────────
+        stage('Zip Build') {
             steps {
-                echo '📦 Membuat zip dari public/build...'
-                sh '''
-                    cd public/build
-                    zip -r "$(pwd)/../../${ZIP_NAME}" .
-                    cd ../..
-                '''
+                sh 'cd public/build && zip -r "$(pwd)/../../${ZIP_NAME}" .'
             }
         }
 
-        stage('Deploy Zip ke cPanel') {
+        // ─── 4. Upload zip ke server cPanel via SCP ───────────────────────────
+        stage('Upload ke Server') {
             steps {
-                echo '🚀 Mengirim zip ke server cPanel...'
                 withCredentials([usernamePassword(
-                    credentialsId: 'cpanel-ssh-barizaloka',
+                    credentialsId: "${CRED_ID}",
                     usernameVariable: 'SSH_USER',
                     passwordVariable: 'SSH_PASS'
                 )]) {
                     sh '''
-                        sshpass -p "$SSH_PASS" scp -o StrictHostKeyChecking=no \
+                        sshpass -p "$SSH_PASS" scp \
+                            -o StrictHostKeyChecking=no \
                             ${ZIP_NAME} ${SSH_USER}@${REMOTE_HOST}:${APP_PATH}/${ZIP_NAME}
                     '''
                 }
             }
         }
 
-        stage('Cek Zip di Server') {
+        // ─── 5. Ekstrak zip & bersihkan folder public/build di server ─────────
+        stage('Ekstrak Build') {
             steps {
-                echo '🔍 Verifikasi zip sudah sampai...'
                 withCredentials([usernamePassword(
-                    credentialsId: 'cpanel-ssh-barizaloka',
+                    credentialsId: "${CRED_ID}",
                     usernameVariable: 'SSH_USER',
                     passwordVariable: 'SSH_PASS'
                 )]) {
                     sh '''
-                        sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
-                            ${SSH_USER}@${REMOTE_HOST} "ls -lh ${APP_PATH}/${ZIP_NAME}"
-                    '''
-                }
-            }
-        }
-
-        stage('Extract public/build di cPanel') {
-            steps {
-                echo '📂 Ekstrak zip public/build di server...'
-                withCredentials([usernamePassword(
-                    credentialsId: 'cpanel-ssh-barizaloka',
-                    usernameVariable: 'SSH_USER',
-                    passwordVariable: 'SSH_PASS'
-                )]) {
-                    sh '''
-                        sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
+                        sshpass -p "$SSH_PASS" ssh \
+                            -o StrictHostKeyChecking=no \
                             ${SSH_USER}@${REMOTE_HOST} "
                                 rm -rf ${REMOTE_PATH}/* &&
                                 unzip -o ${APP_PATH}/${ZIP_NAME} -d ${REMOTE_PATH} &&
@@ -99,47 +85,45 @@ pipeline {
             }
         }
 
-        stage('Git Pull di cPanel') {
+        // ─── 6. Pull kode terbaru dari branch master ──────────────────────────
+        stage('Git Pull') {
             steps {
-                echo '🔄 Menjalankan git pull di cPanel...'
                 withCredentials([usernamePassword(
-                    credentialsId: 'cpanel-ssh-barizaloka',
+                    credentialsId: "${CRED_ID}",
                     usernameVariable: 'SSH_USER',
                     passwordVariable: 'SSH_PASS'
                 )]) {
                     sh '''
-                        sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
-                            ${SSH_USER}@${REMOTE_HOST} "
-                                cd ${APP_PATH} &&
-                                git pull origin master
-                            "
+                        sshpass -p "$SSH_PASS" ssh \
+                            -o StrictHostKeyChecking=no \
+                            ${SSH_USER}@${REMOTE_HOST} \
+                            "cd ${APP_PATH} && git pull origin master"
                     '''
                 }
             }
         }
 
-        stage('PHP Artisan Migrate') {
+        // ─── 7. Jalankan migrasi database Laravel ─────────────────────────────
+        stage('Migrate DB') {
             steps {
-                echo '🗄️ Menjalankan migrasi database...'
                 withCredentials([usernamePassword(
-                    credentialsId: 'cpanel-ssh-barizaloka',
+                    credentialsId: "${CRED_ID}",
                     usernameVariable: 'SSH_USER',
                     passwordVariable: 'SSH_PASS'
                 )]) {
                     sh '''
-                        sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
-                            ${SSH_USER}@${REMOTE_HOST} "
-                                cd ${APP_PATH} &&
-                                php artisan migrate --force
-                            "
+                        sshpass -p "$SSH_PASS" ssh \
+                            -o StrictHostKeyChecking=no \
+                            ${SSH_USER}@${REMOTE_HOST} \
+                            "cd ${APP_PATH} && php artisan migrate --force"
                     '''
                 }
             }
         }
 
-        stage('Hapus Zip Lokal') {
+        // ─── 8. Hapus zip sementara dari workspace Jenkins ────────────────────
+        stage('Cleanup') {
             steps {
-                echo '🗑️ Membersihkan zip di workspace Jenkins...'
                 sh 'rm -f ${ZIP_NAME}'
             }
         }
@@ -147,6 +131,6 @@ pipeline {
 
     post {
         success { echo '✅ Deploy app.baricode.org berhasil!' }
-        failure { echo '❌ Deploy gagal, cek log di atas!' }
+        failure { echo '❌ Deploy gagal — cek log di atas.' }
     }
 }
