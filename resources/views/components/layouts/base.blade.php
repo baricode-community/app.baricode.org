@@ -18,7 +18,7 @@
             <!-- Nav Links (Desktop) -->
             <div class="hidden md:flex items-center gap-6">
                 <a href="{{ route('lms.index') }}" class="text-sm transition-colors {{ request()->routeIs('lms.*') ? 'text-white font-medium' : 'text-purple-200 hover:text-white' }}">Kursus</a>
-                <a href="{{ route('academy.index') }}" class="text-sm transition-colors {{ request()->routeIs('academy.*') ? 'text-amber-300 font-medium' : 'text-amber-400/80 hover:text-amber-300' }}">Akademi</a>
+                <a href="{{ route('academy.index') }}" class="text-sm transition-colors {{ request()->routeIs('academy.*') ? 'text-amber-300 font-medium' : 'text-purple-200 hover:text-white' }}">Akademi</a>
                 <a href="{{ route('mentoring.index') }}" class="text-sm transition-colors {{ request()->routeIs('mentoring.*') ? 'text-white font-medium' : 'text-purple-200 hover:text-white' }}">Bimbingan</a>
             </div>
 
@@ -56,7 +56,7 @@
         <!-- Mobile Menu -->
         <div x-show="open" x-transition class="md:hidden border-t border-purple-700 dark:border-white/10 bg-purple-900 dark:bg-gray-900 px-4 py-3 space-y-1">
             <a href="{{ route('lms.index') }}" class="block text-sm transition-colors py-2 {{ request()->routeIs('lms.*') ? 'text-white font-medium' : 'text-purple-200 hover:text-white' }}">Kursus</a>
-            <a href="{{ route('academy.index') }}" class="block text-sm transition-colors py-2 {{ request()->routeIs('academy.*') ? 'text-amber-300 font-medium' : 'text-amber-400/80 hover:text-amber-300' }}">Akademi</a>
+            <a href="{{ route('academy.index') }}" class="block text-sm transition-colors py-2 {{ request()->routeIs('academy.*') ? 'text-amber-300 font-medium' : 'text-purple-200 hover:text-white' }}">Akademi</a>
             <a href="{{ route('mentoring.index') }}" class="block text-sm transition-colors py-2 {{ request()->routeIs('mentoring.*') ? 'text-white font-medium' : 'text-purple-200 hover:text-white' }}">Bimbingan</a>
             <div class="border-t border-purple-700 dark:border-white/10 pt-2 mt-2 space-y-1">
                 @guest
