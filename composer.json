@@ -10,6 +10,7 @@
         "bacon/bacon-qr-code": "^3.0",
         "dedoc/scramble": "^0.13.6",
         "filament/filament": "^5.0",
+        "filament/spatie-laravel-settings-plugin": "^5.0",
         "laravel/fortify": "^1.0",
         "laravel/framework": "^13.0",
         "laravel/mcp": "^0.6.5",
@@ -22,7 +23,8 @@
         "livewire/volt": "^1.7.0",
         "midtrans/midtrans-php": "^2.6",
         "spatie/laravel-backup": "^10.0",
-        "spatie/laravel-permission": "^6.23"
+        "spatie/laravel-permission": "^6.23",
+        "spatie/laravel-settings": "^3.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^4.1",

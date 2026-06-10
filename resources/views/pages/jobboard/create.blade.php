@@ -1,5 +1,5 @@
 <x-layouts.base :title="__('Post Lowongan — Job Board')">
-    <div class="max-w-2xl mx-auto px-4 py-12">
+    <div class="w-full p-4">
 
         {{-- Breadcrumb --}}
         <nav class="flex items-center gap-2 text-sm text-blue-400 mb-8">
