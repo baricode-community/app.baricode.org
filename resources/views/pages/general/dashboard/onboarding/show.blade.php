@@ -5,9 +5,7 @@
         <div class="flex items-center gap-3">
             <a href="{{ route('dashboard') }}"
                class="text-purple-400 hover:text-purple-300 transition-colors text-xs flex items-center gap-1">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
                 Dashboard
             </a>
             <span class="text-purple-600 text-xs">/</span>
@@ -35,9 +33,7 @@
                 </div>
                 @if($isCompleted)
                     <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-300 text-xs font-medium">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                        </svg>
+                        <i data-lucide="check" class="w-3 h-3"></i>
                         Selesai
                     </span>
                 @endif
@@ -52,14 +48,10 @@
                                     ? 'bg-white/5 hover:bg-white/10 border border-purple-500/20 hover:border-purple-400/40 text-purple-300'
                                     : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:shadow-lg hover:shadow-purple-500/30 text-white' }}">
                     @if($isCompleted)
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
+                        <i data-lucide="x" class="w-4 h-4"></i>
                         Tandai Belum Selesai
                     @else
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                        </svg>
+                        <i data-lucide="check" class="w-4 h-4"></i>
                         Tandai Selesai
                     @endif
                 </button>

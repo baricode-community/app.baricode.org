@@ -16,9 +16,7 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 text-center">
             <div class="mb-4">
-                <svg class="w-12 h-12 mx-auto text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A4 4 0 0010 9.87v4.263a4 4 0 001.555 3.323l3.197 2.132a4 4 0 004.248-.002l3.197-2.132A4 4 0 0022 14.133V9.87a4 4 0 00-1.555-3.323l-3.197-2.132a4 4 0 00-4.248.002z"></path>
-                </svg>
+                <i data-lucide="play" class="w-12 h-12 mx-auto text-purple-500"></i>
             </div>
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{{ __('Jelajahi Meme') }}</h3>
             <p class="text-gray-600 dark:text-gray-300">{{ __('Telusuri galeri meme yang dibuat oleh komunitas kami dan temukan tawa baru setiap hari.') }}</p>

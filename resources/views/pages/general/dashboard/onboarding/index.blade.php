@@ -5,9 +5,7 @@
         <div class="flex items-center gap-4 pb-6 border-b border-purple-700/50">
             <a href="{{ route('dashboard') }}"
                class="text-purple-400 hover:text-purple-300 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
             </a>
             <div>
                 <h1 class="text-white text-xl font-bold">Onboarding Tasks</h1>
@@ -29,9 +27,7 @@
                                     ? 'bg-gradient-to-br from-emerald-500 to-teal-500'
                                     : 'bg-white/10' }}">
                         @if($task->is_completed)
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                            </svg>
+                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
                         @elseif($task->icon)
                             <span class="text-lg">{{ $task->icon }}</span>
                         @else
@@ -51,10 +47,7 @@
                         @endif
                     </div>
 
-                    <svg class="w-4 h-4 text-purple-500 group-hover:text-purple-300 flex-shrink-0 transition-colors"
-                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-purple-500 group-hover:text-purple-300 flex-shrink-0 transition-colors"></i>
                 </a>
             @empty
                 <div class="text-center py-12 text-purple-400 text-sm">

@@ -13,9 +13,7 @@
                     <div class="flex items-center justify-between">
                         <h2 class="text-xl font-semibold text-gray-800">Daftar Meme Saya</h2>
                         <a href="{{ route('meme.create') }}" class="inline-flex items-center px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                            </svg>
+                            <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
                             {{ __('Buat Meme Baru') }}
                         </a>
                     </div>

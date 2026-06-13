@@ -118,9 +118,7 @@ new class extends Component {
         @empty
             <div class="flex flex-col items-center justify-center py-20 text-center bg-white/5 rounded-2xl border border-dashed border-purple-500/30">
                 <div class="p-4 bg-purple-500/10 rounded-full mb-4">
-                    <svg class="h-12 w-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <i data-lucide="clock" class="h-12 w-12 text-purple-500"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-white">Belum Ada Timeline</h3>
                 <p class="text-purple-400 mt-2 max-w-xs">Data yang Anda cari tidak ditemukan atau belum ditambahkan.</p>

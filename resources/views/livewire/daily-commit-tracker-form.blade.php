@@ -3,17 +3,13 @@
     <div class="flex items-center gap-2 mb-4">
         @if($isEditing)
             <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.338 16.338H0V0h7.324V.75h8.844L19.5 3.393v13.161A2.847 2.847 0 0116.338 19.5z" clip-rule="evenodd"></path>
-                </svg>
+                <i data-lucide="pencil" class="w-4 h-4"></i>
                 Mode Edit
             </span>
             <p class="text-sm text-gray-600">Anda dapat mengedit catatan untuk hari ini</p>
         @else
             <span class="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
                 Mode Buat Baru
             </span>
             <p class="text-sm text-gray-600">Buat catatan baru untuk hari ini</p>
@@ -99,9 +95,7 @@
                 wire:loading.attr="disabled"
                 class="flex-1 bg-gradient-to-r from-orange-500 to-amber-600 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
+                <i data-lucide="check" class="w-5 h-5"></i>
                 <span wire:loading.remove>
                     @if($isEditing)
                         💾 Update Catatan
@@ -118,9 +112,7 @@
     <div class="mt-6">
         @if (session()->has('message'))
             <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-start gap-3">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
+                <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
                 <div>
                     <p class="font-semibold">{{ session('message') }}</p>
                 </div>
@@ -129,9 +121,7 @@
 
         @if (session()->has('error'))
             <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-start gap-3">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
-                </svg>
+                <i data-lucide="x-circle" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
                 <div>
                     <p class="font-semibold">{{ session('error') }}</p>
                 </div>

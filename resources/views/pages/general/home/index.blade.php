@@ -381,7 +381,7 @@
                             <a href="{{ route('academy.index') }}" wire:navigate
                                 class="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 rounded-full font-bold text-sm shadow-lg shadow-amber-500/30 transition-all transform hover:scale-105">
                                 Lihat Program Academy
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
                             </a>
                         </div>
 

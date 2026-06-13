@@ -105,9 +105,7 @@
                                 <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <div class="inline-flex items-center text-purple-400 text-sm font-semibold">
                                         {{ __('Lihat Profil') }}
-                                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
+                                        <i data-lucide="chevron-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                                     </div>
                                 </div>
                             </div>
@@ -163,13 +161,9 @@
                                                         {{ $userStats['totalVotes'] > 0 ? round(($userStats['totalUpvotes'] / $userStats['totalVotes']) * 100) : 0 }}%
                                                     </span>
                                                     @if($userStats['totalUpvotes'] > $userStats['totalDownvotes'])
-                                                        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9H13V7h-2v4H8.5l3.5-3.5 3.5 3.5z"></path>
-                                                        </svg>
+                                                        <i data-lucide="thumbs-up" class="w-4 h-4 text-green-400"></i>
                                                     @else
-                                                        <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3.5-9H11v4h2v-4h3.5l-3.5 3.5-3.5-3.5z"></path>
-                                                        </svg>
+                                                        <i data-lucide="thumbs-down" class="w-4 h-4 text-red-400"></i>
                                                     @endif
                                                 </div>
                                             </td>
@@ -183,9 +177,7 @@
             @else
                 <!-- Empty State -->
                 <div class="text-center py-20">
-                    <svg class="w-24 h-24 text-gray-700 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-                    </svg>
+                    <i data-lucide="user" class="w-24 h-24 text-gray-700 mx-auto mb-6"></i>
                     <h3 class="text-2xl font-bold text-gray-300 mb-2">{{ __('Belum Ada Kreator Meme') }}</h3>
                     <p class="text-gray-400 mb-6">{{ __('Mulai buat meme pertamamu sekarang!') }}</p>
                     <a 
@@ -193,9 +185,7 @@
                         wire:navigate
                         class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
                     >
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
+                        <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
                         {{ __('Buat Meme') }}
                     </a>
                 </div>

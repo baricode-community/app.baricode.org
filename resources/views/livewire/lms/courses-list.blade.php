@@ -43,9 +43,7 @@ new class extends Component {
                 class="w-full px-6 py-4 bg-white/5 backdrop-blur-lg border-2 border-purple-500/30 rounded-lg text-white placeholder-purple-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition"
             >
             <div class="absolute right-3 top-1/2 -translate-y-1/2 text-purple-400">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/>
-                </svg>
+                <i data-lucide="search" class="w-5 h-5"></i>
             </div>
         </div>
 
@@ -70,9 +68,7 @@ new class extends Component {
                             <div class="absolute inset-0 bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 animate-pulse"></div>
                         </div>
                         <div class="relative z-10 text-center">
-                            <svg class="w-20 h-20 text-white mx-auto mb-2 group-hover:scale-110 transition duration-300" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                            </svg>
+                            <i data-lucide="bar-chart-2" class="w-20 h-20 text-white mx-auto mb-2 group-hover:scale-110 transition duration-300"></i>
                         </div>
                     </div>
 
@@ -86,15 +82,11 @@ new class extends Component {
 
                         <div class="flex items-center justify-between mb-4 text-xs text-purple-400">
                             <span class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 1a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2h-1z"/>
-                                </svg>
+                                <i data-lucide="folder" class="w-4 h-4 text-blue-400"></i>
                                 {{ $course->categories->count() }} Modul
                             </span>
                             <span class="flex items-center gap-1">
-                                <svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
-                                </svg>
+                                <i data-lucide="book-open" class="w-4 h-4 text-orange-400"></i>
                                 {{ $course->categories->sum(fn ($cat) => $cat->lessons->count()) }} Lessons
                             </span>
                         </div>
@@ -106,9 +98,7 @@ new class extends Component {
                         <div class="pt-4 border-t border-purple-500/20 flex items-center justify-between">
                             <span class="text-xs text-purple-400">Klik untuk membuka →</span>
                             <div class="group-hover:translate-x-1 transition">
-                                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400"></i>
                             </div>
                         </div>
                     </div>
@@ -121,9 +111,7 @@ new class extends Component {
         </div>
     @else
         <div class="text-center py-16">
-            <svg class="w-24 h-24 mx-auto text-purple-700 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
+            <i data-lucide="frown" class="w-24 h-24 mx-auto text-purple-700 mb-6"></i>
             <h3 class="text-2xl font-bold text-white mb-2">Tidak Ada Kursus Ditemukan</h3>
             <p class="text-purple-300 mb-6">
                 Maaf, tidak ada kursus yang sesuai dengan pencarian "<span class="font-semibold text-white">{{ $search }}</span>"

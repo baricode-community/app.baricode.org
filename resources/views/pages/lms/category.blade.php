@@ -72,9 +72,7 @@
                 <h2 class="text-xl font-bold text-white">Lessons</h2>
                 @if($categoryProgress && $categoryProgress->status === \App\Enums\LMS\CategoryProgressStatus::Approved)
                     <span class="text-sm text-green-300 flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
                         Kategori Disetujui &amp; Terkunci
                     </span>
                 @endif
@@ -128,9 +126,7 @@
                                     {{-- Category is locked, show lock icon --}}
                                     <span title="{{ $isCompleted ? 'Selesai & Terkunci' : 'Terkunci' }}"
                                         class="w-8 h-8 flex items-center justify-center rounded-full {{ $isCompleted ? 'text-green-400' : 'text-purple-600' }}">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                                        </svg>
+                                        <i data-lucide="lock" class="w-5 h-5"></i>
                                     </span>
                                 @else
                                     {{-- Toggle completion button --}}
@@ -143,13 +139,9 @@
                                                     ? 'bg-green-600/30 border-green-500/60 text-green-300 hover:bg-red-500/20 hover:border-red-500/40 hover:text-red-300'
                                                     : 'bg-white/5 border-purple-500/30 text-purple-500 hover:bg-green-600/20 hover:border-green-500/40 hover:text-green-300' }}">
                                             @if($isCompleted)
-                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                                </svg>
+                                                <i data-lucide="check" class="w-5 h-5"></i>
                                             @else
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                                </svg>
+                                                <i data-lucide="check" class="w-5 h-5"></i>
                                             @endif
                                         </button>
                                     </form>
@@ -165,11 +157,7 @@
                     </div>
                 @empty
                     <div class="px-6 py-12 text-center text-purple-400">
-                        <svg class="w-16 h-16 mx-auto text-purple-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                            </path>
-                        </svg>
+                        <i data-lucide="file-text" class="w-16 h-16 mx-auto text-purple-700 mb-4"></i>
                         <p class="text-lg">No lessons available in this category yet.</p>
                     </div>
                 @endforelse
@@ -195,9 +183,7 @@
                             <button type="submit"
                                 onclick="return confirm('Yakin ingin mengajukan persetujuan untuk kategori ini?')"
                                 class="inline-flex items-center px-5 py-2.5 bg-green-600 hover:bg-green-500 text-white rounded-lg transition font-medium">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
+                                <i data-lucide="check-circle" class="w-5 h-5 mr-2"></i>
                                 Ajukan Persetujuan
                             </button>
                         </form>
@@ -225,9 +211,7 @@
         <div class="mt-8">
             <a href="{{ route('lms.course', $course->slug) }}"
                 class="inline-flex items-center px-4 py-2 bg-white/5 hover:bg-white/10 border border-purple-500/20 hover:border-purple-500/40 text-purple-300 hover:text-purple-200 rounded-lg transition">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+                <i data-lucide="chevron-left" class="w-5 h-5 mr-2"></i>
                 Back to Course
             </a>
         </div>

@@ -20,9 +20,7 @@
             </div>
             <a href="{{ route('daily-commit-tracker.history') }}"
                class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-amber-500/20 hover:border-amber-400/40 rounded-xl text-amber-300 text-sm transition-all duration-200">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+                <i data-lucide="clock" class="w-4 h-4"></i>
                 Lihat History
             </a>
         </div>
@@ -71,16 +69,12 @@
                     <div class="space-y-3">
                         <a href="{{ route('daily-commit-tracker.history') }}"
                            class="flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm font-medium transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
+                            <i data-lucide="clock" class="w-4 h-4"></i>
                             Lihat History
                         </a>
                         <a href="{{ route('dashboard') }}"
                            class="flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                            </svg>
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
                             Kembali ke Dashboard
                         </a>
                     </div>

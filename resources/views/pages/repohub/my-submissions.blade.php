@@ -4,9 +4,7 @@
         {{-- Breadcrumb --}}
         <nav class="flex items-center gap-2 text-sm text-purple-400 mb-8">
             <a href="{{ route('repohub.index') }}" class="hover:text-purple-300 transition">RepoHub</a>
-            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-            </svg>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-600"></i>
             <span class="text-gray-400">My Submissions</span>
         </nav>
 
@@ -18,27 +16,21 @@
             </div>
             <a href="{{ route('repohub.submit') }}"
                 class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl font-semibold text-sm text-white hover:from-purple-500 hover:to-indigo-500 transition shadow-lg hover:shadow-purple-500/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                </svg>
+                <i data-lucide="plus" class="w-4 h-4"></i>
                 Submit Repo
             </a>
         </div>
 
         @if (session('success'))
             <div class="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 text-sm flex items-center gap-2">
-                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+                <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0"></i>
                 {{ session('success') }}
             </div>
         @endif
 
         @if ($submissions->isEmpty())
             <div class="text-center py-20 text-gray-500">
-                <svg class="w-12 h-12 mx-auto mb-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                </svg>
+                <i data-lucide="folder" class="w-12 h-12 mx-auto mb-4 opacity-40"></i>
                 <p class="font-medium mb-1">Belum ada submission</p>
                 <p class="text-sm mb-6">Submit repo pertamamu dan bantu komunitas Baricode berkembang.</p>
                 <a href="{{ route('repohub.submit') }}" class="text-purple-400 hover:text-purple-300 text-sm underline">Submit sekarang</a>
@@ -92,9 +84,7 @@
                             <div class="mt-4">
                                 <a href="{{ route('repohub.show', $repo->slug) }}"
                                     class="inline-flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                    </svg>
+                                    <i data-lucide="external-link" class="w-4 h-4"></i>
                                     Lihat di RepoHub
                                 </a>
                             </div>

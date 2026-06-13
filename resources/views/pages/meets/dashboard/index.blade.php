@@ -8,9 +8,7 @@
                     <p class="text-lg opacity-90">Kelola semua pertemuan dan jadwal Anda.</p>
                 </div>
                 <a href="{{ route('dashboard') }}" class="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
                     Kembali
                 </a>
             </div>
@@ -27,9 +25,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-600 font-semibold">Upcoming</h3>
                         <div class="bg-green-100 p-3 rounded-lg">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i data-lucide="calendar" class="w-6 h-6 text-green-600"></i>
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-gray-800">12</p>
@@ -41,9 +37,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-600 font-semibold">Total Peserta</h3>
                         <div class="bg-blue-100 p-3 rounded-lg">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.686"></path>
-                            </svg>
+                            <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-gray-800">245</p>
@@ -55,9 +49,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-600 font-semibold">Selesai</h3>
                         <div class="bg-purple-100 p-3 rounded-lg">
-                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            <i data-lucide="check-circle" class="w-6 h-6 text-purple-600"></i>
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-gray-800">56</p>
@@ -69,9 +61,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-600 font-semibold">Durasi Rata-rata</h3>
                         <div class="bg-orange-100 p-3 rounded-lg">
-                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            <i data-lucide="clock" class="w-6 h-6 text-orange-600"></i>
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-gray-800">1h 30m</p>
@@ -94,21 +84,15 @@
                                 <p class="text-gray-600 text-sm mb-3">Diskusi progres mingguan dan planning task baru</p>
                                 <div class="flex flex-wrap gap-4 text-sm text-gray-600">
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                        </svg>
+                                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
                                         Besok, 10:00 AM
                                     </div>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
+                                        <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
                                         30 menit
                                     </div>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.686"></path>
-                                        </svg>
+                                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
                                         8 peserta
                                     </div>
                                 </div>
@@ -130,21 +114,15 @@
                                 <p class="text-gray-600 text-sm mb-3">Review hasil deliverables Q4 dengan klien</p>
                                 <div class="flex flex-wrap gap-4 text-sm text-gray-600">
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                        </svg>
+                                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
                                         Besok, 2:00 PM
                                     </div>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
+                                        <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
                                         1 jam
                                     </div>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.686"></path>
-                                        </svg>
+                                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
                                         5 peserta
                                     </div>
                                 </div>
@@ -166,21 +144,15 @@
                                 <p class="text-gray-600 text-sm mb-3">Sesi brainstorming untuk project baru 2025</p>
                                 <div class="flex flex-wrap gap-4 text-sm text-gray-600">
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                        </svg>
+                                        <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
                                         Sabtu, 3:00 PM
                                     </div>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
+                                        <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
                                         2 jam
                                     </div>
                                     <div class="flex items-center">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.686"></path>
-                                        </svg>
+                                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
                                         12 peserta
                                     </div>
                                 </div>
@@ -199,9 +171,7 @@
                 <button class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-left hover:bg-gray-50">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-4 rounded-lg">
-                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                            </svg>
+                            <i data-lucide="plus" class="w-8 h-8 text-green-600"></i>
                         </div>
                     </div>
                     <h4 class="text-lg font-semibold text-gray-800">Buat Meeting Baru</h4>
@@ -212,9 +182,7 @@
                 <button class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-left hover:bg-gray-50">
                     <div class="flex items-center mb-4">
                         <div class="bg-blue-100 p-4 rounded-lg">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i data-lucide="calendar" class="w-8 h-8 text-blue-600"></i>
                         </div>
                     </div>
                     <h4 class="text-lg font-semibold text-gray-800">Lihat Kalender</h4>

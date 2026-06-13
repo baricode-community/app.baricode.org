@@ -41,9 +41,7 @@
             </div>
             <a href="{{ route('daily-commit-tracker.index') }}"
                class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-purple-500/20 hover:border-purple-400/40 rounded-xl text-purple-200 text-sm transition-all duration-200">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                </svg>
+                <i data-lucide="plus" class="w-4 h-4"></i>
                 Catat Hari Ini
             </a>
         </div>
@@ -90,18 +88,13 @@
                                         @if (now()->toDateString() === $tracker->tracked_date->toDateString())
                                             <a href="{{ route('daily-commit-tracker.show', $tracker->tracked_date->toDateString()) }}"
                                                class="inline-flex items-center gap-1 text-amber-400 hover:text-amber-300 font-semibold transition-colors">
-                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                                </svg>
+                                                <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
                                                 Lihat / Edit
                                             </a>
                                         @else
                                             <a href="{{ route('daily-commit-tracker.show', $tracker->tracked_date->toDateString()) }}"
                                                class="inline-flex items-center gap-1 text-purple-400 hover:text-purple-300 font-semibold transition-colors">
-                                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                                                </svg>
+                                                <i data-lucide="eye" class="w-3.5 h-3.5"></i>
                                                 Lihat
                                             </a>
                                         @endif
@@ -123,9 +116,7 @@
                     <p class="text-purple-300 text-sm mb-6">Mulai buat catatan harian commit-mu sekarang untuk memantau progress belajarmu!</p>
                     <a href="{{ route('daily-commit-tracker.index') }}"
                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl text-white text-sm font-semibold hover:shadow-lg hover:shadow-amber-500/30 transition-all">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                        </svg>
+                        <i data-lucide="plus" class="w-4 h-4"></i>
                         Buat Catatan Pertama
                     </a>
                 </div>

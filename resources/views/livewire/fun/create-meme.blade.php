@@ -68,18 +68,14 @@ new class extends Component {
     <!-- Alert Messages -->
     @if (session('success'))
         <div class="mb-6 p-4 bg-green-500/10 dark:bg-green-500/20 border border-green-500/40 rounded-2xl text-green-700 dark:text-green-300 text-sm flex items-center gap-3">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-            </svg>
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
             {{ session('success') }}
         </div>
     @endif
 
     @if (session('error'))
         <div class="mb-6 p-4 bg-red-500/10 dark:bg-red-500/20 border border-red-500/40 rounded-2xl text-red-700 dark:text-red-300 text-sm flex items-center gap-3">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-            </svg>
+            <i data-lucide="x-circle" class="w-5 h-5"></i>
             {{ session('error') }}
         </div>
     @endif
@@ -109,11 +105,7 @@ new class extends Component {
                     <label for="image"
                         class="flex items-center justify-center w-full px-6 py-12 border-2 border-dashed border-purple-500/30 rounded-2xl cursor-pointer hover:border-purple-500/60 transition-colors group">
                         <div class="text-center">
-                            <svg class="mx-auto h-12 w-12 text-purple-500 group-hover:text-purple-400 transition-colors"
-                                stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-12l-3.172-3.172a4 4 0 00-5.656 0L28 12M12 32l3.172-3.172a4 4 0 015.656 0L28 32"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                            <i data-lucide="upload-cloud" class="mx-auto h-12 w-12 text-purple-500 group-hover:text-purple-400 transition-colors"></i>
                             <p class="mt-2 text-sm text-gray-300">{{ __('Klik untuk unggah atau drag and drop') }}</p>
                             <p class="text-xs text-gray-400">{{ __('PNG, JPG, GIF atau WebP (Maks. 5MB)') }}</p>
                         </div>

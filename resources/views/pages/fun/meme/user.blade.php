@@ -30,9 +30,7 @@
                                     wire:navigate
                                     class="inline-flex items-center px-5 py-2.5 bg-white/20 hover:bg-white/30 text-white rounded-xl font-semibold transition-all backdrop-blur-sm border border-white/30"
                                 >
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                    </svg>
+                                    <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
                                     {{ __('Buat Meme') }}
                                 </a>
                             </div>
@@ -51,9 +49,7 @@
                             <p class="text-4xl font-bold text-white mt-2">{{ $totalMemes }}</p>
                         </div>
                         <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                            <i data-lucide="image" class="w-8 h-8 text-white"></i>
                         </div>
                     </div>
                 </div>
@@ -66,9 +62,7 @@
                             <p class="text-4xl font-bold text-white mt-2">{{ $totalUpvotes }}</p>
                         </div>
                         <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9H13V7h-2v4H8.5l3.5-3.5 3.5 3.5z"></path>
-                            </svg>
+                            <i data-lucide="thumbs-up" class="w-8 h-8 text-white"></i>
                         </div>
                     </div>
                 </div>
@@ -81,9 +75,7 @@
                             <p class="text-4xl font-bold text-white mt-2">{{ $totalDownvotes }}</p>
                         </div>
                         <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3.5-9H11v4h2v-4h3.5l-3.5 3.5-3.5-3.5z"></path>
-                            </svg>
+                            <i data-lucide="thumbs-down" class="w-8 h-8 text-white"></i>
                         </div>
                     </div>
                 </div>
@@ -96,9 +88,7 @@
                             <p class="text-4xl font-bold text-white mt-2">{{ $averageVotes }}</p>
                         </div>
                         <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
+                            <i data-lucide="zap" class="w-8 h-8 text-white"></i>
                         </div>
                     </div>
                 </div>
@@ -122,9 +112,7 @@
                                         >
                                     @else
                                         <div class="w-full h-full flex items-center justify-center">
-                                            <svg class="w-16 h-16 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                            </svg>
+                                            <i data-lucide="image" class="w-16 h-16 text-gray-700"></i>
                                         </div>
                                     @endif
                                 </div>
@@ -139,15 +127,11 @@
                                     <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
                                         <div class="flex items-center space-x-4">
                                             <div class="flex items-center space-x-1">
-                                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9H13V7h-2v4H8.5l3.5-3.5 3.5 3.5z"></path>
-                                                </svg>
+                                                <i data-lucide="thumbs-up" class="w-5 h-5 text-green-400"></i>
                                                 <span class="text-green-400 font-semibold">{{ $meme->upvotesCount() }}</span>
                                             </div>
                                             <div class="flex items-center space-x-1">
-                                                <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3.5-9H11v4h2v-4h3.5l-3.5 3.5-3.5-3.5z"></path>
-                                                </svg>
+                                                <i data-lucide="thumbs-down" class="w-5 h-5 text-red-400"></i>
                                                 <span class="text-red-400 font-semibold">{{ $meme->downvotesCount() }}</span>
                                             </div>
                                         </div>
@@ -161,9 +145,7 @@
             @else
                 <!-- Empty State -->
                 <div class="text-center py-16">
-                    <svg class="w-20 h-20 text-gray-700 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
+                    <i data-lucide="image" class="w-20 h-20 text-gray-700 mx-auto mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-300 mb-2">{{ __('Belum Ada Meme') }}</h3>
                     <p class="text-gray-400 mb-6">{{ $user->name }} {{ __('belum membuat meme apapun.') }}</p>
                     @if(Auth::check() && Auth::user()->id === $user->id)
@@ -172,9 +154,7 @@
                             wire:navigate
                             class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
                         >
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                            </svg>
+                            <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
                             {{ __('Buat Meme Pertama') }}
                         </a>
                     @endif
@@ -188,9 +168,7 @@
                     wire:navigate
                     class="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors"
                 >
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
+                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
                     {{ __('Kembali ke Galeri') }}
                 </a>
             </div>

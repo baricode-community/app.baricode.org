@@ -108,9 +108,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
     <div>
         <div class="flex items-center gap-3 mb-6">
             <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-violet-500 to-indigo-500 text-white shadow-lg shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
+                <i data-lucide="user" class="w-5 h-5"></i>
             </div>
             <div>
                 <h2 class="text-xl font-bold text-white">Informasi Pribadi</h2>
@@ -221,9 +219,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
     <div>
         <div class="flex items-center gap-3 mb-6">
             <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 text-white shadow-lg shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                </svg>
+                <i data-lucide="lock" class="w-5 h-5"></i>
             </div>
             <div>
                 <h2 class="text-xl font-bold text-white">Keamanan Akun</h2>
@@ -302,9 +298,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
     <div>
         <div class="flex items-center gap-3 mb-6">
             <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                </svg>
+                <i data-lucide="palette" class="w-5 h-5"></i>
             </div>
             <div>
                 <h2 class="text-xl font-bold text-white">Tampilan</h2>
@@ -319,9 +313,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
                     :class="$flux.appearance === 'light' ? 'border-indigo-400 bg-indigo-500/20 text-white' : 'border-indigo-500/20 bg-white/5 text-purple-300 hover:border-indigo-400/50 hover:text-white'"
                     class="flex flex-col items-center gap-2.5 p-4 rounded-xl border transition-all duration-200"
                 >
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-                    </svg>
+                    <i data-lucide="sun" class="w-6 h-6"></i>
                     <span class="text-sm font-medium">Terang</span>
                 </button>
 
@@ -330,9 +322,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
                     :class="$flux.appearance === 'dark' ? 'border-indigo-400 bg-indigo-500/20 text-white' : 'border-indigo-500/20 bg-white/5 text-purple-300 hover:border-indigo-400/50 hover:text-white'"
                     class="flex flex-col items-center gap-2.5 p-4 rounded-xl border transition-all duration-200"
                 >
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                    </svg>
+                    <i data-lucide="moon" class="w-6 h-6"></i>
                     <span class="text-sm font-medium">Gelap</span>
                 </button>
 
@@ -341,9 +331,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
                     :class="$flux.appearance === 'system' ? 'border-indigo-400 bg-indigo-500/20 text-white' : 'border-indigo-500/20 bg-white/5 text-purple-300 hover:border-indigo-400/50 hover:text-white'"
                     class="flex flex-col items-center gap-2.5 p-4 rounded-xl border transition-all duration-200"
                 >
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
+                    <i data-lucide="monitor" class="w-6 h-6"></i>
                     <span class="text-sm font-medium">Otomatis</span>
                 </button>
             </div>
@@ -360,9 +348,7 @@ new #[Layout('components.layouts.dashboard')] class extends Component {
     <div>
         <div class="flex items-center gap-3 mb-6">
             <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-red-500 to-rose-600 text-white shadow-lg shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                </svg>
+                <i data-lucide="trash-2" class="w-5 h-5"></i>
             </div>
             <div>
                 <h2 class="text-xl font-bold text-white">Zona Berbahaya</h2>

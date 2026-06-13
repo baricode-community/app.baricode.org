@@ -4,9 +4,7 @@
     @if ($submitted)
         <div class="text-center py-16 space-y-6">
             <div class="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto border border-green-500/40">
-                <svg class="w-12 h-12 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+                <i data-lucide="check" class="w-12 h-12 text-green-400"></i>
             </div>
 
             <div>
@@ -25,10 +23,7 @@
                     wire:click="retakeQuiz"
                     class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-purple-500/30 text-white font-semibold rounded-lg transition"
                 >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
+                    <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
                     Ulangi Quiz
                 </button>
                 <a href="{{ route('lms.quiz.index') }}"
@@ -52,9 +47,7 @@
                     wire:click="closePreview"
                     class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-purple-500/30 text-purple-300 hover:text-white text-sm font-medium rounded-lg transition"
                 >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
                     Kembali Edit
                 </button>
             </div>
@@ -93,9 +86,7 @@
                             <p class="font-semibold text-white">{{ $question->question_text }}</p>
                             @if (!$isAnswered)
                                 <p class="text-xs text-red-400 mt-1 flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                    </svg>
+                                    <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
                                     Belum dijawab — klik nomor soal untuk kembali mengisi
                                 </p>
                             @endif
@@ -114,9 +105,7 @@
                             <div class="flex items-center gap-3 p-3 rounded-lg border {{ $isSelected ? 'border-green-500/50 bg-green-500/10' : 'border-purple-500/10 bg-white/2' }}">
                                 <div class="w-4 h-4 rounded flex-shrink-0 flex items-center justify-center {{ $isSelected ? 'bg-green-500 border border-green-400' : 'border border-purple-500/30' }}">
                                     @if ($isSelected)
-                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                                        </svg>
+                                        <i data-lucide="check" class="w-3 h-3 text-white"></i>
                                     @endif
                                 </div>
                                 <span class="{{ $isSelected ? 'text-green-200 font-medium' : 'text-purple-300/60' }}">{{ $option->option_text }}</span>
@@ -233,9 +222,7 @@
 
                 @error("answers.{$currentQuestion->id}")
                     <p class="ml-11 text-sm text-red-400 flex items-center gap-1 mt-1">
-                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
+                        <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
                         {{ $message }}
                     </p>
                 @enderror
@@ -254,9 +241,7 @@
                         ? 'border-purple-500/10 text-purple-600 cursor-not-allowed opacity-40'
                         : 'bg-white/5 hover:bg-white/10 border-purple-500/30 text-purple-300 hover:text-white' }}"
             >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
                 Sebelumnya
             </button>
 
@@ -267,10 +252,7 @@
                     wire:click="openPreview"
                     class="inline-flex items-center gap-2 px-4 py-3 bg-white/5 hover:bg-white/10 border border-purple-500/30 text-purple-300 hover:text-white font-semibold rounded-xl transition"
                 >
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
+                    <i data-lucide="eye" class="w-4 h-4"></i>
                     Preview
                 </button>
 
@@ -281,9 +263,7 @@
                         class="inline-flex items-center gap-2 px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition shadow-lg hover:shadow-purple-500/20"
                     >
                         Selanjutnya
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 @else
                     <button
@@ -292,9 +272,7 @@
                         class="inline-flex items-center gap-2 px-5 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl transition shadow-lg hover:shadow-green-500/30 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                         <span wire:loading.remove wire:target="submitQuiz" class="flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                            <i data-lucide="check-circle" class="w-5 h-5"></i>
                             Submit Quiz
                         </span>
                         <span wire:loading wire:target="submitQuiz" class="flex items-center gap-2">

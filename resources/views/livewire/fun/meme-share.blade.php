@@ -88,17 +88,13 @@ new class extends Component {
             x-init="setTimeout(() => $wire.hideClipboardNotification(), 3000)"
         >
             <div class="px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3 backdrop-blur-xl border bg-green-500/10 border-green-500/30 text-green-300">
-                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
+                <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0"></i>
                 <span class="font-medium text-sm">{{ __('Berhasil disalin ke clipboard!') }}</span>
                 <button
                     wire:click="hideClipboardNotification"
                     class="ml-2 text-current opacity-70 hover:opacity-100 transition-opacity"
                 >
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
+                    <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
         </div>
@@ -110,9 +106,7 @@ new class extends Component {
         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-110 text-white"
         title="{{ __('Bagikan') }}"
     >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C9.589 12.438 10 11.165 10 9.5C10 5.91 7.09 3 3.5 3S-3 5.91-3 9.5 0 16 3.5 16c1.665 0 2.938-.411 3.842-1.316m0 0l6.368 6.368m0 0a9 9 0 012.828-2.828m-2.828 2.828l6.368 6.368"></path>
-        </svg>
+        <i data-lucide="share-2" class="w-5 h-5"></i>
     </button>
 
     <!-- Share Modal -->
@@ -134,9 +128,7 @@ new class extends Component {
                         wire:click="toggleModal"
                         class="sm:hidden text-gray-400 hover:text-white transition-colors"
                     >
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
+                        <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
 
@@ -187,9 +179,7 @@ new class extends Component {
                         class="group relative bg-gradient-to-br from-orange-500 to-red-500 hover:shadow-lg hover:shadow-orange-500/50 rounded-xl p-6 sm:p-8 text-white transition-all transform hover:scale-105 active:scale-95"
                     >
                         <div class="flex flex-col items-center gap-3">
-                            <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                            </svg>
+                            <i data-lucide="copy" class="w-8 h-8 sm:w-10 sm:h-10"></i>
                             <span class="text-sm sm:text-base font-semibold">{{ __('Copy Link') }}</span>
                         </div>
                     </button>

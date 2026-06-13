@@ -2,10 +2,7 @@
     <div class="">
         <a href="{{ route('timeline.index') }}"
             class="group inline-flex items-center text-purple-400 hover:text-white mb-8 font-medium transition-all duration-200">
-            <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
+            <i data-lucide="chevron-left" class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform"></i>
             Kembali ke Timeline
         </a>
 
@@ -98,13 +95,7 @@
                                 class="relative overflow-hidden bg-amber-500/5 border border-amber-500/20 p-6 rounded-xl group">
                                 <div
                                     class="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 transition-transform">
-                                    <svg class="w-12 h-12 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                        <path fill-rule="evenodd"
-                                            d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                                    <i data-lucide="pencil" class="w-12 h-12 text-amber-500"></i>
                                 </div>
                                 <p class="text-amber-200/90 whitespace-pre-line leading-relaxed italic">
                                     "{{ $timeline->notes }}"</p>

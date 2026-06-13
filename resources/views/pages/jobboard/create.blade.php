@@ -4,9 +4,7 @@
         {{-- Breadcrumb --}}
         <nav class="flex items-center gap-2 text-sm text-blue-400 mb-8">
             <a href="{{ route('jobboard.index') }}" class="hover:text-blue-300 transition">Job Board</a>
-            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-            </svg>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-600"></i>
             <span class="text-gray-400">Post Lowongan</span>
         </nav>
 
@@ -186,9 +184,7 @@
 
             {{-- Info --}}
             <div class="flex items-start gap-3 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl text-sm text-blue-300">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+                <i data-lucide="info" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
                 <p>Lowongan kamu akan direview oleh admin Baricode sebelum tayang. Cek status di <a href="{{ route('jobboard.my-listings') }}" class="underline hover:text-blue-200">Lowongan Saya</a>.</p>
             </div>
 

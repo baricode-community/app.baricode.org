@@ -3,9 +3,7 @@
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 text-sm text-purple-400 mb-8">
             <a href="{{ route('repohub.index') }}" class="hover:text-purple-300 transition">RepoHub</a>
-            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-            </svg>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-600"></i>
             <span class="text-gray-400 truncate">{{ $repoHub->title }}</span>
         </nav>
 
@@ -38,9 +36,7 @@
                 @if($repoHub->demo_url)
                     <a href="{{ $repoHub->demo_url }}" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-xl font-semibold hover:bg-white/20 transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
+                        <i data-lucide="external-link" class="w-5 h-5"></i>
                         Live Demo
                     </a>
                 @endif
@@ -61,9 +57,7 @@
         <!-- Back link -->
         <div class="text-center">
             <a href="{{ route('repohub.index') }}" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition font-medium">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
                 Kembali ke RepoHub
             </a>
         </div>

@@ -124,9 +124,7 @@ new class extends Component {
                                         class="inline-flex items-center px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition-colors text-xs font-semibold"
                                         title="{{ __('Hapus') }}"
                                     >
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                        </svg>
+                                        <i data-lucide="trash-2" class="w-4 h-4"></i>
                                     </button>
                                 </div>
                             </td>
@@ -144,9 +142,7 @@ new class extends Component {
         <!-- Empty State -->
         <div class="px-6 py-12 text-center">
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
-                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
+                <i data-lucide="image" class="w-8 h-8 text-gray-400"></i>
             </div>
             <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ __('Belum Ada Meme') }}</h3>
             <p class="text-gray-600 mb-6">{{ __('Anda belum membuat meme apapun. Mulai membuat meme sekarang!') }}</p>
@@ -154,9 +150,7 @@ new class extends Component {
                 href="{{ route('meme.create') }}"
                 class="inline-flex items-center px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors font-semibold"
             >
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                </svg>
+                <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
                 {{ __('Buat Meme Baru') }}
             </a>
         </div>

@@ -44,10 +44,7 @@
 
             @if ($quizzes->isEmpty())
                 <div class="text-center py-20">
-                    <svg class="w-16 h-16 mx-auto text-purple-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
+                    <i data-lucide="clipboard" class="w-16 h-16 mx-auto text-purple-700 mb-4"></i>
                     <h3 class="text-xl font-semibold text-white mb-2">Belum ada quiz tersedia</h3>
                     <p class="text-purple-400">Quiz akan segera ditambahkan. Pantau terus!</p>
                 </div>
@@ -72,9 +69,7 @@
                                 </div>
                             </div>
                             <div class="ml-4 flex-shrink-0">
-                                <svg class="w-6 h-6 text-purple-500 group-hover:text-green-400 transition" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                                </svg>
+                                <i data-lucide="chevron-right" class="w-6 h-6 text-purple-500 group-hover:text-green-400 transition"></i>
                             </div>
                         </a>
                     @endforeach

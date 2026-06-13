@@ -7,9 +7,7 @@
 
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-wrap">
                 <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1V3a1 1 0 011-1h5a1 1 0 011 1v1h1V3a1 1 0 011 1v2h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v6h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V3a1 1 0 010-2h5a1 1 0 011 1v1h1V3a1 1 0 011-1H5zm12 5a1 1 0 01-1 1H4a1 1 0 01-1-1V5h14v2z" clip-rule="evenodd"></path>
-                    </svg>
+                    <i data-lucide="package" class="w-5 h-5 flex-shrink-0"></i>
                     <span class="text-sm font-medium">Belajar Mandiri - Kapan Saja, Dimana Saja 📚</span>
                 </div>
 

@@ -5,9 +5,7 @@
         <div class="flex items-center gap-4 pb-6 border-b border-purple-700/50">
             <a href="{{ route('dashboard') }}"
                class="text-purple-400 hover:text-purple-300 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
             </a>
             <div>
                 <h1 class="text-white text-xl font-bold">Sertifikat Saya</h1>
@@ -53,10 +51,7 @@
                         @if($cert->icon)
                             <span class="text-2xl">{{ $cert->icon }}</span>
                         @else
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                            </svg>
+                            <i data-lucide="award" class="w-6 h-6 text-white"></i>
                         @endif
                     </div>
 
@@ -73,10 +68,7 @@
                         </p>
                     </div>
 
-                    <svg class="w-4 h-4 text-purple-500 group-hover:text-purple-300 flex-shrink-0 transition-colors"
-                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-purple-500 group-hover:text-purple-300 flex-shrink-0 transition-colors"></i>
                 </a>
             @empty
                 <div class="text-center py-16">

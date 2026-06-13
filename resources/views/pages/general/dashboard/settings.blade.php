@@ -55,11 +55,7 @@
                 <div class="flex items-center gap-2 mb-6">
                     <div
                         class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
-                            </path>
-                        </svg>
+                        <i data-lucide="palette" class="w-6 h-6"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white">Tampilan & Tema</h2>
                 </div>
@@ -97,10 +93,7 @@
                 <div class="flex items-center gap-2 mb-6">
                     <div
                         class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-white shadow-lg">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                        <i data-lucide="info" class="w-6 h-6"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white">Informasi Akun</h2>
                 </div>
@@ -118,22 +111,14 @@
                             <div class="flex items-center gap-4">
                                 <div
                                     class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r from-violet-500 to-indigo-500 text-white group-hover:shadow-lg transition-all">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
-                                        </path>
-                                    </svg>
+                                    <i data-lucide="user" class="w-6 h-6"></i>
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-white">Edit Profil</h3>
                                     <p class="text-sm text-purple-300">Kelola informasi pribadi dan foto profil</p>
                                 </div>
                             </div>
-                            <svg class="w-5 h-5 text-purple-300 group-hover:text-violet-400 transition-colors"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
-                            </svg>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-purple-300 group-hover:text-violet-400 transition-colors"></i>
                         </a>
                     </div>
 
@@ -151,11 +136,7 @@
                 <div class="flex items-center gap-2 mb-6">
                     <div
                         class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                            </path>
-                        </svg>
+                        <i data-lucide="lock" class="w-6 h-6"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white">Keamanan & Privasi</h2>
                 </div>
@@ -187,11 +168,7 @@
                 <div class="flex items-center gap-2 mb-6">
                     <div
                         class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                            </path>
-                        </svg>
+                        <i data-lucide="settings" class="w-6 h-6"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-white">Pengaturan Sistem</h2>
                 </div>

@@ -9,9 +9,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-600 font-semibold">Waktu Aktif Mingguan (Segera Hadir)</h3>
                         <div class="bg-green-100 p-3 rounded-lg">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            <i data-lucide="check-circle" class="w-6 h-6 text-green-600"></i>
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-gray-800">456</p>
