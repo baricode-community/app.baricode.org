@@ -1,5 +1,23 @@
-<x-layouts.base :title="__('Business Model Canvas — Baricode')">
+<x-layouts.base
+    :title="__('Business Model Canvas — Baricode')"
+    :description="__('Lihat bagaimana Baricode bekerja secara transparan — mitra, aktivitas, proposisi nilai, hingga model bisnis komunitas IT Indonesia.')"
+>
     <div class="min-h-screen">
+
+        {{-- Hero --}}
+        <section class="relative flex items-center justify-center px-4 py-16">
+            <div class="max-w-4xl mx-auto text-center z-10">
+                <span class="inline-block px-4 py-2 bg-purple-500/20 border border-purple-400/40 rounded-full text-purple-300 font-semibold text-sm mb-6">
+                    Transparansi Komunitas
+                </span>
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-lg">
+                    Business Model Canvas
+                </h1>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Bagaimana Baricode bekerja — secara transparan dan terbuka untuk komunitas.
+                </p>
+            </div>
+        </section>
 
         {{-- BMC Canvas --}}
         <section class="py-4 px-4 pb-16">
@@ -145,19 +163,27 @@
             </div>
         </section>
 
-        {{-- Hero --}}
-        <section class="relative flex items-center justify-center px-4 py-16">
-            <div class="max-w-4xl mx-auto text-center z-10">
-                <span class="inline-block px-4 py-2 bg-purple-500/20 border border-purple-400/40 rounded-full text-purple-300 font-semibold text-sm mb-6">
-                    Transparansi Komunitas
-                </span>
-                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-lg">
-                    Business Model Canvas
-                </h1>
-                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-                    Bagaimana Baricode bekerja — secara transparan dan terbuka untuk komunitas.
+        {{-- CTA --}}
+        <section class="px-4 py-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                    Tertarik bergabung?
+                </h2>
+                <p class="text-gray-400 mb-8 text-lg">
+                    Jadilah bagian dari komunitas IT Indonesia yang tumbuh bersama — gratis, inklusif, dan terbuka untuk semua.
                 </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="{{ route('register') }}"
+                        class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-purple-900/40">
+                        Daftar Sekarang
+                    </a>
+                    <a href="{{ route('about') }}"
+                        class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white font-semibold rounded-xl transition-all">
+                        Pelajari Tentang Kami
+                    </a>
+                </div>
             </div>
         </section>
+
     </div>
 </x-layouts.base>

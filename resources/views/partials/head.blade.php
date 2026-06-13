@@ -3,6 +3,18 @@
 <meta name="description" content="{{ $description ?? 'Komunitas IT Keren di Indonesia. | Bersama Bertumbuh, Belajar, dan Berbagi' }}" />
 <meta name="theme-color" content="#1e1b4b" />
 
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ config('app.name') }}" />
+<meta property="og:title" content="{{ $title ?? config('app.name') }}" />
+<meta property="og:description" content="{{ $description ?? 'Komunitas IT Keren di Indonesia. | Bersama Bertumbuh, Belajar, dan Berbagi' }}" />
+<meta property="og:image" content="{{ config('app.url') }}/pwa-512x512.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ $title ?? config('app.name') }}" />
+<meta name="twitter:description" content="{{ $description ?? 'Komunitas IT Keren di Indonesia. | Bersama Bertumbuh, Belajar, dan Berbagi' }}" />
+<meta name="twitter:image" content="{{ config('app.url') }}/pwa-512x512.png" />
+
 <title>{{ $title ?? config('app.name') }}</title>
 
 <link rel="icon" href="/favicon.ico" sizes="any">
